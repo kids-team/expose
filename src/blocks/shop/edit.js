@@ -153,20 +153,17 @@ export default function ProductEdit({ attributes, setAttributes }) {
 					
 				</PanelBody>
 				<PanelBody
-					title={__('Appearance', 'ctx-products')}
+					title={__('Layout', 'ctx-products')}
 					initialOpen={true}
 				>
-					
 					<RangeControl
 						label={__("Columns on small screens", 'ctx-products')}
 						max={ 6 }
 						min={ 1 }
-						help={__("ex. Smartphones", 'ctx-products')}
+						help={__("eg. Smartphones", 'ctx-products')}
 						onChange={(value) => {setAttributes( { columnsSmall: value })}}
 						value={ columnsSmall }
 					/>
-				
-			
 					<RangeControl
 						label={__("Columns on medium screens", 'ctx-products')}
 						max={ 6 }
@@ -188,7 +185,7 @@ export default function ProductEdit({ attributes, setAttributes }) {
 				</PanelBody>
 
 				<PanelBody
-					title={__('Products', 'ctx-products')}
+					title={__('Appearance', 'ctx-products')}
 					initialOpen={true}
 				>
 
@@ -252,7 +249,6 @@ export default function ProductEdit({ attributes, setAttributes }) {
 	)
 
 	return (
-		
 		<>
 			{ inspectorControls }
 			
