@@ -11,7 +11,7 @@
  * @package         create-products
  */
 
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
 
 $post_type = new Contexis\Products\Product();
 $order = new Contexis\Products\Order();
@@ -26,7 +26,7 @@ $args = Contexis\Products\Assets::get_args();
 
 // Add Twig functions
 // @todo Check if needed
-add_filter( 'timber/twig', ["Contexis\\Products\\TwigExtend", "add_to_twig"] );
+
 
 $upcoming_block = new Contexis\Products\Blocks\ProductsShop($args);
 $upcoming_block->register();
