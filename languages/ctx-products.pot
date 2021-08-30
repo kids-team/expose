@@ -1,0 +1,155 @@
+# Copyright (C) 2021 Thomas Gollenia
+# This file is distributed under the same license as the CTX-Blocks plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: CTX-Products 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
+"Last-Translator: Thomas Gollenia <thomas@gollenia.at>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_AT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-05-05T15:46:05+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: ctx-products"
+
+#. Plugin Name of the plugin
+msgid "CTX Products"
+msgstr "CTX Products"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Product Shop Settings"
+msgstr "Shop-Einstellungen"
+
+msgid "Slug"
+msgstr "URL-Kürzel"
+
+msgid "Consent Text"
+msgstr "Text für Zustimmung der AGB"
+
+msgid "Mail Subject"
+msgstr "Betreff für Bestätigungsmail"
+
+msgid "Mail Content"
+msgstr "Text für Bestätigungsmail"
+
+#. Description of the plugin
+msgid "Tiny System to set up an ordering system for free-to-ship products"
+msgstr "Häufig benötigte Blöcke, die sich per twig anpassen lassen"
+
+#. Author of the plugin
+msgid "Thomas Gollenia"
+msgstr "Thomas Gollenia"
+
+msgid "Products"
+msgstr "Produkte"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Create new product"
+msgstr "Neues Produkt erstellen"
+
+msgid "Edit product"
+msgstr "Produkt bearbeiten"
+
+msgid "New product"
+msgstr "Neues Produkt"
+
+msgid "All products"
+msgstr "Alle Produkte"
+
+msgid "View product"
+msgstr "Produktdetails"
+
+msgid "Search products"
+msgstr "Produkte durchsuchen"
+
+msgid "No products found"
+msgstr "Keine Produkte gefunden"
+
+msgid "No products found in trash"
+msgstr "Keine Produkte im Papierkorb gefunden"
+
+msgid "Product tag"
+msgstr "Schlagworte"
+
+msgid "Product category"
+msgstr "Produktkategorien"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Back"
+msgstr "Zurück"
+
+#: build/index.js:584
+#: src/blocks/alert/edit.js:58
+msgid "Proceed"
+msgstr "Weiter"
+
+#: build/index.js:675
+#: src/blocks/alert/index.js:25
+msgid "Order"
+msgstr "Bestellen"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Forename"
+msgstr "Vorname"
+
+msgid "Surname"
+msgstr "Nachname"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "ZIP"
+msgstr "PLZ"
+
+msgid "City"
+msgstr "Ort"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Address"
+msgstr "Straße und Hausnummer"
+
+msgid "Shopping cart"
+msgstr "Warenkorb"
+
+msgid "Madame"
+msgstr "Frau"
+
+msgid "Sir"
+msgstr "Herr"
+
+msgid "ZIP code must be a number"
+msgstr "Die Postleitzahl muss aus vier oder fünf Ziffern bestehen"
+
+msgid "Please give us a valid email address"
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse an"
+
+msgid "Your forename is missing"
+msgstr "Bitte geben Sie Ihren Vornamen an"
+
+msgid "Your surname is missing"
+msgstr "Bitte geben Sie Ihren Nachnamen an"
+
+msgid "Invalid title"
+msgstr "Bitte wählen Sie Ihre Anrede aus"
+
+msgid "We need your address"
+msgstr "Bitte geben Sie Ihre Adresse an"
+
+msgid "Type in your city"
+msgstr "Bitte geben Sie Ihren Wohnort an"
+
+msgid "Please consent to our privacy policies"
+msgstr "Bitte stimmen Sie unseren Richtlinen zu"
