@@ -42,8 +42,8 @@ class Assets {
     public static function register_frontend() {
         $options = get_option( 'ctx_product_options');
        
-        wp_enqueue_script( 'ctx_products_vendor_script', plugin_dir_url( __FILE__ ) . '../frontend/dist/js/chunk-vendors.js', array(), false, true  );
-        wp_enqueue_script( 'ctx_products_shop_script', plugin_dir_url( __FILE__ ) . '../frontend/dist/js/app.js',array(), false, true  );
+        wp_enqueue_script( 'ctx_products_vendor_script', plugin_dir_url( __FILE__ ) . '../web/dist/js/chunk-vendors.js', array(), false, true  );
+        wp_enqueue_script( 'ctx_products_shop_script', plugin_dir_url( __FILE__ ) . '../web/dist/js/app.js',array(), false, true  );
         wp_localize_script( 'ctx_products_shop_script', 'ctx_products_vuejs', array(
             'root' => esc_url_raw( rest_url() ),
             'nonce' => wp_create_nonce( 'wp_rest' ),
