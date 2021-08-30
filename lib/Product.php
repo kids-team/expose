@@ -30,19 +30,19 @@ class Product {
 			'rewrite'             => ['slug' => get_option( 'ctx_product_options' )['slug'], "with_front" => false],
 			'menu_icon'           => 'dashicons-cart',
 			'labels' => [
-				'name'               => _x( 'Produkte', 'post type general name' ),
-				'singular_name'      => _x( 'Produkt', 'post type singular name' ),
-				'add_new'            => __( 'Neues Produkt anlegen'),
-				'add_new_item'       => __( 'Neues Produkt anlegen' ),
-				'edit_item'          => __( 'Produkt bearbeiten' ),
-				'new_item'           => __( 'Neuers Produkt' ),
-				'all_items'          => __( 'Alle Produkte' ),
-				'view_item'          => __( 'Produkt ansehen' ),
-				'search_items'       => __( 'Produkte durchsuchen' ),
-				'not_found'          => __( 'Keine Produkte gefunden' ),
-				'not_found_in_trash' => __( 'Keine Produkte im Papierkorb gefunden' ),
+				'name'               => __( 'Products', 'ctx-products' ),
+				'singular_name'      => __( 'Product', 'ctx-products' ),
+				'add_new'            => __( 'Create new product', 'ctx-products'),
+				'add_new_item'       => __( 'Create new Product', 'ctx-products'),
+				'edit_item'          => __( 'Edit product', 'ctx-products'),
+				'new_item'           => __( 'New product', 'ctx-products'),
+				'all_items'          => __( 'All products' ,'ctx-products'),
+				'view_item'          => __( 'View product', 'ctx-products' ),
+				'search_items'       => __( 'Search products', 'ctx-products' ),
+				'not_found'          => __( 'No products found', 'ctx-products' ),
+				'not_found_in_trash' => __( 'No products found in trash', 'ctx-products' ),
 				'parent_item_colon'  => '',
-				'menu_name'          => 'Produkte'
+				'menu_name'          => __('Products', 'ctx-products')
 			]
 		];
 
@@ -53,7 +53,7 @@ class Product {
 			'ctx-products',             // post type name
 			array(
 				'hierarchical' => true,
-				'label' => __('Produktkategorie'), // display name
+				'label' => __('Product category', 'ctx-products'), // display name
 				'query_var' => true,
 				'show_in_rest'        => true,
 				'show_ui'             => true,
@@ -65,7 +65,7 @@ class Product {
 			'ctx-products',             // post type name
 			array(
 				'hierarchical' => false,
-				'label' => __('Produktschlagwort'), // display name
+				'label' => __('Product tag', 'ctx-products'), // display name
 				'query_var' => true,
 				'show_in_rest'        => true,
 				'show_ui'             => true,
