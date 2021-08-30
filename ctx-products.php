@@ -11,6 +11,12 @@
  * @package         create-products
  */
 
+require_once('lib/Assets.php');
+require_once('lib/Order.php');
+require_once('lib/Product.php');
+require_once('lib/Settings.php');
+require_once('lib/Blocks/Block.php');
+require_once('lib/Blocks/ProductsShop.php');
 
 
 $post_type = new Contexis\Products\Product();
