@@ -40,11 +40,37 @@ class Assets {
     }
 
     public static function register_frontend() {
+        $options = get_option( 'ctx_product_options');
+       
         wp_enqueue_script( 'ctx_products_vendor_script', plugin_dir_url( __FILE__ ) . '../frontend/dist/js/chunk-vendors.js', array(), false, true  );
         wp_enqueue_script( 'ctx_products_shop_script', plugin_dir_url( __FILE__ ) . '../frontend/dist/js/app.js',array(), false, true  );
-        wp_localize_script( 'ctx_products_shop_script', 'wpApiSettings', array(
+        wp_localize_script( 'ctx_products_shop_script', 'ctx_products_vuejs', array(
             'root' => esc_url_raw( rest_url() ),
-            'nonce' => wp_create_nonce( 'wp_rest' )
+            'nonce' => wp_create_nonce( 'wp_rest' ),
+            'strings' => [
+                "order" => __("Order", "ctx-products"),
+                "cancel" => __("Cancel", "ctx-products"),
+                "back" => __("Back", "ctx-products"),
+                "back" => __("Close", "ctx-products"),
+                "proceed" => __("Proceed", "ctx-products"),
+                "forename" => __("Forename", "ctx-products"),
+                "surname" => __("Surname", "ctx-products"),
+                "address" => __("Address", "ctx-products"),
+                "email" => __("Email", "ctx-products"),
+                "zip" => __("ZIP", "ctx-products"),
+                "phone" => __("Phone", "ctx-products"),
+                "title" => __("Title", "ctx-products"),
+                "city" => __("City", "ctx-products"),
+                "comment" => __("Comment", "ctx-products"),
+                "processing" => __("Processing", "ctx-products"),
+                "cart" => __("Shopping cart", "ctx-products"),
+                "sir" => __("Sir", "ctx-products"),
+                "madame" => __("Madame", "ctx-products"),
+                "all" => __("All", "ctx-products"),
+                "consent" => array_key_exists('consent', $options) ? $options['consent'] : '',
+                "thanksHead" => array_key_exists('thanks_head', $options) ? $options['thanks_head'] : 'no head',
+                "thanksText" => array_key_exists('thanks_text', $options) ? $options['thanks_text'] : 'no msg',
+            ]
         ) );
     }
 
