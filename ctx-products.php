@@ -18,6 +18,15 @@ require_once('lib/Settings.php');
 require_once('lib/Blocks/Block.php');
 require_once('lib/Blocks/ProductsShop.php');
 
+add_action( 'init', 'ctxproducts_load_textdomain', 1 );
+
+/**
+ * Load plugin textdomain.
+ */
+function ctxproducts_load_textdomain() {
+    load_plugin_textdomain( 'ctx-products', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+}
+  
 
 $post_type = new Contexis\Products\Product();
 $order = new Contexis\Products\Order();
@@ -50,12 +59,6 @@ function install() {
     ]);
 }
 
-add_action( 'init', 'ctxproducts_load_textdomain' );
+
   
-/**
- * Load plugin textdomain.
- */
-function ctxproducts_load_textdomain() {
-  load_plugin_textdomain( 'ctx-products', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
-}
 
