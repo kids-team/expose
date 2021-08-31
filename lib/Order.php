@@ -68,16 +68,7 @@ class Order {
                         $input['surname']['error'] = true;
                         $valid = false;
                     }
-                    break;
-                case "title":
-                    
-                    if (preg_match($rexSafety, $value['value'])) {
-                        $input['title']['msg'] = __("Invalid title", "ctx-products") . $value['value'];
-                        $input['title']['error'] = false;
-                        $valid = false;
-                    }
-                    break;
-               
+                    break;               
                 case "address":
                     
                     if (preg_match($rexSafety, $value['value']) || empty($value['value'])) {
@@ -118,7 +109,7 @@ class Order {
         $order_table = "<h2>" . __("New Order", "ctx-products") . "</h2>";
         $order_table .= "<h3>" . __("Customer", "ctx-products") . "</h3>";
         $order_table .= "<table><tr><td>" .  __("Name", "ctx-products") . ":</td><td>";
-        $order_table .= $data['user']['title']['value'] . $data['user']['forename']['value'] . $data['user']['surname']['value'] . "</td></tr>";
+        $order_table .= $data['user']['forename']['value'] . $data['user']['surname']['value'] . "</td></tr>";
         $order_table .= "<tr><td>" .  __("Email", "ctx-products") . ":</td><td>" . $data['user']['email']['value'] . "</td></tr>";
         $order_table .= "<tr><td>" .  __("Address", "ctx-products") . ":</td><td>" . $data['user']['address']['value'] . "</td></tr>";
         $order_table .= "<tr><td></td><td>" . $data['user']['zip']['value'] . $data['user']['city']['value'] . "</td></tr></table>";

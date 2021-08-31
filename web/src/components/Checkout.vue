@@ -13,13 +13,6 @@
         </div>
         <div>
             <form>
-                <div class="input-select mb-10" >
-                    <label v-text="strings.title"></label>
-                    <select v-model="user.title.value" type="text" required>
-                        <option v-text="strings.sir"></option>
-                        <option v-text="strings.madame"></option>
-                    </select>
-                </div>
                 <div class="input-text mb-10" :class="{'error': user.forename.error}">
                     <label v-text="strings.forename"></label>
                     <input v-model="user.forename.value" type="text" required>
@@ -56,7 +49,6 @@
                     <span v-if="user.comment.error" class="error-message" v-text="user.comment.msg"></span>
                 </div>
                 <div class="input-checkbox mb-10" :class="{'error': user.forename.error}">
-                    
                     <input v-model="user.consent.value" type="checkbox" required>
                     <label v-html="strings.consent"></label>
                     <span v-if="user.consent.error" class="error-message" v-text="user.consent.msg"></span>
