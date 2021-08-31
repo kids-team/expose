@@ -65,14 +65,20 @@
                     :cart="cart"
                     v-model:user="user"
                 ></Checkout>
+                
+                <div v-if="processingCheckout" class="wait-overlay">
+                    <aside>
+                        <div class="spinning-loader"></div>
+                        <h2 v-text="strings.wait"></h2>
+                    </aside>
+                </div>
 
                 <div v-if="success" class="success-window">
                     <h2 v-text="strings.thanksHead"></h2>
                     <p v-text="strings.thanksText"></p>
-                    
                 </div>
 
-                <div class="foot button-group right">
+                <div class="foot button-group right" v-if="!processingCheckout">
                     <button @click="showCartList = false; showCheckout = true;" v-if="showCartList" class="button primary" v-text="strings.order"></button>
                     <button @click="showCartList = true; showCheckout = false;" v-if="showCheckout" class="button primary" v-text="strings.back"></button>
                     <button @click="order()" v-if="showCheckout" class="button primary" v-text="strings.order"></button>
@@ -126,6 +132,7 @@ export default {
       showCartList: false,
       showCheckout: false,
       showResult: false,
+      processingCheckout: false,
       products: [
         {
           title: ""
@@ -202,6 +209,7 @@ export default {
        return result;
      },    
      async order() {
+         this.processingCheckout = true;
          var removeErrors = this.user;
          Object.keys(removeErrors).forEach(function(key){ 
              removeErrors[key]['error'] = false
@@ -223,13 +231,16 @@ export default {
           fetch( url, options ).then( response => response.json() ).then( response => {
               if(response.status == 'invalid') {
                   this.user = response.data;
+                  this.processingCheckout = false;
               }
               if(response.status == 'ok') {
                   this.success = true;
                   this.showCheckout = false;
+                  this.cart = [];
                   this.showCartList = false;
+                  this.processingCheckout = false;
               }
-              console.log(response)
+              
           } );
      }
   },
