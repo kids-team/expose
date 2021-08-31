@@ -97,8 +97,14 @@ msgstr "Weiter"
 msgid "Order"
 msgstr "Bestellen"
 
+msgid "All"
+msgstr "Alle"
+
 msgid "Cancel"
 msgstr "Abbrechen"
+
+msgid "Close"
+msgstr "Schließen"
 
 msgid "Forename"
 msgstr "Vorname"
@@ -153,3 +159,49 @@ msgstr "Bitte geben Sie Ihren Wohnort an"
 
 msgid "Please consent to our privacy policies"
 msgstr "Bitte stimmen Sie unseren Richtlinen zu"
+
+msgid "We have recieved your order and we will send it to you as soon as possible"
+msgstr "Wir haben Ihre Bestellung erhalten und schicken Sie ihnen inn erhalb der nächsten 4 Werktage zu."
+
+msgid "Thank you for your order!"
+msgstr "Vielen Dank für Ihre Bestellung"
+
+msgid "Confirmation page title"
+msgstr "Überschrift Bestellabschluss"
+
+msgid "Confirmation page text"
+msgstr "Text Bestellabschluss"
+
+msgid "I consent to all law stuff and allow you to process my data for this very order. All my data will be deleted after shipping."
+msgstr "Hiermit stimme ich der AGB und der Datenschutzerklärung zu"
+
+msgid "If empty, site admin will be used. Separate with commas."
+msgstr "Wenn leer, wird die globale Admin-Adresse verwendet. Mehrere Adressen mit Beistrich trennen"
+
+msgid "Subject for the mail sent to the user"
+msgstr "Betreff der E-Mail, die an den Kunden geschickt wird"
+
+msgid "Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or #_ORDERLIST."
+msgstr "E-Mail, die an den Kunden geschickt wird. Platzhalter wie #_FORENAME, #_SURNAME oder #_ORDERLIST sind möglich."
+
+msgid "Title of confirmation page when order was successfull"
+msgstr "Überschrift der Bestell-Bestätigung auf der Webseite"
+
+msgid "Text of confirmation page when order was successfull"
+msgstr "Text der Bestell-Bestätigung auf der Webseite"
+
+msgid "Text for consent-box"
+msgstr "Text für die Zustimmungs-Checkbox. Kann Links als HTML-Code enthalten."
+
+msgid "New Order"
+msgstr "Neue Bestellung"
+
+msgid "Customer"
+msgstr "Kunde"
+
+msgid "Ordered Products"
+msgstr "Bestellte Produkte"
+
+msgid "Please wait..."
+msgstr "Bitte warten..."
+
