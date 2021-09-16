@@ -234,6 +234,13 @@ export default function ProductEdit({ attributes, setAttributes }) {
 								onChange={ (value) => setAttributes({ sortByCategory: value }) }
 							/>
 						</PanelRow>
+                        <PanelRow>
+							<ToggleControl
+								label={ __("Drop shadow", 'ctx-products')}
+								checked={ dropShadow }
+								onChange={ (value) => setAttributes({ dropShadow: value }) }
+							/>
+						</PanelRow>
 					</Fragment>
 					}
 					<RangeControl
