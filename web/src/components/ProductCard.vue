@@ -1,5 +1,5 @@
 <template>
-     <div @click="$emit('details', $event, product.id)" class="card bg-white" :class="{'image-left': attributes.style === 'list', 'image-top': attributes.style === 'card'}">
+     <div @click="$emit('details', $event, product.id)" class="card bg-white cursor-pointer" :class="{'shadow': attributes.dropShadow, 'image-left': attributes.style === 'list', 'image-top': attributes.style === 'card'}">
           <span v-if="attributes.showCategory" class="card-label bg-primary text-white"><span v-if="product.categories" v-text="product.categories.length != 0 ? product.categories[0].name : ''"></span></span>
           <img class="card-image" :src="product.images.large">
           <div class="card-content">
