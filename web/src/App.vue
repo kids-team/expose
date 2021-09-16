@@ -201,6 +201,31 @@ export default {
         });
         return filtered;
      },
+     backPressed() {
+         if(this.showProductModal) {
+             this.showProductModal = false;
+             return;
+         }
+
+         if(this.showCartModal && this.showCartList) {
+             this.showCartModal = false;
+             this.showCartList = false;
+             return;
+         }
+
+         if(this.showCartModal && this.showCheckout) {
+             this.showCartModal = true;
+             this.showCheckout = false;
+             return;
+         }
+
+         if(this.success && this.showCartModal) {
+             this.showCartModal = false;
+             return;
+         }
+
+
+     },
      countCartItems() {
        var result = 0;
        this.cart.forEach(element => {
@@ -265,6 +290,13 @@ export default {
               this.categories = response;
               console.log(response)
           } );;
+  },
+
+  mounted () {
+    document.addEventListener("backbutton", this.backPressed, false);
+  },
+  beforeDestroy () {
+    document.removeEventListener("backbutton", this.backPressed);
   }
       
           
