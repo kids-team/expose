@@ -10,6 +10,8 @@ class Product {
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_product_post_type' ) );
 		add_action( 'rest_api_init', [$this, 'add_rest_fields'] );
+		add_filter( 'manage_ctx-products_posts_columns', array($this, 'set_custom_columns') );
+        add_action( 'manage_ctx-products_posts_custom_column' , array($this, 'custom_column'), 10, 2 );
 	}
 
 
@@ -74,6 +76,49 @@ class Product {
 		
 	}
 
+	/**
+	 * Filter function Set coulmns in the Admin Products Table
+	 * for manage_ctx-color-palette_posts_columns Filter
+	 * 
+	 * @param array $columns
+	 * @return array $columns
+	 */
+	public function set_custom_columns($columns) {
+		$columns = ['image' => __( 'Image', 'ctx-theme' )] + $columns;
+        $columns['category'] = __( 'Category', 'ctx-theme' );
+        $columns['image'] = __( 'Image', 'ctx-theme' );
+		$columns['description'] = __( 'Description', 'ctx-theme' );
+        return $columns;
+    }
+
+    public function custom_column( $column, $post_id ) {
+		global $post;
+        if($column == "image") {
+			
+            echo get_the_post_thumbnail($post->featured_media, 'thumbnail');
+			return;
+        }
+        if($column == "category") {
+			$categories = get_the_terms( $post->ID , 'product-categories' );
+			if($categories) {
+				echo $categories[0]->name;
+				return;
+			}
+			echo '<span style="color: red">' . __("No Category", "ctx-products") . '</span>';
+        }
+		if($column == "description") {
+			$description = substr($post->post_excerpt, 50);
+
+			if($description) {
+				$description .= strlen($description) == 50 ?: "...";
+				echo $description;
+				return;
+			}
+			
+			echo '<span style="color: red">' . __("No Description", "ctx-products") . '</span>';
+        }
+    }
+
 	public function add_rest_fields() {
 		register_rest_field( 
 			'ctx-products', // Where to add the field (Here, blog posts. Could be an array)
@@ -114,12 +159,12 @@ class Product {
 	}
 
 	public function rest_get_images( $object, $field_name, $request ) {
-		$feat_img_array = [
+		$feat_img_array = $object['featured_media'] ? [
 			"thumbnail" => wp_get_attachment_image_src($object['featured_media'], 'thumbnail', false)[0],
 			"medium" => wp_get_attachment_image_src($object['featured_media'], 'medium', false)[0],
 			"large" => wp_get_attachment_image_src($object['featured_media'], 'large', false)[0],
 			"full" => wp_get_attachment_image_src($object['featured_media'], 'full', false)[0]
-		];
+		] : [];
 		return $feat_img_array;
 	}
 

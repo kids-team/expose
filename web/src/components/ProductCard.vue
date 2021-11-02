@@ -1,12 +1,13 @@
 <template>
-     <div @click="$emit('details', $event, product.id)" class="card bg-white cursor-pointer" :class="{'shadow': attributes.dropShadow, 'image-left': attributes.style === 'list', 'image-top': attributes.style === 'card'}">
+     <div  class="card bg-white cursor-pointer" :class="{'card--shadow': attributes.dropShadow, 'card--image-left': attributes.style === 'list', 'card--image-top': attributes.style === 'card'}">
           <span v-if="attributes.showCategory" class="card-label bg-primary text-white"><span v-if="product.categories" v-text="product.categories.length != 0 ? product.categories[0].name : ''"></span></span>
-          <img class="card-image" :src="product.images.large">
-          <div class="card-content">
-                <h5 class="text-primary card-title" v-text="product.title.rendered"></h5>
-                <span class="block text-gray-500 text-sm" v-html="product.excerpt.rendered"></span>
-                <div class="mt-auto text-right">
-                      <span class="button primary pop p-2" @click.stop="$emit('select', $event, product.id)"><em class="material-icons">shopping_cart</em></span>
+          <img class="card__image" :src="product.images.large">
+          <div class="card__content">
+                <h5 class="card__title" v-text="product.title.rendered"></h5>
+                <span class="card__text" :class="{'h-16':attributes.style === 'list'}" v-html="product.excerpt.rendered" style="overflow: hidden;"></span>
+                <div class="card__footer">
+                    <div class="card__actions"><a class="button button--link button--primary" @click="$emit('details', $event, product.id)">Details</a></div>
+                    <div class="card__supplemental"><span class="button button--link button--pop button--gray button--icon" @click.stop="$emit('select', $event, product.id)"><em class="material-icons">shopping_cart</em></span></div>
                 </div>  
           </div>
       </div>

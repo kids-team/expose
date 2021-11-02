@@ -1,19 +1,18 @@
 <template>
     <div>
-            <ul class="item-list overflow-y-auto">
-                <li class="item" v-for="(cartItem, index) in cart" :key="index">
-                  <img :src="products[cartItem.index].images.thumbnail">
-                  <div class="text">
-                    <div class="title"><b v-text="products[cartItem.index].title.rendered"></b><span class="description" v-if="products[cartItem.index].excerpt.rendered != ''" v-html="products[cartItem.index].excerpt.rendered"></span></div>
-                    <div class="control">
-                      <span class="number-picker"><button @click.stop="cartItem.count--"></button><input type="text" class="px-1 w-8 mx-1 text-center bg-gray-200" v-model="cartItem.count"><button class="" @click.stop="cartItem.count++"></button></span>
-                      <span class="button p-2 ml-auto md:ml-0" @click="removeItem(index)"><em class="material-icons">delete</em></span>
+            <ul class="list">
+                <li class="list__item" v-for="(cartItem, index) in cart" :key="index">
+                  <img class="list__image" :src="products[cartItem.index].images.thumbnail">
+                  <div class="list__content">
+                    <div class="list__title"><b v-text="products[cartItem.index].title.rendered"></b><span class="text-xs text-gray-500" v-if="products[cartItem.index].excerpt.rendered != ''" v-html="products[cartItem.index].excerpt.rendered"></span></div>
+                    <div class="list__controls">
+                      <div class="number-picker"><button @click.stop="cartItem.count--"></button><input type="text" v-model="cartItem.count"><button @click.stop="cartItem.count++"></button></div>
+                      <a class="button button--link button--icon button--gray hidden lg:show" @click="removeItem(index)"><em class="material-icons">delete</em></a>
                     </div>   
                   </div>
                 </li>
             </ul>      
        </div>     
-
 </template>
 
 

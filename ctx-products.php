@@ -11,7 +11,10 @@
  * @package         create-products
  */
 
+
+
 require_once('lib/Assets.php');
+require_once('lib/Update.php');
 require_once('lib/Order.php');
 require_once('lib/Product.php');
 require_once('lib/Settings.php');
@@ -32,10 +35,13 @@ $post_type = new Contexis\Products\Product();
 $order = new Contexis\Products\Order();
 $settings = new Contexis\Products\Settings();
 
-// twice?
+\Contexis\Products\Update::init();
+
+
 $assets = new Contexis\Products\Assets();
 
 add_action( 'init', ['Contexis\\Products\\Assets', 'register_block_editor'] );
+
 add_action( 'wp_enqueue_scripts', ['Contexis\\Products\\Assets', 'register_frontend'] );
 $args = Contexis\Products\Assets::get_args();
 
@@ -58,6 +64,8 @@ function install() {
         'consent'=>__("I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-world/'>law stuff</a> and allow you to process my data for this very order. All my data will be deleted after shipping.", "ctx-products"),
     ]);
 }
+
+
 
 
   

@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div class="text-right">
-      <span class="button bg-primary text-white" @click="showCartModal = true; showCartList = true;"><i class="material-icons">shopping_cart</i><span v-text="strings.cart"></span> <span class="badge ml-2 primary-inverse" v-text="countCartItems()" v-if="countCartItems() != 0"></span></span>
+    <div class="button-group button-group--right">
+      <span class="button button--primary" @click="showCartModal = true; showCartList = true;"><i class="material-icons">shopping_cart</i><span v-text="strings.cart"></span> <span class="badge ml-2 primary-inverse" v-text="countCartItems()" v-if="countCartItems() != 0"></span></span>
     </div>
-    <div v-if="!attributes.sortByCategory" class="posts gap-12 grid" :class='["grid-cols-" + attributes.columnsSmall, "md:grid-cols-" + attributes.columnsMedium, "lg:grid-cols-" + attributes.columnsLarge]'>
+    <hr>
+    <div v-if="!attributes.sortByCategory" class="grid grid--gap-12" :class='["grid--columns-" + attributes.columnsSmall, "md:grid--columns-" + attributes.columnsMedium, "lg:grid--columns-" + attributes.columnsLarge]'>
       <ul>
         <li @click="selectedCategory = 0" v-text="strings.all"></li>
         <li v-for="(category, index) in filteredCategories" :key="index" @click="this.selectedCategory = category.id" v-text="category.name"></li>
@@ -19,8 +20,8 @@
     </div>
     <div v-if="attributes.sortByCategory">
       <div class="mb-8" v-for="(category, idx) in filteredCategories()" :key="idx">
-          <h4 class="my-2 text-gray-500 uppercase text-sm font-bold" v-text="category.name.toUpperCase()"></h4>
-          <div  class="posts gap-12 grid" :class='["grid-cols-" + attributes.columnsSmall, "md:grid-cols-" + attributes.columnsMedium, "lg:grid-cols-" + attributes.columnsLarge]'>
+          <h6 class="my-8 text-gray-500 uppercase" v-text="category.name.toUpperCase()"></h6>
+          <div  class="grid grid--gap-12" :class='["grid--columns-" + attributes.columnsSmall, "md:grid--columns-" + attributes.columnsMedium, "lg:grid--columns-" + attributes.columnsLarge]'>
           <ProductCard 
               v-for="(product, index) in filteredShopItems(category.id)"
               :key="index"
@@ -41,13 +42,13 @@
       @close="currentProduct = -1"
     >
     </ProductDetails>
-    <div class="modal fullscreen" :class="{'primary': !success, 'success': success}" v-if="showCartModal">
-        <div class="modal-dialog">
-            <div class="dialog-header">
-                <div class="dialog-title"><h2 v-text="strings.cart"></h2></div>
-                <button class="close" @click="showCartModal = false"></button>
+    <div class="modal modal--fullscreen" :class="{'primary': !success, 'success': success}" v-if="showCartModal">
+        <div class="modal__dialog">
+            <div class="modal__header">
+                <div class="modal__title"><h2 v-text="strings.cart"></h2></div>
+                <button class="modal__close" @click="showCartModal = false"></button>
             </div>
-            <div class="dialog-content">
+            <div class="modal__content">
                 <Cart
                     v-if="showCartList"
                     :products="products"
@@ -66,7 +67,7 @@
                     v-model:user="user"
                 ></Checkout>
                 
-                <div v-if="processingCheckout" class="wait-overlay">
+                <div v-if="processingCheckout" class="modal__overlay">
                     <aside>
                         <div class="spinning-loader"></div>
                         <h2 v-text="strings.wait"></h2>
@@ -78,12 +79,14 @@
                     <p v-text="strings.thanksText"></p>
                 </div>
 
-                <div class="foot button-group right" v-if="!processingCheckout">
-                    <button @click="showCartList = false; showCheckout = true;" v-if="showCartList" class="button primary" v-text="strings.order"></button>
-                    <button @click="showCartList = true; showCheckout = false;" v-if="showCheckout" class="button primary" v-text="strings.back"></button>
-                    <button @click="order()" v-if="showCheckout" class="button primary" v-text="strings.order"></button>
-                    <button @click="showCartModal = false" v-if="success" class="button close" v-text="strings.close"></button>
-                    
+                <div class="modal__footer" v-if="!processingCheckout">
+                    <hr>
+                    <div class="button-group button-group--right">
+                      <button @click="showCartList = false; showCheckout = true;" v-if="showCartList" class="button button--primary" v-text="strings.order"></button>
+                      <button @click="showCartList = true; showCheckout = false;" v-if="showCheckout" class="button button--gray button--link" v-text="strings.back"></button>
+                      <button @click="order()" v-if="showCheckout" class="button button--primary" v-text="strings.order"></button>
+                      <button @click="showCartModal = false" v-if="success" class="button button--primary" v-text="strings.close"></button>
+                    </div>
                 </div> 
             </div>
         </div>
@@ -161,11 +164,9 @@ export default {
       var cartItem = _.findIndex(this.products, function(item) { return item.id == index; });
       var product = this.products[cartItem];
       var itemExistsInCart = _.findIndex(this.cart, function(item) { return item.index == cartItem; });
-      console.log(itemExistsInCart);
       if(itemExistsInCart != -1) {
         this.cart[itemExistsInCart].count += this.products[cartItem].cart
         this.products[cartItem].cart = 1;
-        console.log(this.cart);
         return
       }
       this.cart.push({ index: cartItem, id: index, count: this.products[cartItem].cart})
@@ -201,25 +202,32 @@ export default {
         });
         return filtered;
      },
-     backPressed() {
+     backPressed(event) {
+         console.log("dsff");
+         event.preventDefault();
+         event.stopPropagation();
          if(this.showProductModal) {
+             window.history.forward();
              this.showProductModal = false;
              return;
          }
 
          if(this.showCartModal && this.showCartList) {
+             window.history.forward();
              this.showCartModal = false;
              this.showCartList = false;
              return;
          }
 
          if(this.showCartModal && this.showCheckout) {
+             window.history.forward();
              this.showCartModal = true;
              this.showCheckout = false;
              return;
          }
 
          if(this.success && this.showCartModal) {
+             window.history.forward();
              this.showCartModal = false;
              return;
          }
@@ -240,7 +248,7 @@ export default {
              removeErrors[key]['error'] = false
              removeErrors[key]['msg'] = ''
          });
-         console.log(removeErrors)
+         
          let options = {
             method: "POST",
             mode: 'cors', // no-cors, *cors, same-origin
@@ -283,20 +291,22 @@ export default {
           fetch( url, options ).then( response => response.json() ).then( response => {
               this.products = response;
               console.log(response)
+              console.log(wpApiSettings
+              )
           } );;
 
           let caturl = `${ wpApiSettings.root }wp/v2/product-categories`;
           fetch( caturl, options ).then( response => response.json() ).then( response => {
               this.categories = response;
-              console.log(response)
           } );;
   },
 
   mounted () {
-    document.addEventListener("backbutton", this.backPressed, false);
+    document.addEventListener("popstate", this.backPressed, false);
+    console.log("added");
   },
   beforeDestroy () {
-    document.removeEventListener("backbutton", this.backPressed);
+    document.removeEventListener("popstate", this.backPressed);
   }
       
           

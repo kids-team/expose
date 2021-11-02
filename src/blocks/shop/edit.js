@@ -40,6 +40,7 @@ export default function ProductEdit({ attributes, setAttributes }) {
 		selectedTags,
 	} = attributes;
 
+	console.log(attributes);
     const [selectedCategoryState, setSelectedCategoryState] = useState(selectedCategories);
 
 	const categoryList = useSelect( ( select ) => {
@@ -122,8 +123,8 @@ export default function ProductEdit({ attributes, setAttributes }) {
                                 key={i}
                                 onChange={ (value) => { setCategory( category.id, value ); } }
                                 checked={ selectedCategoryState.includes(category.id) }
-                                                        />
-                                    )
+                                />
+                        )
                     }
                    
 					<FormTokenField

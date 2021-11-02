@@ -104,7 +104,7 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 msgid "Close"
-msgstr "Schliessen"
+msgstr "Zurück"
 
 msgid "Forename"
 msgstr "Vorname"
