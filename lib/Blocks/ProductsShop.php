@@ -1,5 +1,5 @@
 <?php
-namespace Contexis\Products\Blocks;
+namespace Contexis\Expose\Blocks;
 
 class ProductsShop extends Block {
 

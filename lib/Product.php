@@ -1,6 +1,6 @@
 <?php
 
-namespace Contexis\Products;
+namespace Contexis\Expose;
 
 class Product {
 
@@ -21,30 +21,30 @@ class Product {
 			'public'              => true,
 			'show_ui'             => true,
 			'show_in_rest'        => true,
-			'show_admin_column' => true,
+			'show_admin_column'   => true,
 			'show_in_menu'        => true,
 			'menu_position'       => 30,
-			'query_var' => true, 
+			'query_var' 		  => true, 
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => true,
 			'publicly_queryable'  => true,
 			'supports'            => [ 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions', 'excerpt', 'post-formats', 'page_attributes' ],
-			'rewrite'             => ['slug' => get_option( 'ctx_product_options' )['slug'], "with_front" => false],
+			'rewrite'             => ['slug' => get_option( 'expose_options' )['slug'], "with_front" => false],
 			'menu_icon'           => 'dashicons-cart',
 			'labels' => [
-				'name'               => __('Products', 'ctx-products'),
-				'singular_name'      => __('Product', 'ctx-products'),
-				'add_new'            => __('Create new product', 'ctx-products'),
-				'add_new_item'       => __('Create new Product', 'ctx-products'),
-				'edit_item'          => __('Edit product', 'ctx-products'),
-				'new_item'           => __('New product', 'ctx-products'),
-				'all_items'          => __('All products' ,'ctx-products'),
-				'view_item'          => __('View product', 'ctx-products'),
-				'search_items'       => __('Search products', 'ctx-products'),
-				'not_found'          => __('No products found', 'ctx-products'),
-				'not_found_in_trash' => __('No products found in trash', 'ctx-products'),
+				'name'               => __('Products', 'expose'),
+				'singular_name'      => __('Product', 'expose'),
+				'add_new'            => __('Create new product', 'expose'),
+				'add_new_item'       => __('Create new Product', 'expose'),
+				'edit_item'          => __('Edit product', 'expose'),
+				'new_item'           => __('New product', 'expose'),
+				'all_items'          => __('All products' ,'expose'),
+				'view_item'          => __('View product', 'expose'),
+				'search_items'       => __('Search products', 'expose'),
+				'not_found'          => __('No products found', 'expose'),
+				'not_found_in_trash' => __('No products found in trash', 'expose'),
 				'parent_item_colon'  => '',
-				'menu_name'          => __('Products', 'ctx-products')
+				'menu_name'          => __('Products', 'expose')
 			]
 		];
 
@@ -55,7 +55,7 @@ class Product {
 			'ctx-products',             // post type name
 			array(
 				'hierarchical' => true,
-				'label' => __('Product category', 'ctx-products'), // display name
+				'label' => __('Product category', 'expose'), // display name
 				'query_var' => true,
 				'show_in_rest'        => true,
 				'show_ui'             => true,
@@ -67,7 +67,7 @@ class Product {
 			'ctx-products',             // post type name
 			array(
 				'hierarchical' => false,
-				'label' => __('Product tag', 'ctx-products'), // display name
+				'label' => __('Product tag', 'expose'), // display name
 				'query_var' => true,
 				'show_in_rest'        => true,
 				'show_ui'             => true,
@@ -84,10 +84,10 @@ class Product {
 	 * @return array $columns
 	 */
 	public function set_custom_columns($columns) {
-		$columns = ['image' => __( 'Image', 'ctx-theme' )] + $columns;
-        $columns['category'] = __( 'Category', 'ctx-theme' );
-        $columns['image'] = __( 'Image', 'ctx-theme' );
-		$columns['description'] = __( 'Description', 'ctx-theme' );
+		$columns = ['image' => __( 'Image', 'expose' )] + $columns;
+        $columns['category'] = __( 'Category', 'expose' );
+        $columns['image'] = __( 'Image', 'expose' );
+		$columns['description'] = __( 'Description', 'expose' );
         return $columns;
     }
 
@@ -104,7 +104,7 @@ class Product {
 				echo $categories[0]->name;
 				return;
 			}
-			echo '<span style="color: red">' . __("No Category", "ctx-products") . '</span>';
+			echo '<span style="color: red">' . __("No Category", "expose") . '</span>';
         }
 		if($column == "description") {
 			$description = substr($post->post_excerpt, 50);
@@ -115,7 +115,7 @@ class Product {
 				return;
 			}
 			
-			echo '<span style="color: red">' . __("No Description", "ctx-products") . '</span>';
+			echo '<span style="color: red">' . __("No Description", "expose") . '</span>';
         }
     }
 

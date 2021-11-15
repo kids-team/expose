@@ -84,9 +84,6 @@ msgstr "Produktkategorien"
 msgid "Title"
 msgstr "Titel"
 
-msgid "Back"
-msgstr "Zurück"
-
 #: build/index.js:584
 #: src/blocks/alert/edit.js:58
 msgid "Proceed"
@@ -104,7 +101,13 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 msgid "Close"
+msgstr "Schließen"
+
+msgid "Back"
 msgstr "Zurück"
+
+msgid "Next"
+msgstr "Weiter"
 
 msgid "Forename"
 msgstr "Vorname"

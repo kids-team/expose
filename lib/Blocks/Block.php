@@ -1,6 +1,6 @@
 <?php
 
-namespace Contexis\Products\Blocks;
+namespace Contexis\Expose\Blocks;
 
 interface BlockInterface
 {

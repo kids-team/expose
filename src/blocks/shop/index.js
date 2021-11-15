@@ -18,14 +18,14 @@ import './editor.scss';
  */
 const { name, category, attributes } = metadata;
 const settings = {
-	title: __( 'Product shop', 'ctx-products' ),
-	description: __( 'Shows s free shop', 'ctx-products' ),
+	title: __( 'Expose', 'expose' ),
+	description: __( 'Shows a free shop', 'expose' ),
 	icon: icons.shop,
 	apiVersion: 2,
 	keywords: [
-		'ctx-products',
-		__( 'events', 'ctx-products' ),
-		__( 'list', 'ctx-products' ),
+		'expose',
+		__( 'events', 'expose' ),
+		__( 'list', 'expose' ),
 	],
 	attributes,
 	edit: Edit,

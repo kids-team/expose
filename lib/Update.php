@@ -1,6 +1,6 @@
 <?php 
 
-namespace Contexis\Products;
+namespace Contexis\Expose;
 
 class Update {
 
@@ -25,7 +25,7 @@ class Update {
 
         // info.json is the file with the actual plugin information on your server
         $remote = wp_remote_get( 
-            'http://wp-update.kids-team.at/info.php?plugin_id=ctx-products', 
+            'http://wp-update.kids-team.at/info.php?plugin_id=expose', 
             array(
                 'timeout' => 10,
                 'headers' => array(

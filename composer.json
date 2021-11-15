@@ -34,8 +34,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Contexis\\Products\\Blocks\\": "lib/Blocks/",
-            "Contexis\\Products\\": "lib/"
+            "Contexis\\Expose\\Blocks\\": "lib/Blocks/",
+            "Contexis\\Expose\\": "lib/"
         }
     }
 }
