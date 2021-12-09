@@ -1,5 +1,5 @@
 <template>
-    <div class="modal modal--fullscreen">
+    <div class="modal modal--fullscreen modal--open">
         <div class="modal__dialog">
             <div class="modal__header">
                 <img :src="product.images.full" class="object-cover w-full" style="height: 30vh">
