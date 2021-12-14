@@ -7,7 +7,7 @@
                 <span class="card__text" :class="{'h-16':attributes.style === 'list'}" v-html="product.excerpt.rendered" style="overflow: hidden;"></span>
                 <div class="card__footer">
                     <div class="card__actions"><a class="button button--link button--primary" @click="$emit('details', $event, product.id)">Details</a></div>
-                    <div class="card__supplemental"><span class="button button--link button--pop button--gray button--icon" @click.stop="$emit('select', $event, product.id)"><em class="material-icons">shopping_cart</em></span></div>
+                    <div class="card__supplemental"><span class="button button--link button--pop button--gray button--icon" @click.stop="$emit('select', $event, product.id)"><em class="material-icons">add_shopping_cart</em></span></div>
                 </div>  
           </div>
       </div>
