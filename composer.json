@@ -26,11 +26,11 @@
     ],
     "config": {
         "platform":{
-            "php":"7.0"
+            "php":"7.4"
         }
     },
     "require": {
-        "timber/timber": "^2.0.0-alpha.2"
+        "timber/timber": "^2.0.0-alpha.4"
     },
     "autoload": {
         "psr-4": {
