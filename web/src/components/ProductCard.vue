@@ -1,7 +1,7 @@
 <template>
      <div  class="card bg-white cursor-pointer" :class="{'card--shadow': attributes.dropShadow, 'card--image-left': attributes.style === 'list', 'card--image-top': attributes.style === 'card'}">
           <span v-if="attributes.showCategory" class="card-label bg-primary text-white"><span v-if="product.categories" v-text="product.categories.length != 0 ? product.categories[0].name : ''"></span></span>
-          <img class="card__image" :src="product.images.large">
+          <div class="card__image"><img :src="product.images.large"></div>
           <div class="card__content">
                 <h5 class="card__title" v-text="product.title.rendered"></h5>
                 <span class="card__text" :class="{'h-16':attributes.style === 'list'}" v-html="product.excerpt.rendered" style="overflow: hidden;"></span>
