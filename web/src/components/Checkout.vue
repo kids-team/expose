@@ -13,12 +13,12 @@
         </div>
         <div>
             <form class="form">
-                <div class="form__group input" :class="{'error': user.forename.error}">
+                <div class="form__group input input--half" :class="{'error': user.forename.error}">
                     <label v-text="strings.forename"></label>
                     <input class="form__input" v-model="user.forename.value" type="text" required>
                     <span v-if="user.forename.error" class="form__error" v-text="user.forename.msg"></span>
                 </div>
-                <div class="form__group input" :class="{'error': user.surname.error}">
+                <div class="form__group input input--half" :class="{'error': user.surname.error}">
                     <label v-text="strings.surname"></label>
                     <input class="form__input" v-model="user.surname.value" type="text" required>
                     <span v-if="user.surname.error" class="form__error" v-text="user.surname.msg"></span>
