@@ -5,9 +5,7 @@ namespace Contexis\Expose;
 class Settings {
 
     public $plugin_name = "expose";
-	/*
-	 * Constructor - the brain of our class
-	 * */
+
 	public function __construct() {
 		add_action('admin_menu', array( $this, 'add_settings_menu' ), 9);    
 		add_action( 'admin_init', [&$this,'register_settings'] );
@@ -15,12 +13,12 @@ class Settings {
 
 	public function add_settings_menu(){
         add_submenu_page( 
-			'edit.php?post_type=expose', 			// URL Location
-			__('Product Shop Settings', 'expose'),	// Name
-			__('Settings', 'expose'), 								// Title
-			'administrator', 							// Access Level
-			'expose-settings', 					// Page Name
-			[$this, 'display_admin_settings']			// Callback
+			'edit.php?post_type=ctx-products', 			
+			__('Product Shop Settings', 'expose'),	
+			__('Settings', 'expose'), 								
+			'administrator', 	
+			'expose-settings', 			
+			[$this, 'display_admin_settings']
 		);
 	}
 
