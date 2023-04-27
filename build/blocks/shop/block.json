@@ -1,0 +1,70 @@
+{
+  "name": "ctx-products/shop",
+  "category": "widgets",
+  "attributes": {
+    "columnsSmall": {
+      "type": "number",
+      "default": 1
+    },
+    "columnsMedium": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsLarge": {
+      "type": "number",
+      "default": 3
+    },
+    "showImages": {
+      "type": "boolean",
+      "default": true
+    },
+    "dropShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "showCategory": {
+      "type": "boolean",
+      "default": true
+    },
+    "sortByCategory": {
+      "type": "boolean",
+      "default": false
+    },
+    "showFilter": {
+      "type": "boolean",
+      "default": false
+    },
+    "showSearchbar": {
+      "type": "boolean",
+      "default": false
+    },
+    "style": {
+      "type": "string",
+      "default": "card"
+    },
+    "order": {
+      "type": "string",
+      "default": "desc"
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "date"
+    },
+    "selectedCategories": {
+      "type": "array",
+      "default": []
+    },
+    "selectedTags": {
+      "type": "array",
+      "default": []
+    },
+    "excerptLength": {
+      "type": "number",
+      "default": 20
+    },
+    "textAlignment": {
+      "type": "string",
+      "default": "left"
+    }
+  }
+}
