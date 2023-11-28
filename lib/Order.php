@@ -4,6 +4,10 @@ namespace Contexis\Expose;
 
 class Order {
 
+	public static function init() {
+		new self();
+	}
+
 	public function __construct() {
 		add_action( 'rest_api_init', array( $this, 'register_order_route' ) );
 	}
@@ -166,3 +170,4 @@ class Order {
 
 }
 
+Order::init();

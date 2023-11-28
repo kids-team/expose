@@ -11,17 +11,11 @@
  * @package         create-products
  */
 
-
-
-require_once('lib/Assets.php');
-require_once('lib/Update.php');
+require_once('lib/assets.php');
 require_once('lib/Order.php');
 require_once('lib/Product.php');
 require_once('lib/Settings.php');
-require_once('lib/Blocks/Block.php');
-require_once('lib/Blocks/ProductsShop.php');
-
-add_action( 'init', 'ctxproducts_load_textdomain', 1 );
+require_once('lib/block.php');
 
 /**
  * Load plugin textdomain.
@@ -29,30 +23,8 @@ add_action( 'init', 'ctxproducts_load_textdomain', 1 );
 function ctxproducts_load_textdomain() {
     load_plugin_textdomain( 'expose', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
 }
-  
 
-$post_type = new Contexis\Expose\Product();
-$order = new Contexis\Expose\Order();
-$settings = new Contexis\Expose\Settings();
-
-\Contexis\Expose\Update::init();
-
-
-$assets = new Contexis\Expose\Assets();
-
-add_action( 'init', ['Contexis\\Expose\\Assets', 'register_block_editor'] );
-
-add_action( 'wp_enqueue_scripts', ['Contexis\\Expose\\Assets', 'register_frontend'] );
-$args = Contexis\Expose\Assets::get_args();
-
-// Add Twig functions
-// @todo Check if needed
-
-
-$upcoming_block = new Contexis\Expose\Blocks\ProductsShop($args);
-$upcoming_block->register();
-
-register_activation_hook(__FILE__, 'install');
+add_action( 'init', 'ctxproducts_load_textdomain', 1 );
 
 function install() {
     add_option('expose_options', [
@@ -65,6 +37,7 @@ function install() {
     ]);
 }
 
+register_activation_hook(__FILE__, 'install');
 
 
 

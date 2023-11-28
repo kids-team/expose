@@ -318,7 +318,7 @@
         }, // Add nonce for WP REST API
       };
 
-
+ 
       let url = `${ wpApiSettings.root }wp/v2/ctx-products?_embed&per_page=100`;
       if (this.attributes.selectedCategories.length != 0) {
         url += '&product-categories=' + this.attributes.selectedCategories.join(',')

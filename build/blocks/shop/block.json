@@ -1,26 +1,20 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
   "name": "ctx-products/shop",
+  "title": "Handout Shop",
+  "keywords": [
+    "link",
+    "action",
+    "button"
+  ],
+  "textdomain": "ctx-blocks",
+  "description": "Add a Handout order to your website.",
   "category": "widgets",
   "attributes": {
-    "columnsSmall": {
-      "type": "number",
-      "default": 1
-    },
-    "columnsMedium": {
-      "type": "number",
-      "default": 2
-    },
-    "columnsLarge": {
-      "type": "number",
-      "default": 3
-    },
     "showImages": {
       "type": "boolean",
       "default": true
-    },
-    "dropShadow": {
-      "type": "boolean",
-      "default": false
     },
     "showCategory": {
       "type": "boolean",
@@ -38,9 +32,9 @@
       "type": "boolean",
       "default": false
     },
-    "style": {
+    "view": {
       "type": "string",
-      "default": "card"
+      "default": "cards"
     },
     "order": {
       "type": "string",
@@ -65,6 +59,36 @@
     "textAlignment": {
       "type": "string",
       "default": "left"
+    },
+    "form": {
+      "type": "number",
+      "default": 0
     }
-  }
+  },
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": false,
+      "width": false,
+      "__experimentalDefaultControls": {
+        "radius": true,
+        "style": false,
+        "width": true,
+        "linked": false,
+        "color": true
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "render": "file:./render.php",
+  "viewScript": "expose-frontend",
+  "editorScript": "expose-block-editor",
+  "editorStyle": "expose-block-editor-style",
+  "style": "expose-frontend-style"
 }

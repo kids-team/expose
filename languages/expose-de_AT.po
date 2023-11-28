@@ -41,6 +41,12 @@ msgstr "Text für Bestätigungsmail"
 msgid "Tiny System to set up an ordering system for free-to-ship products"
 msgstr "Häufig benötigte Blöcke, die sich per twig anpassen lassen"
 
+msgid "No Description"
+msgstr "Keine Beschreibung"
+
+msgid "No Category"
+msgstr "Keine Kategorie"
+
 #. Author of the plugin
 msgid "Thomas Gollenia"
 msgstr "Thomas Gollenia"

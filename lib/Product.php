@@ -4,6 +4,10 @@ namespace Contexis\Expose;
 
 class Product {
 
+	public static function init() {
+		new self();
+	}
+
 	/*
 	 * Constructor - the brain of our class
 	 * */ 
@@ -84,10 +88,10 @@ class Product {
 	 * @return array $columns
 	 */
 	public function set_custom_columns($columns) {
-		$columns = ['image' => __( 'Image', 'expose' )] + $columns;
-        $columns['category'] = __( 'Category', 'expose' );
-        $columns['image'] = __( 'Image', 'expose' );
-		$columns['description'] = __( 'Description', 'expose' );
+		$columns = ['image' => __( 'Media' )] + $columns;
+        $columns['category'] = __( 'Categories' );
+        $columns['image'] = __( 'Image' );
+		$columns['description'] = __( 'Description' );
         return $columns;
     }
 
@@ -107,11 +111,11 @@ class Product {
 			echo '<span style="color: red">' . __("No Category", "expose") . '</span>';
         }
 		if($column == "description") {
-			$description = substr($post->post_excerpt, 50);
-
-			if($description) {
-				$description .= strlen($description) == 50 ?: "...";
-				echo $description;
+			
+			
+			if($post->post_excerpt) {
+				
+				echo $post->post_excerpt;
 				return;
 			}
 			
@@ -131,7 +135,7 @@ class Product {
 		);
 		register_rest_field( 
 			'ctx-products', // Where to add the field (Here, blog posts. Could be an array)
-			'category', // Name of new field (You can call this anything)
+			'categories', // Name of new field (You can call this anything)
 			[
 				'get_callback'    => [$this, 'rest_get_categories'],
 				'update_callback' => null,
@@ -170,7 +174,16 @@ class Product {
 
 	public function rest_get_categories($object, $field_name, $request) {
 		$categories = wp_get_post_terms( $object['id'], 'product-categories' );
-		return $categories ? $categories[0] : [];
+		if(!$categories) {
+			return false;
+		}
+
+		$result = [];
+		
+		foreach ($categories as $key => $category) {
+			$result[$category->term_id] = $category->name;
+		}
+		return $result;
 	}
 
 	public function rest_get_terms($object, $field_name, $request) {
@@ -178,3 +191,5 @@ class Product {
 	}
 
 }
+
+Product::init();

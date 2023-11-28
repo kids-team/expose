@@ -1,63 +1,63 @@
 .cols-large-1 {
-    grid-template-columns: auto;
+	grid-template-columns: auto;
 }
 
 .cols-large-2 {
-    grid-template-columns: auto auto;
+	grid-template-columns: auto auto;
 }
 
 .cols-large-3 {
-    grid-template-columns: auto auto auto;
+	grid-template-columns: auto auto auto;
 }
 
 .cols-large-4 {
-    grid-template-columns: auto auto auto auto;
+	grid-template-columns: auto auto auto auto;
 }
 
 .cols-large-5 {
-    grid-template-columns: auto auto auto auto auto;
+	grid-template-columns: auto auto auto auto auto;
 }
 
 .cols-large-6 .ctx-post {
-    grid-column: 1 / 6;
+	grid-column: 1 / 6;
 }
 
 .ctx-text-align-center {
-    text-align: center;
-    .ctx-post-image {
-        margin-left: auto;
-        margin-right: auto;
-    }
+	text-align: center;
+	.ctx-post-image {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .ctx-text-align-right {
-    text-align: right;
-    .ctx-post-image {
-        margin-left: auto;
-    }
+	text-align: right;
+	.ctx-post-image {
+		margin-left: auto;
+	}
 }
 
 .styleSelector Button {
-    flex-direction: column;
-    height: 70px;
-    background: #eee;
-    width: 70px;
-    border: 2px solid #eee;
-    margin-right: 5px;
+	flex-direction: column;
+	height: 70px;
+	background: #eee;
+	width: 70px;
+	border: 2px solid #eee;
+	margin-right: 5px;
 
-    &.active {
-        border: 2px solid #007cba;
-    }
+	&.active {
+		border: 2px solid #007cba;
+	}
 }
 
 .styleSelector {
-    padding-top: 5px;
-    padding-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 10px;
 }
 
 @for $i from 1 through 12 {
-    .wp-block-ctx-blocks-posts.columns-#{$i} {
-        display: grid;
-        grid-template-columns: repeat($i, minmax(0, 1fr));
-    }
+	.wp-block-ctx-blocks-posts.columns-#{$i} {
+		display: grid;
+		grid-template-columns: repeat( $i, minmax( 0, 1fr ) );
+	}
 }

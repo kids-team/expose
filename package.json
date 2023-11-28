@@ -1,32 +1,22 @@
 {
-    "name": "ctx-products",
-    "version": "0.1.0",
-    "description": "Wordpress Plugin that displays free products like magazines or tracts and let customers place orders without payment.",
-    "author": "kids-team Österreich",
-    "license": "GPL-2.0-or-later",
-    "main": "build/index.js",
-    "scripts": {
-        "build": "wp-scripts build",
-        "lint-frontend": "vue-cli-service lint",
-        "format:js": "wp-scripts format-js",
-        "lint:css": "wp-scripts lint-style",
-        "lint:js": "wp-scripts lint-js",
-        "start": "wp-scripts start",
-        "packages-update": "wp-scripts packages-update"
-    },
-    "dependencies": {
-        "@types/react": "^18.0.26",
-        "@types/react-dom": "^18.0.9",
-        "@wordpress/block-editor": "^11.8.0",
-        "@wordpress/blocks": "^12.8.0",
-        "@wordpress/i18n": "^4.31.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-intl": "^6.2.5",
-        "ts-loader": "^9.4.1",
-        "typescript": "^4.9.3"
-    },
-    "devDependencies": {
-        "@wordpress/scripts": "^26.2.0"
-    }
+	"name": "ctx-products",
+	"version": "0.1.0",
+	"description": "Wordpress Plugin that displays free products like magazines or tracts and let customers place orders without payment.",
+	"author": "kids-team Österreich",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build src/index.js src/shop.js",
+		"start": "wp-scripts start src/index.js src/shop.js",
+		"lint-frontend": "vue-cli-service lint",
+		"format:js": "wp-scripts format-js",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"lang": "node languages/compile.js"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@wordpress/scripts": "^26.17.0"
+	}
 }

@@ -4,6 +4,10 @@ namespace Contexis\Expose;
 
 class Settings {
 
+	public static function init() {
+		new self();
+	}
+
     public $plugin_name = "expose";
 
 	public function __construct() {
@@ -106,3 +110,5 @@ class Settings {
 	}
 
 }
+
+Settings::init();
