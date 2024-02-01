@@ -4,15 +4,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CTX Products 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/expose\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: Deutsch (Österreich)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-01-30T15:31:08+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"PO-Revision-Date: 2024-02-01 06:58+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Domain: expose\n"
+"Language: de_AT\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.6; wp-6.4.3"
 
 #: lib/Form.php:25
 msgid "Address"
@@ -87,7 +90,7 @@ msgstr "Handout Shop"
 msgid "Cards"
 msgstr "Karten"
 
-#: build/shop.js:1589
+#: build/shop.js:1598
 msgid "Cart"
 msgstr "Einkaufswagen"
 
@@ -95,17 +98,13 @@ msgstr "Einkaufswagen"
 msgid "Categories"
 msgstr "Kategorien"
 
-#: build/shop.js:1616
-msgid "Checkout"
-msgstr "Bestellen"
-
 #: lib/Form.php:41
 msgid "City"
 msgstr "Stadt"
 
-#: build/shop.js:1994
+#: build/shop.js:2001
 msgid "Close"
-msgstr "Schliessen"
+msgstr "Schließen"
 
 #: lib/Settings.php:54
 msgid "Confirmation page text"
@@ -165,7 +164,7 @@ msgstr ""
 "\n"
 "Blessings, your Shop"
 
-#: build/shop.js:1804
+#: build/shop.js:1811
 msgid "Details"
 msgstr "Details"
 
@@ -267,15 +266,15 @@ msgstr "Keine Produkte im Papierkorb gefunden"
 msgid "Number of words"
 msgstr "Anzahl der Wörter"
 
-#: build/shop.js:1679
+#: build/shop.js:1686
 msgid "Order"
 msgstr "Bestellung"
 
-#: build/shop.js:1720
+#: build/shop.js:1727
 msgid "Order Form"
 msgstr "Bestellformular"
 
-#: build/shop.js:1692
+#: build/shop.js:1699
 msgid "Order Summary"
 msgstr "Bestellübersicht"
 
@@ -283,7 +282,7 @@ msgstr "Bestellübersicht"
 msgid "Ordered Products"
 msgstr "Bestellte Produkte"
 
-#: build/shop.js:1605
+#: build/shop.js:1614
 msgid "pcs."
 msgstr "Stk."
 
@@ -311,7 +310,7 @@ msgstr "Produkt-Tag"
 msgid "Products"
 msgstr "Produkte"
 
-#: build/shop.js:2150
+#: build/shop.js:2157
 msgid "Search"
 msgstr "Suchen"
 
@@ -327,12 +326,14 @@ msgstr ""
 "werden"
 
 #: build/shop.js:1495
-#| msgid "Selected Tag: "
-#| msgid_plural "Selected Tags: "
-msgid "Selected Tag:"
-msgid_plural "Selected Tags:"
-msgstr[0] "Schlagwort:"
-msgstr[1] "Schlagworte:"
+msgid "Selected Tag: "
+msgid_plural "Selected Tags: "
+msgstr[0] "Schlagwort: "
+msgstr[1] ""
+
+#: build/shop.js:1510
+msgid "Selected Tags: "
+msgstr "Schlagworte: "
 
 #: lib/Settings.php:22
 msgid "Settings"
@@ -372,7 +373,7 @@ msgstr "Absenden"
 
 #: build/index.js:399 build/shop.js:1428 build/index.js:276
 msgid "Tags"
-msgstr "Schlagworte"
+msgstr "Tags"
 
 #: lib/Settings.php:103
 msgid "Text for consent-box"
@@ -406,12 +407,10 @@ msgstr ""
 "möglich zusenden"
 
 #: build/shop.js:1500
-#| msgid "with tag: "
-#| msgid_plural "with tags: "
-msgid "with tag:"
-msgid_plural "with tags:"
-msgstr[0] "mit Schlagwort:"
-msgstr[1] "mit Schlagworten:"
+msgid "with tag: "
+msgid_plural "with tags: "
+msgstr[0] "mit Schlagwort: "
+msgstr[1] ""
 
 #. Description of the plugin
 msgid ""

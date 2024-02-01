@@ -9,26 +9,26 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-01T08:08:16+00:00\n"
+"POT-Creation-Date: 2024-01-30T15:31:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: expose\n"
 
 #. Plugin Name of the plugin
 msgid "CTX Products"
-msgstr ""
+msgstr "CTX Produkte"
 
 #. Description of the plugin
 msgid "Wordpress Plugin that displays free products like magazines or tracts and let customers place orders without payment."
-msgstr ""
+msgstr "Wordpress Plugin, das kostenlose Produkte wie Zeitschriften oder Traktate anzeigt und Kunden Bestellungen ohne Zahlung aufgeben lässt."
 
 #. Author of the plugin
 msgid "Thomas Gollenia"
-msgstr ""
+msgstr "Thomas Gollenia"
 
 #: expose.php:33
 msgid "Your Order"
-msgstr ""
+msgstr "Ihre Bestellung"
 
 #: expose.php:34
 msgid ""
@@ -43,343 +43,287 @@ msgstr ""
 
 #: expose.php:35
 msgid "Thank you for your order!"
-msgstr ""
+msgstr "Danke für Ihre Bestellung!"
 
 #: expose.php:36
 msgid "We have recieved your order and we will send it to you as soon as possible"
-msgstr ""
+msgstr "Wir haben Ihre Bestellung erhalten und werden sie Ihnen so schnell wie möglich zusenden"
 
 #: expose.php:37
 msgid "I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-world/'>law stuff</a> and allow you to process my data for this very order. All my data will be deleted after shipping."
-msgstr ""
+msgstr "Ich stimme allen <a href='https://bestlifeonline.com/47-weird-laws-around-world/'>rechtlichen Dingen</a> zu und erlaube Ihnen, meine Daten für diese Bestellung zu verarbeiten. Alle meine Daten werden nach dem Versand gelöscht."
 
 #: lib/Form.php:9
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: lib/Form.php:17
 msgid "E-Mail"
-msgstr ""
+msgstr "E-Mail"
 
 #: lib/Form.php:25
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 #: lib/Form.php:33
 msgid "Zip"
-msgstr ""
+msgstr "PLZ"
 
 #: lib/Form.php:41
 msgid "City"
-msgstr ""
+msgstr "Stadt"
 
 #: lib/Form.php:49
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: lib/Form.php:57
 msgid "Message"
-msgstr ""
+msgstr "Nachricht"
 
 #: lib/Form.php:65
 msgid "Consent"
-msgstr ""
+msgstr "Einwilligung"
 
 #: lib/Form.php:75
 msgid "Submit"
-msgstr ""
+msgstr "Absenden"
 
 #: lib/Order.php:58
 #: lib/Order.php:65
 msgid "New Order"
-msgstr ""
+msgstr "Neue Bestellung"
 
 #: lib/Order.php:59
 msgid "Customer"
-msgstr ""
+msgstr "Kunde"
 
 #: lib/Order.php:61
 msgid "Ordered Products"
-msgstr ""
+msgstr "Bestellte Produkte"
 
 #: lib/Product.php:39
 #: lib/Product.php:51
 msgid "Products"
-msgstr ""
+msgstr "Produkte"
 
 #: lib/Product.php:40
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #: lib/Product.php:41
 msgid "Create new product"
-msgstr ""
+msgstr "Neues Produkt erstellen"
 
 #: lib/Product.php:42
 msgid "Create new Product"
-msgstr ""
+msgstr "Neues Produkt erstellen"
 
 #: lib/Product.php:43
 msgid "Edit product"
-msgstr ""
+msgstr "Produkt bearbeiten"
 
 #: lib/Product.php:44
 msgid "New product"
-msgstr ""
+msgstr "Neues Produkt"
 
 #: lib/Product.php:45
 msgid "All products"
-msgstr ""
+msgstr "Alle Produkte"
 
 #: lib/Product.php:46
 msgid "View product"
-msgstr ""
+msgstr "Produkt ansehen"
 
 #: lib/Product.php:47
 msgid "Search products"
-msgstr ""
+msgstr "Produkte suchen"
 
 #: lib/Product.php:48
 msgid "No products found"
-msgstr ""
+msgstr "Keine Produkte gefunden"
 
 #: lib/Product.php:49
 msgid "No products found in trash"
-msgstr ""
+msgstr "Keine Produkte im Papierkorb gefunden"
 
 #: lib/Product.php:62
 msgid "Product category"
-msgstr ""
+msgstr "Produktkategorie"
 
 #: lib/Product.php:74
 msgid "Product tag"
-msgstr ""
+msgstr "Produkt-Tag"
 
 #: lib/Product.php:111
 msgid "No Category"
-msgstr ""
+msgstr "Keine Kategorie"
 
 #: lib/Product.php:121
 msgid "No Description"
-msgstr ""
+msgstr "Keine Beschreibung"
 
 #: lib/Settings.php:21
 #: lib/Settings.php:33
 msgid "Product Shop Settings"
-msgstr ""
+msgstr "Einstellungen für Produkt-Shop"
 
 #: lib/Settings.php:22
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: lib/Settings.php:49
 msgid "Slug"
-msgstr ""
+msgstr "Slug"
 
 #: lib/Settings.php:50
 msgid "Consent Text"
-msgstr ""
+msgstr "Einwilligungs-Text"
 
 #: lib/Settings.php:51
 msgid "Mail Subject"
-msgstr ""
+msgstr "Betreff der E-Mail"
 
 #: lib/Settings.php:52
 msgid "Mail Content"
-msgstr ""
+msgstr "Inhalt der E-Mail"
 
 #: lib/Settings.php:53
 msgid "Confirmation page title"
-msgstr ""
+msgstr "Titel der Bestätigungsseite"
 
 #: lib/Settings.php:54
 msgid "Confirmation page text"
-msgstr ""
+msgstr "Text der Bestätigungsseite"
 
 #: lib/Settings.php:55
 msgid "Admin Mail"
-msgstr ""
+msgstr "Admin-Mail"
 
 #: lib/Settings.php:79
 msgid "Subject for the mail sent to the user"
-msgstr ""
+msgstr "Betreff für die E-Mail, die an den Benutzer gesendet wird"
 
 #: lib/Settings.php:85
 msgid "Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or #_ORDERLIST."
-msgstr ""
+msgstr "E-Mail an den Benutzer gesendet. Verwenden Sie Platzhalter wie #_FORENAME, #_SURNAME oder #_ORDERLIST."
 
 #: lib/Settings.php:91
 msgid "Title of confirmation page when order was successfull"
-msgstr ""
+msgstr "Titel der Bestätigungsseite, wenn die Bestellung erfolgreich war"
 
 #: lib/Settings.php:97
 msgid "Text of confirmation page when order was successfull"
-msgstr ""
+msgstr "Text der Bestätigungsseite, wenn die Bestellung erfolgreich war"
 
 #: lib/Settings.php:103
 msgid "Text for consent-box"
-msgstr ""
+msgstr "Text für die Einwilligungs-Box"
 
 #: lib/Settings.php:109
 msgid "If empty, site admin will be used. Separate with commas."
-msgstr ""
+msgstr "Wenn leer, wird der Site-Admin verwendet. Mit Kommas trennen."
 
-#: build/index.js:352
-#: build/index.js:216
+#: build/index.js:1
 msgid "Internal"
-msgstr ""
+msgstr "Intern"
 
-#: build/index.js:389
-#: build/index.js:263
+#: build/index.js:1
 msgid "Data"
-msgstr ""
+msgstr "Daten"
 
-#: build/index.js:399
-#: build/shop.js:1428
-#: build/index.js:276
+#: build/index.js:1
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
-#: build/index.js:418
-#: build/index.js:297
+#: build/index.js:1
 msgid "Form"
-msgstr ""
+msgstr "Formular"
 
-#: build/index.js:425
-#: build/index.js:305
+#: build/index.js:1
 msgid "Appearance"
-msgstr ""
+msgstr "Aussehen"
 
-#: build/index.js:430
-#: build/index.js:307
+#: build/index.js:1
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
-#: build/index.js:441
-#: build/index.js:316
+#: build/index.js:1
 msgid "Minimal"
-msgstr ""
+msgstr "Minimal"
 
-#: build/index.js:450
-#: build/index.js:323
+#: build/index.js:1
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
-#: build/index.js:459
-#: build/index.js:330
+#: build/index.js:1
 msgid "Cards"
-msgstr ""
+msgstr "Karten"
 
-#: build/index.js:460
-#: build/index.js:337
+#: build/index.js:1
 msgid "Show filter"
-msgstr ""
+msgstr "Filter anzeigen"
 
-#: build/index.js:466
-#: build/index.js:344
+#: build/index.js:1
 msgid "Show searchbar"
-msgstr ""
+msgstr "Suchleiste anzeigen"
 
-#: build/index.js:472
-#: build/index.js:351
+#: build/index.js:1
 msgid "Show category"
-msgstr ""
+msgstr "Kategorie anzeigen"
 
-#: build/index.js:478
-#: build/index.js:358
+#: build/index.js:1
 msgid "Sort by category"
-msgstr ""
+msgstr "Nach Kategorie sortieren"
 
-#: build/index.js:484
-#: build/index.js:365
+#: build/index.js:1
 msgid "Drop shadow"
-msgstr ""
+msgstr "Schatten"
 
-#: build/index.js:490
-#: build/index.js:373
+#: build/index.js:1
 msgid "Length of preview text"
-msgstr ""
+msgstr "Länge des Vorschautextes"
 
-#: build/index.js:493
-#: build/index.js:376
+#: build/index.js:1
 msgid "Number of words"
-msgstr ""
+msgstr "Anzahl der Wörter"
 
-#: build/index.js:520
-#: build/index.js:405
+#: build/index.js:1
 msgid "Product Shop"
-msgstr ""
+msgstr "Produkt-Shop"
 
-#: build/index.js:522
-#: build/index.js:408
+#: build/index.js:1
 msgid "See for settings in the inspector. The result can be seen in the frontend"
-msgstr ""
+msgstr "Siehe Einstellungen im Inspector. Das Ergebnis kann im Frontend gesehen werden"
 
-#: build/shop.js:1312
-#: build/shop.js:1490
-msgid "All Products"
-msgstr ""
-
-#: build/shop.js:1403
-msgid "Categories"
-msgstr ""
-
-#: build/shop.js:1414
-msgid "All"
-msgstr ""
-
-#: build/shop.js:1495
-msgid "Selected Tag:"
-msgid_plural "Selected Tags:"
-msgstr[0] ""
-msgstr[1] ""
-
-#: build/shop.js:1500
-msgid "with tag:"
-msgid_plural "with tags:"
-msgstr[0] ""
-msgstr[1] ""
-
-#: build/shop.js:1589
+#: build/shop.js:1
 msgid "Cart"
-msgstr ""
+msgstr "Einkaufswagen"
 
-#: build/shop.js:1605
+#: build/shop.js:1
 msgid "pcs."
-msgstr ""
+msgstr "Stk."
 
-#: build/shop.js:1616
-msgid "Checkout"
-msgstr ""
-
-#: build/shop.js:1679
-msgid "Order"
-msgstr ""
-
-#: build/shop.js:1692
-msgid "Order Summary"
-msgstr ""
-
-#: build/shop.js:1720
-msgid "Order Form"
-msgstr ""
-
-#: build/shop.js:1804
+#: build/shop.js:1
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
-#: build/shop.js:1994
-msgid "Close"
-msgstr ""
+#: build/shop.js:1
+msgid "Order"
+msgstr "Bestellung"
 
-#: build/shop.js:2150
-msgid "Search"
-msgstr ""
+#: build/shop.js:1
+msgid "Order Summary"
+msgstr "Bestellübersicht"
+
+#: build/shop.js:1
+msgid "Order Form"
+msgstr "Bestellformular"
 
 #: build/blocks/cart/block.json
 msgctxt "block title"
 msgid "Cart Button"
-msgstr ""
+msgstr "Einkaufswagen Button"
 
 #: build/blocks/cart/block.json
 #: build/blocks/shop/block.json
@@ -402,24 +346,24 @@ msgstr ""
 #: build/blocks/cart/block.json
 msgctxt "block description"
 msgid "Cart Button for Handout shop."
-msgstr ""
+msgstr "Einkaufswagen Button für Handout Shop."
 
 #: build/blocks/cart/block.json
 msgctxt "block style label"
 msgid "Fill"
-msgstr ""
+msgstr "Ausfüllen"
 
 #: build/blocks/cart/block.json
 msgctxt "block style label"
 msgid "Outline"
-msgstr ""
+msgstr "Umriss"
 
 #: build/blocks/shop/block.json
 msgctxt "block title"
 msgid "Handout Shop"
-msgstr ""
+msgstr "Handout Shop"
 
 #: build/blocks/shop/block.json
 msgctxt "block description"
 msgid "Add a Handout order to your website."
-msgstr ""
+msgstr "Fügen Sie eine Handout-Bestellung zu Ihrer Website hinzu."

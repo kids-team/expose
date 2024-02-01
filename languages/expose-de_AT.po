@@ -1,216 +1,433 @@
-# Copyright (C) 2021 Thomas Gollenia
-# This file is distributed under the same license as the CTX-Blocks plugin.
+# Copyright (C) 2024 Thomas Gollenia
+# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: CTX-Products 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
-"Last-Translator: Thomas Gollenia <thomas@gollenia.at>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: de_AT\n"
+"Project-Id-Version: CTX Products 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/expose\n"
+"Last-Translator: \n"
+"Language-Team: Deutsch (Österreich)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-05-05T15:46:05+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: ctx-products"
+"POT-Creation-Date: 2024-01-30T15:31:08+00:00\n"
+"PO-Revision-Date: 2024-02-01 08:09+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: expose\n"
+"Language: de_AT\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.6; wp-6.4.3"
+
+#: lib/Form.php:25
+msgid "Address"
+msgstr "Adresse"
+
+#: lib/Settings.php:55
+msgid "Admin Mail"
+msgstr "Admin-Mail"
+
+#: build/shop.js:1414
+msgid "All"
+msgstr "Alle"
+
+#: build/shop.js:1312 build/shop.js:1490
+msgid "All Products"
+msgstr "Alle Produkte"
+
+#: lib/Product.php:45
+msgid "All products"
+msgstr "Alle Produkte"
+
+#: build/index.js:425 build/index.js:305
+msgid "Appearance"
+msgstr "Aussehen"
+
+#: build/blocks/shop/block.json
+msgctxt "block description"
+msgid "Add a Handout order to your website."
+msgstr "Fügen Sie eine Handout-Bestellung zu Ihrer Website hinzu."
+
+#: build/blocks/cart/block.json
+msgctxt "block description"
+msgid "Cart Button for Handout shop."
+msgstr "Einkaufswagen Button für Handout Shop."
+
+#: build/blocks/cart/block.json build/blocks/shop/block.json
+msgctxt "block keyword"
+msgid "action"
+msgstr "aktion"
+
+#: build/blocks/cart/block.json build/blocks/shop/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr "knopf"
+
+#: build/blocks/cart/block.json build/blocks/shop/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr "link"
+
+#: build/blocks/cart/block.json
+msgctxt "block style label"
+msgid "Fill"
+msgstr "Ausfüllen"
+
+#: build/blocks/cart/block.json
+msgctxt "block style label"
+msgid "Outline"
+msgstr "Umriss"
+
+#: build/blocks/cart/block.json
+msgctxt "block title"
+msgid "Cart Button"
+msgstr "Einkaufswagen Button"
+
+#: build/blocks/shop/block.json
+msgctxt "block title"
+msgid "Handout Shop"
+msgstr "Handout Shop"
+
+#: build/index.js:459 build/index.js:330
+msgid "Cards"
+msgstr "Karten"
+
+#: build/shop.js:1589
+msgid "Cart"
+msgstr "Einkaufswagen"
+
+#: build/shop.js:1403
+msgid "Categories"
+msgstr "Kategorien"
+
+#: build/shop.js:1616
+msgid "Checkout"
+msgstr "Bestellen"
+
+#: lib/Form.php:41
+msgid "City"
+msgstr "Stadt"
+
+#: build/shop.js:1994
+msgid "Close"
+msgstr "Schließen"
+
+#: lib/Settings.php:54
+msgid "Confirmation page text"
+msgstr "Text der Bestätigungsseite"
+
+#: lib/Settings.php:53
+msgid "Confirmation page title"
+msgstr "Titel der Bestätigungsseite"
+
+#: lib/Form.php:65
+msgid "Consent"
+msgstr "Einwilligung"
+
+#: lib/Settings.php:50
+msgid "Consent Text"
+msgstr "Einwilligungs-Text"
+
+#: lib/Form.php:49
+msgid "Country"
+msgstr "Land"
+
+#: lib/Product.php:42
+msgid "Create new Product"
+msgstr "Neues Produkt erstellen"
+
+#: lib/Product.php:41
+msgid "Create new product"
+msgstr "Neues Produkt erstellen"
 
 #. Plugin Name of the plugin
 msgid "CTX Products"
-msgstr "CTX Products"
+msgstr "CTX Produkte"
 
-msgid "Settings"
-msgstr "Einstellungen"
+#: lib/Order.php:59
+msgid "Customer"
+msgstr "Kunde"
 
-msgid "Product Shop Settings"
-msgstr "Shop-Einstellungen"
+#: build/index.js:389 build/index.js:263
+msgid "Data"
+msgstr "Daten"
 
-msgid "Slug"
-msgstr "URL-Kürzel"
+#: expose.php:34
+msgid ""
+"Dear #_FORENAME,\n"
+"\n"
+"Thank you for your order. We will send you the following products:\n"
+"\n"
+"#_PRODUCTLIST\n"
+"\n"
+"Blessings, your Shop"
+msgstr ""
+"Sehr geehrter #_FORENAME,\n"
+"\n"
+"Vielen dank für ihre Bestellung:\n"
+"\n"
+"#_PRODUCTLIST\n"
+"\n"
+"Blessings, your Shop"
 
-msgid "Consent Text"
-msgstr "Text für Zustimmung der AGB"
+#: build/shop.js:1804
+msgid "Details"
+msgstr "Details"
 
-msgid "Mail Subject"
-msgstr "Betreff für Bestätigungsmail"
+#: build/index.js:484 build/index.js:365
+msgid "Drop shadow"
+msgstr "Schatten"
 
+#: lib/Form.php:17
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: lib/Product.php:43
+msgid "Edit product"
+msgstr "Produkt bearbeiten"
+
+#: build/index.js:418 build/index.js:297
+msgid "Form"
+msgstr "Formular"
+
+#: expose.php:37
+msgid ""
+"I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-"
+"world/'>law stuff</a> and allow you to process my data for this very order. "
+"All my data will be deleted after shipping."
+msgstr ""
+"Ich stimme allen <a href='https://bestlifeonline.com/47-weird-laws-around-"
+"world/'>rechtlichen Dingen</a> zu und erlaube Ihnen, meine Daten für diese "
+"Bestellung zu verarbeiten. Alle meine Daten werden nach dem Versand gelöscht."
+
+#: lib/Settings.php:109
+msgid "If empty, site admin will be used. Separate with commas."
+msgstr "Wenn leer, wird der Site-Admin verwendet. Mit Kommas trennen."
+
+#: build/index.js:352 build/index.js:216
+msgid "Internal"
+msgstr "Intern"
+
+#: build/index.js:490 build/index.js:373
+msgid "Length of preview text"
+msgstr "Länge des Vorschautextes"
+
+#: build/index.js:450 build/index.js:323
+msgid "List"
+msgstr "Liste"
+
+#: lib/Settings.php:52
 msgid "Mail Content"
-msgstr "Text für Bestätigungsmail"
+msgstr "Inhalt der E-Mail"
 
-#. Description of the plugin
-msgid "Tiny System to set up an ordering system for free-to-ship products"
-msgstr "Häufig benötigte Blöcke, die sich per twig anpassen lassen"
+#: lib/Settings.php:85
+msgid ""
+"Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or "
+"#_ORDERLIST."
+msgstr ""
+"E-Mail an den Benutzer gesendet. Verwenden Sie Platzhalter wie #_FORENAME, "
+"#_SURNAME oder #_ORDERLIST."
 
+#: lib/Settings.php:51
+msgid "Mail Subject"
+msgstr "Betreff der E-Mail"
+
+#: lib/Form.php:57
+msgid "Message"
+msgstr "Nachricht"
+
+#: build/index.js:441 build/index.js:316
+msgid "Minimal"
+msgstr "Minimal"
+
+#: lib/Form.php:9
+msgid "Name"
+msgstr "Name"
+
+#: lib/Order.php:58 lib/Order.php:65
+msgid "New Order"
+msgstr "Neue Bestellung"
+
+#: lib/Product.php:44
+msgid "New product"
+msgstr "Neues Produkt"
+
+#: lib/Product.php:111
+msgid "No Category"
+msgstr "Keine Kategorie"
+
+#: lib/Product.php:121
 msgid "No Description"
 msgstr "Keine Beschreibung"
 
-msgid "No Category"
-msgstr "Keine Kategorie"
+#: lib/Product.php:48
+msgid "No products found"
+msgstr "Keine Produkte gefunden"
+
+#: lib/Product.php:49
+msgid "No products found in trash"
+msgstr "Keine Produkte im Papierkorb gefunden"
+
+#: build/index.js:493 build/index.js:376
+msgid "Number of words"
+msgstr "Anzahl der Wörter"
+
+#: build/shop.js:1679
+msgid "Order"
+msgstr "Bestellung"
+
+#: build/shop.js:1720
+msgid "Order Form"
+msgstr "Bestellformular"
+
+#: build/shop.js:1692
+msgid "Order Summary"
+msgstr "Bestellübersicht"
+
+#: lib/Order.php:61
+msgid "Ordered Products"
+msgstr "Bestellte Produkte"
+
+#: build/shop.js:1605
+msgid "pcs."
+msgstr "Stk."
+
+#: lib/Product.php:40
+msgid "Product"
+msgstr "Produkt"
+
+#: lib/Product.php:62
+msgid "Product category"
+msgstr "Produktkategorie"
+
+#: build/index.js:520 build/index.js:405
+msgid "Product Shop"
+msgstr "Produkt-Shop"
+
+#: lib/Settings.php:21 lib/Settings.php:33
+msgid "Product Shop Settings"
+msgstr "Einstellungen für Produkt-Shop"
+
+#: lib/Product.php:74
+msgid "Product tag"
+msgstr "Produkt-Tag"
+
+#: lib/Product.php:39 lib/Product.php:51
+msgid "Products"
+msgstr "Produkte"
+
+#: build/shop.js:2150
+msgid "Search"
+msgstr "Suchen"
+
+#: lib/Product.php:47
+msgid "Search products"
+msgstr "Produkte suchen"
+
+#: build/index.js:522 build/index.js:408
+msgid ""
+"See for settings in the inspector. The result can be seen in the frontend"
+msgstr ""
+"Siehe Einstellungen im Inspector. Das Ergebnis kann im Frontend gesehen "
+"werden"
+
+#: build/shop.js:1495
+#| msgid "Selected Tag: "
+#| msgid_plural "Selected Tags: "
+msgid "Selected Tag:"
+msgid_plural "Selected Tags:"
+msgstr[0] "Schlagwort:"
+msgstr[1] "Schlagworte:"
+
+#: lib/Settings.php:22
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: build/index.js:472 build/index.js:351
+msgid "Show category"
+msgstr "Kategorie anzeigen"
+
+#: build/index.js:460 build/index.js:337
+msgid "Show filter"
+msgstr "Filter anzeigen"
+
+#: build/index.js:466 build/index.js:344
+msgid "Show searchbar"
+msgstr "Suchleiste anzeigen"
+
+#: lib/Settings.php:49
+msgid "Slug"
+msgstr "Slug"
+
+#: build/index.js:478 build/index.js:358
+msgid "Sort by category"
+msgstr "Nach Kategorie sortieren"
+
+#: build/index.js:430 build/index.js:307
+msgid "Style"
+msgstr "Stil"
+
+#: lib/Settings.php:79
+msgid "Subject for the mail sent to the user"
+msgstr "Betreff für die E-Mail, die an den Benutzer gesendet wird"
+
+#: lib/Form.php:75
+msgid "Submit"
+msgstr "Absenden"
+
+#: build/index.js:399 build/shop.js:1428 build/index.js:276
+msgid "Tags"
+msgstr "Schlagworte"
+
+#: lib/Settings.php:103
+msgid "Text for consent-box"
+msgstr "Text für die Einwilligungs-Box"
+
+#: lib/Settings.php:97
+msgid "Text of confirmation page when order was successfull"
+msgstr "Text der Bestätigungsseite, wenn die Bestellung erfolgreich war"
+
+#: expose.php:35
+msgid "Thank you for your order!"
+msgstr "Danke für Ihre Bestellung!"
 
 #. Author of the plugin
 msgid "Thomas Gollenia"
 msgstr "Thomas Gollenia"
 
-msgid "Products"
-msgstr "Produkte"
-
-msgid "Product"
-msgstr "Produkt"
-
-msgid "Create new product"
-msgstr "Neues Produkt erstellen"
-
-msgid "Edit product"
-msgstr "Produkt bearbeiten"
-
-msgid "New product"
-msgstr "Neues Produkt"
-
-msgid "All products"
-msgstr "Alle Produkte"
-
-msgid "View product"
-msgstr "Produktdetails"
-
-msgid "Search products"
-msgstr "Produkte durchsuchen"
-
-msgid "No products found"
-msgstr "Keine Produkte gefunden"
-
-msgid "No products found in trash"
-msgstr "Keine Produkte im Papierkorb gefunden"
-
-msgid "Product tag"
-msgstr "Schlagworte"
-
-msgid "Product category"
-msgstr "Produktkategorien"
-
-msgid "Title"
-msgstr "Titel"
-
-#: build/index.js:584
-#: src/blocks/alert/edit.js:58
-msgid "Proceed"
-msgstr "Weiter"
-
-#: build/index.js:675
-#: src/blocks/alert/index.js:25
-msgid "Order"
-msgstr "Bestellen"
-
-msgid "All"
-msgstr "Alle"
-
-msgid "Cancel"
-msgstr "Abbrechen"
-
-msgid "Close"
-msgstr "Schließen"
-
-msgid "Back"
-msgstr "Zurück"
-
-msgid "Next"
-msgstr "Weiter"
-
-msgid "Forename"
-msgstr "Vorname"
-
-msgid "Surname"
-msgstr "Nachname"
-
-msgid "Email"
-msgstr "E-Mail"
-
-msgid "ZIP"
-msgstr "PLZ"
-
-msgid "City"
-msgstr "Ort"
-
-msgid "Comment"
-msgstr "Kommentar"
-
-msgid "Address"
-msgstr "Straße und Hausnummer"
-
-msgid "Shopping cart"
-msgstr "Warenkorb"
-
-msgid "Madame"
-msgstr "Frau"
-
-msgid "Sir"
-msgstr "Herr"
-
-msgid "ZIP code must be a number"
-msgstr "Die Postleitzahl muss aus vier oder fünf Ziffern bestehen"
-
-msgid "Please give us a valid email address"
-msgstr "Bitte geben Sie eine gültige E-Mail-Adresse an"
-
-msgid "Your forename is missing"
-msgstr "Bitte geben Sie Ihren Vornamen an"
-
-msgid "Your surname is missing"
-msgstr "Bitte geben Sie Ihren Nachnamen an"
-
-msgid "Invalid title"
-msgstr "Bitte wählen Sie Ihre Anrede aus"
-
-msgid "We need your address"
-msgstr "Bitte geben Sie Ihre Adresse an"
-
-msgid "Type in your city"
-msgstr "Bitte geben Sie Ihren Wohnort an"
-
-msgid "Please consent to our privacy policies"
-msgstr "Bitte stimmen Sie unseren Richtlinen zu"
-
-msgid "We have recieved your order and we will send it to you as soon as possible"
-msgstr "Wir haben Ihre Bestellung erhalten und schicken Sie ihnen inn erhalb der nächsten 4 Werktage zu."
-
-msgid "Thank you for your order!"
-msgstr "Vielen Dank für Ihre Bestellung"
-
-msgid "Confirmation page title"
-msgstr "Überschrift Bestellabschluss"
-
-msgid "Confirmation page text"
-msgstr "Text Bestellabschluss"
-
-msgid "I consent to all law stuff and allow you to process my data for this very order. All my data will be deleted after shipping."
-msgstr "Hiermit stimme ich der AGB und der Datenschutzerklärung zu"
-
-msgid "If empty, site admin will be used. Separate with commas."
-msgstr "Wenn leer, wird die globale Admin-Adresse verwendet. Mehrere Adressen mit Beistrich trennen"
-
-msgid "Subject for the mail sent to the user"
-msgstr "Betreff der E-Mail, die an den Kunden geschickt wird"
-
-msgid "Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or #_ORDERLIST."
-msgstr "E-Mail, die an den Kunden geschickt wird. Platzhalter wie #_FORENAME, #_SURNAME oder #_ORDERLIST sind möglich."
-
+#: lib/Settings.php:91
 msgid "Title of confirmation page when order was successfull"
-msgstr "Überschrift der Bestell-Bestätigung auf der Webseite"
+msgstr "Titel der Bestätigungsseite, wenn die Bestellung erfolgreich war"
 
-msgid "Text of confirmation page when order was successfull"
-msgstr "Text der Bestell-Bestätigung auf der Webseite"
+#: lib/Product.php:46
+msgid "View product"
+msgstr "Produkt ansehen"
 
-msgid "Text for consent-box"
-msgstr "Text für die Zustimmungs-Checkbox. Kann Links als HTML-Code enthalten."
+#: expose.php:36
+msgid ""
+"We have recieved your order and we will send it to you as soon as possible"
+msgstr ""
+"Wir haben Ihre Bestellung erhalten und werden sie Ihnen so schnell wie "
+"möglich zusenden"
 
-msgid "New Order"
-msgstr "Neue Bestellung"
+#: build/shop.js:1500
+#| msgid "with tag: "
+#| msgid_plural "with tags: "
+msgid "with tag:"
+msgid_plural "with tags:"
+msgstr[0] "mit Schlagwort:"
+msgstr[1] "mit Schlagworten:"
 
-msgid "Customer"
-msgstr "Kunde"
+#. Description of the plugin
+msgid ""
+"Wordpress Plugin that displays free products like magazines or tracts and "
+"let customers place orders without payment."
+msgstr ""
+"Wordpress Plugin, das kostenlose Produkte wie Zeitschriften oder Traktate "
+"anzeigt und Kunden Bestellungen ohne Zahlung aufgeben lässt."
 
-msgid "Ordered Products"
-msgstr "Bestellte Produkte"
+#: expose.php:33
+msgid "Your Order"
+msgstr "Ihre Bestellung"
 
-msgid "Please wait..."
-msgstr "Bitte warten..."
-
+#: lib/Form.php:33
+msgid "Zip"
+msgstr "PLZ"
