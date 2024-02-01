@@ -4,7 +4,7 @@
 	"name": "ctx-products/shop",
 	"title": "Handout Shop",
 	"keywords": [ "link", "action", "button" ],
-	"textdomain": "ctx-blocks",
+	"textdomain": "expose",
 	"description": "Add a Handout order to your website.",
 	"category": "widgets",
 	"attributes": {

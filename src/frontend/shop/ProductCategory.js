@@ -10,6 +10,7 @@ const ProductCategory = ( props ) => {
 	const [ showCategory, setShowCategory ] = useState( [] );
 
 	const addToCart = ( product, count = 1 ) => {
+		if ( count == 0 ) return dispatch( { type: 'REMOVE_FROM_CART', payload: { id: product, count } } );
 		dispatch( { type: 'ADD_TO_CART', payload: { id: product, count } } );
 	};
 

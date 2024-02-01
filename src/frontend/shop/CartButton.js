@@ -1,15 +1,19 @@
+import React, { useState } from '@wordpress/element';
+import MiniCart from './MiniCart';
+
 const CartButton = ( props ) => {
 	const { cartSize, onClick } = props;
 
-	const className = cartSize ? 'button button--pop button--primary' : 'button button--disabled';
+	const [ showMiniCart, setShowMiniCart ] = useState( false );
+	const className = cartSize ? '' : '';
 	return (
-		<>
+		<div className="ctx-cart-button">
 			<button className={ className } onClick={ onClick } disabled={ cartSize == 0 }>
-				Warenkorb
 				<em className="material-icons">shopping_cart</em>
-				{ !! cartSize && <span className="badge ml-2 primary-inverse">{ cartSize }</span> }
+				{ !! cartSize && <span className="ctx-cart-button-badge">{ cartSize }</span> }
 			</button>
-		</>
+			<MiniCart show={ cartSize > 0 } />
+		</div>
 	);
 };
 

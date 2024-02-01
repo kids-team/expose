@@ -1,15 +1,10 @@
-import React, { useContext, useState } from '@wordpress/element';
+import React, { useContext } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 import { AppContext } from '../services/context';
 
 const ProductCard = ( props ) => {
 	const { product, onCartClick } = props;
 	const { state, dispatch } = useContext( AppContext );
-
-	const [ quantity, setQuantity ] = useState( 1 );
-
-	const addToCart = ( product, count = 1 ) => {
-		dispatch( { type: 'ADD_TO_CART', payload: { id: product, count } } );
-	};
 
 	return (
 		<div key={ product.id } className="ctx-product-card">
@@ -25,21 +20,19 @@ const ProductCard = ( props ) => {
 				/>
 				<div className="ctx-product-card-footer">
 					<div>
-						<button className="button button--secondary">Details</button>
+						<button
+							className="button button--secondary"
+							onClick={ () => {
+								dispatch( { type: 'SET_SELECTED_PRODUCT', payload: product.id } );
+							} }
+						>
+							{ __( 'Details', 'expose' ) }
+						</button>
 					</div>
-					<div>
-						<div className="ctx-number-picker">
-							<button className="button button--secondary" onClick={ () => setQuantity( quantity - 1 ) }>
-								-
-							</button>
-							<span className="ctx-number-picker__number">{ quantity }</span>
-							<button className="button button--secondary" onClick={ () => setQuantity( quantity + 1 ) }>
-								+
-							</button>
-						</div>
+					<div className="ctx-product-card-actions">
 						<span
-							className="button button--link button--pop button--gray button--icon"
-							onClick={ () => addToCart( product.id, quantity ) }
+							className="ctx-product-card-add"
+							onClick={ () => dispatch( { type: 'ADD_TO_CART', payload: { id: product.id, count: 1 } } ) }
 						>
 							<em className="material-icons">add_shopping_cart</em>
 						</span>

@@ -1,0 +1,76 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ctx-products/cart",
+	"title": "Cart Button",
+	"keywords": [ "link", "action", "button" ],
+	"textdomain": "expose",
+	"description": "Cart Button for Handout shop.",
+	"category": "widgets",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"icon": {
+			"type": "string",
+			"default": "shopping_cart"
+		},
+		"iconRight": {
+			"type": "boolean",
+			"default": false
+		},
+		"iconOnly": {
+			"type": "boolean",
+			"default": false
+		},
+		"id": {
+			"type": "string",
+			"default": "ctx-cart-button"
+		},
+		"anchor": {
+			"type": "string",
+			"default": "ctx-cart-button"
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"color": {
+			"link": true,
+			"text": true,
+			"background": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": false,
+			"width": false,
+			"__experimentalDefaultControls": {
+				"radius": true,
+				"style": false,
+				"width": true,
+				"linked": false,
+				"color": true
+			}
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"styles": [
+		{
+			"name": "fill",
+			"label": "Fill",
+			"isDefault": true
+		},
+		{
+			"name": "outline",
+			"label": "Outline"
+		}
+	],
+	"editorScript": "expose-block-editor",
+	"editorStyle": "expose-block-editor-style",
+	"style": "expose-frontend-style"
+}

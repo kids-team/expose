@@ -1,14 +1,19 @@
 export const initialState = {
 	products: [],
-	status: 'init',
+	status: 'INIT',
+	formStatus: 'INIT',
 	cart: {},
 	error: '',
 	categories: {},
+	tags: {},
+	response: '',
 	wizzard: {
 		step: 0,
 		checkValidity: false,
 	},
 	selectedProduct: 0,
+	selectedCategory: 0,
+	selectedTags: [],
 	showOrderModal: false,
 };
 
@@ -40,8 +45,21 @@ export const reducer = ( state, action ) => {
 		case 'SET_CATEGORIES':
 			return { ...state, categories: payload };
 
+		case 'SET_SELECTED_CATEGORY':
+			return { ...state, selectedCategory: payload };
+
+		case 'SET_SELECTED_TAGS':
+			return { ...state, selectedTags: payload };
+
+		case 'SET_TAGS':
+			return { ...state, tags: payload };
+
 		case 'SET_STATUS':
 			state.status = payload;
+			return { ...state };
+
+		case 'SET_FORM_STATUS':
+			state.formStatus = payload;
 			return { ...state };
 
 		case 'SET_SELECTED_PRODUCT':
@@ -52,7 +70,11 @@ export const reducer = ( state, action ) => {
 				delete state.cart[ payload.id ];
 				return { ...state };
 			}
-			state.cart[ payload.id ] = payload.count ?? 1;
+
+			const oldCount = state.cart[ payload.id ] || 0;
+			console.log( 'oct', oldCount );
+			console.log( 'plc', payload.count );
+			state.cart[ payload.id ] = payload.count === 1 ? oldCount + 1 : payload.count;
 			if ( Object.keys( state.cart ).length === 0 ) {
 				state.showOrderModal = false;
 			}
@@ -65,12 +87,13 @@ export const reducer = ( state, action ) => {
 			}
 			return { ...state };
 
+		case 'SET_RESPONSE':
+			return { ...state, response: payload };
+
 		case 'RESET':
-			console.log( 'resetting...' );
-			return {};
+			return { ...state, cart: {}, wizzard: { step: 0, checkValidity: false }, status: 'init' };
 
 		default:
-			console.log( 'UNKNOWN ACTION', action );
 	}
 
 	return { ...state };

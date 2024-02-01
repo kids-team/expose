@@ -1,5 +1,8 @@
 import { useContext } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+import NumberPicker from '../../_externalNumberPicker';
 import { AppContext } from '../services/context';
+import Form from './../../_externalForm/Form';
 
 const OrderModal = ( props ) => {
 	const { state, dispatch } = useContext( AppContext );
@@ -22,9 +25,9 @@ const OrderModal = ( props ) => {
 				closeModel( event );
 			} }
 		>
-			<div className="ctx-order-modal-content">
+			<div className="ctx-order-modal-window">
 				<div className="ctx-order-modal-header">
-					<h2>Order</h2>
+					<h2>{ __( 'Order', 'expose' ) }</h2>
 					<button
 						onClick={ () => {
 							dispatch( { type: 'SET_ORDER_MODAL', payload: false } );
@@ -34,73 +37,73 @@ const OrderModal = ( props ) => {
 					</button>
 				</div>
 
-				<div className="ctx-order-modal-summary">
-					{ Object.keys( state.cart ).map( ( id ) => {
-						const product = state.products.find( ( product ) => product.id == id );
-						const quantity = state.cart[ id ];
-						console.log( product );
-						return (
-							<div className="ctx-order-modal-product">
-								<div className="ctx-order-modal-product-image">
-									<img
-										src={
-											product?._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes.thumbnail
-												.source_url
-										}
-									/>
-								</div>
-								<div className="ctx-order-modal-product-content">
-									<h4>{ product?.title.rendered }</h4>
-									<div
-										dangerouslySetInnerHTML={ {
-											__html: product?.content.rendered,
-										} }
-									/>
-								</div>
-								<div className="ctx-order-modal-product-footer">
-									<div className="ctx-number-picker">
-										<button
-											className="button button--secondary"
-											onClick={ () => {
-												setCartItem( id, 0 );
-											} }
-										>
-											<i className="material-icons">delete</i>
-										</button>
-										<input
-											className="ctx-number-picker__number"
-											value={ quantity }
-											onChange={ ( event ) => {
-												setCartItem( id, event.target.value );
-											} }
-										/>
+				{ state.formStatus !== 'SUCCESS' ? (
+					<div className="ctx-order-modal-content">
+						<div className="ctx-order-modal-summary">
+							<h3>{ __( 'Order Summary', 'expose' ) }</h3>
+							{ Object.keys( state.cart ).map( ( id, key ) => {
+								const product = state.products.find( ( product ) => product.id == id );
+								const quantity = state.cart[ id ];
+
+								return (
+									<div className="ctx-order-modal-product" key={ key }>
+										<div className="ctx-order-modal-product-image">
+											<img
+												src={
+													product?._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes
+														.thumbnail.source_url
+												}
+											/>
+										</div>
+										<div className="ctx-order-modal-product-content">
+											<h4>{ product?.title.rendered }</h4>
+											<div
+												dangerouslySetInnerHTML={ {
+													__html: product?.content.rendered,
+												} }
+											/>
+										</div>
+										<div className="ctx-order-modal-product-footer">
+											<div className="ctx-order-modal-product-actions">
+												<NumberPicker
+													value={ quantity }
+													onChange={ ( value ) => setCartItem( id, value ) }
+													min={ 0 }
+													steps={ 1 }
+												/>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-						);
-					} ) }
-				</div>
-				<div className="ctx-order-modal-customer">
-					<h3>Customer</h3>
-					<div className="ctx-order-modal-customer-form">
-						<div className="ctx-order-modal-customer-form-group">
-							<label htmlFor="name">Name</label>
-							<input type="text" name="name" />
+								);
+							} ) }
 						</div>
-						<div className="ctx-order-modal-customer-form-group">
-							<label htmlFor="email">Email</label>
-							<input type="email" name="email" />
-						</div>
-						<div className="ctx-order-modal-customer-form-group">
-							<label htmlFor="phone">Phone</label>
-							<input type="text" name="phone" />
-						</div>
-						<div className="ctx-order-modal-customer-form-group">
-							<label htmlFor="address">Address</label>
-							<input type="text" name="address" />
+						<div className="form ctx-order-modal-form">
+							<h3>{ __( 'Order Form', 'expose' ) }</h3>
+							<Form
+								formUrl={
+									props.formId
+										? `/wp-json/gbf-form/v2/form/${ props.formId }`
+										: '/wp-json/order/vs/form'
+								}
+								extraData={ {
+									products: state.cart,
+								} }
+								submitUrl="/wp-json/expose/v2/order"
+								onSubmissionFinished={ ( response ) => {
+									console.log( response );
+									dispatch( { type: 'SET_FORM_STATUS', payload: 'SUCCESS' } );
+									dispatch( { type: 'SET_RESPONSE', payload: response.data } );
+									dispatch( { type: 'RESET' } );
+								} }
+							/>
 						</div>
 					</div>
-				</div>
+				) : (
+					<div
+						className="ctx-order-modal-success"
+						dangerouslySetInnerHTML={ { __html: state.response } }
+					></div>
+				) }
 			</div>
 		</div>
 	);

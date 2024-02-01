@@ -18,110 +18,49 @@ class Order {
     }
 
     public function process_order($data) {
-        // Create the response object
-        $values = $data->get_json_params();
         
-        $invalid = $this->validate_input($values);
-        if($invalid) {
-            $response = new \WP_REST_Response( ["status" => 'invalid', 'data' => $invalid]);
-            $response->set_status( 303 );
-            return $response;
-        };
-        // Add a custom status code
-        $send = $this->send_order_admin($data);
-        $send = $this->send_order_user($data);
-        $response = new \WP_REST_Response( ["status" => 'ok', 'data' => $send] );
+        $values = $data->get_json_params();
+		
+		if(!array_key_exists('products', $values)) {
+			$response = new \WP_REST_Response( ["status" => 'error', 'data' => 'No products in cart'] );
+			$response->set_status( 400 );
+			return $response;
+		}
 
-        $response->set_status( 201 );
+		if(!array_key_exists('id', $values)) {
+			$response = new \WP_REST_Response( ["status" => 'error', 'data' => 'No form id'] );
+			$response->set_status( 400 );
+			return $response;
+		}
+
+		if(!class_exists('\Contexis\GutenbergForm\FormFields')) {
+			$response = new \WP_REST_Response( ["status" => 'error', 'data' => 'Gutenberg Forms not installed'] );
+			$response->set_status( 400 );
+			return $response;
+		}
+
+		$mail_data = $this->get_mail_data($values);
+        
+        // Add a custom status code
+        $send = $this->send_order_to_admin($mail_data);
+        //$send = $this->send_order_user($data);
+
+		$thank_you_page = '<h2>' . get_option( 'expose_options' )['thanks_head'] . '</h2><p>' . get_option( 'expose_options' )['thanks_text'] . '</p>';
+		
+        $response = new \WP_REST_Response( ["status" => $send ? 'ok' : 'error', 'data' => $send ? $thank_you_page : __("There has been a problem sending your Order. Please try again later")] );
+
+        $response->set_status( 200 );
         return $response;
     }
 
-    public function validate_input($data) {
-        $valid = true;
-        $input = $data['user'];
-        $rexSafety = "/[\^<,\"@\/\{\}\(\)\*\$%\?=>:\|;#]+/i";
 
-        foreach ($input as $key => $value) {
-            switch ($key) {
-                case "zip":
-                    if(!is_numeric($value['value'])) {
-                        $input['zip']['msg'] = __("ZIP code must be a number", "expose");
-                        $input['zip']['error'] = true;
-                        $valid = false;
-                    }
-                    break;
-                case "email":
-                    if(!filter_var($value['value'], FILTER_VALIDATE_EMAIL) || empty($value['value'])) { 
-                        $input['email']['error'] = filter_var($value['value'], FILTER_VALIDATE_EMAIL) . __("Please give us a valid email address", "expose");
-                        $valid = false;
-                    }
-                    break;
-                case "forename":
-                    if (preg_match($rexSafety, $value['value']) || empty($value['value'])) {
-                        $input['forename']['msg'] = __("Your forename is missing", "expose") . $value['value'];
-                        $input['forename']['error'] = true;
-                        $valid = false;
-                    }
-                    break;
-                case "surname":
-                    if (preg_match($rexSafety, $value['value']) || empty($value['value'])) {
-                        $input['surname']['msg'] = __("Your surname is missing", "expose") . $value['value'];
-                        $input['surname']['error'] = true;
-                        $valid = false;
-                    }
-                    break;               
-                case "address":
-                    
-                    if (preg_match($rexSafety, $value['value']) || empty($value['value'])) {
-                        $input['address']['msg'] = __("We need your address", "expose") . $value['value'];
-                        $input['address']['error'] = true;
-                        $valid = false;
-                    }
-                    break;
-                case "city":
-                    
-                    if (preg_match($rexSafety, $value['value']) || empty($value['value'])) {
-                        $input['city']['msg'] = __("Type in your city", "expose") . $value['value'];
-                        $input['city']['error'] = true;
-                        $valid = false;
-                    }
-                    break;
-                case "consent":
-                    
-                    if (!$value['value']) {
-                        $input['consent']['error'] = true;
-                        $input['consent']['msg'] = __("Please consent to our privacy policies", "expose");
-                        $valid = false;
-                    }
-                    break;
-            }
-        }
-        if ($valid) {
-            return false;
-        }
-        return $input;
-    }
-
-    public function sanitize_item() {
-        
-    }
-
-    public function send_order_admin($data) {
+    public function send_order_to_admin($data) {
         $order_table = "<h2>" . __("New Order", "expose") . "</h2>";
         $order_table .= "<h3>" . __("Customer", "expose") . "</h3>";
-        $order_table .= "<table><tr><td>" .  __("Name", "expose") . ":</td><td>";
-        $order_table .= $data['user']['forename']['value'] . $data['user']['surname']['value'] . "</td></tr>";
-        $order_table .= "<tr><td>" .  __("Email", "expose") . ":</td><td>" . $data['user']['email']['value'] . "</td></tr>";
-        $order_table .= "<tr><td>" .  __("Address", "expose") . ":</td><td>" . $data['user']['address']['value'] . "</td></tr>";
-        $order_table .= "<tr><td></td><td>" . $data['user']['zip']['value'] . $data['user']['city']['value'] . "</td></tr></table>";
+        $order_table .= $data['customer'];
         $order_table .= "<h3>" .  __("Ordered Products", "expose") . "</h3>";
-        $order_table .= "<ul>";
-        foreach($data['cart'] as $item) {
-            $post = get_post( $item['id'] );
-            $order_table .= "<li>" . $item['count'] . "x <h href='" . $post->guid . "'>" .  $post->post_title . "</a></li>";
-        }
-        $order_table .= "</ul>";
-        $order_table .= $data['user']['comment']['value'] ? "<h3>Kommentar</h3><p>" . $data['user']['comment']['value'] . "</p>": "";
+        $order_table .= $data['products'];
+		
         $addresses = $this->get_admin_address();
         return wp_mail( $addresses, __("New Order", "expose"), $order_table, array('Content-Type: text/html; charset=UTF-8'));
     }
@@ -163,10 +102,36 @@ class Order {
         return wp_mail( $data['user']['email']['value'], $options['mail_subject'], $text, array('Content-Type: text/html; charset=UTF-8'));
     }
 
+	public function order_table(Array $cart) {
+		$order_table = "<ul>";
+		foreach($cart as $id => $count ) {
+			$post = get_post( $id );
+			$order_table .= "<li>" . $count . "x <h href='" . $post->guid . "'>" .  $post->post_title . "</a></li>";
+		}
+		$order_table .= "</ul>";
+		return $order_table;
+	}
+
+	public function get_mail_data($values) {
+		if(!class_exists('\Contexis\GutenbergForm\FormFields') || !array_key_exists('id', $values)) {
+			return false;
+		}
+		$formFields = new \Contexis\GutenbergForm\FormFields($values['id'], 0);
+		$validation = $formFields->validate($values);
+		$data = [
+			'customer' => $formFields->get_formatted_values(),
+			'products' => $this->order_table($values['products']),
+			'raw' => $values,
+		];
+		return $data;
+	}
+
     // Let's add a nonce here later...
     public function get_permission($data) {
         return true;
     }
+
+
 
 }
 

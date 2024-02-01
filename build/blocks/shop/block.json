@@ -8,7 +8,7 @@
     "action",
     "button"
   ],
-  "textdomain": "ctx-blocks",
+  "textdomain": "expose",
   "description": "Add a Handout order to your website.",
   "category": "widgets",
   "attributes": {

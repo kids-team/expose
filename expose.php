@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Expose
+ * Plugin Name:     CTX Products
  * Description:     Wordpress Plugin that displays free products like magazines or tracts and let customers place orders without payment.
  * Version:         1.0.1
  * Author:          Thomas Gollenia
@@ -12,10 +12,11 @@
  */
 
 require_once('lib/assets.php');
+require_once('lib/block.php');
 require_once('lib/Order.php');
 require_once('lib/Product.php');
 require_once('lib/Settings.php');
-require_once('lib/block.php');
+
 
 /**
  * Load plugin textdomain.

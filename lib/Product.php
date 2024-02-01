@@ -112,7 +112,6 @@ class Product {
         }
 		if($column == "description") {
 			
-			
 			if($post->post_excerpt) {
 				
 				echo $post->post_excerpt;
@@ -189,6 +188,7 @@ class Product {
 	public function rest_get_terms($object, $field_name, $request) {
 		return wp_get_post_terms( $object['id'], 'product-tagss' );
 	}
+
 
 }
 

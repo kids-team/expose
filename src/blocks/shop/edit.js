@@ -6,12 +6,12 @@ import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
 	Button,
 	CheckboxControl,
+	ComboboxControl,
 	FormTokenField,
 	Icon,
 	PanelBody,
 	PanelRow,
 	RangeControl,
-	SelectControl,
 	ToggleControl,
 } from '@wordpress/components';
 
@@ -42,7 +42,6 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 		selectedTags,
 	} = attributes;
 
-	console.log( attributes );
 	const [ selectedCategoryState, setSelectedCategoryState ] = useState( selectedCategories );
 
 	const categoryList = useSelect( ( select ) => {
@@ -77,14 +76,13 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 		const list = getEntityRecords( 'postType', 'gbf-form', query );
 
 		if ( ! list ) {
-			return null;
+			return [];
 		}
 		let options = list.map( ( form ) => {
 			return { value: form.id, label: form.title.rendered };
 		} );
 
 		options.unshift( { value: 0, label: __( 'Internal', 'expose' ) } );
-
 		return options;
 	}, [] );
 
@@ -163,8 +161,8 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 					__experimentalExpandOnFocus={ true }
 				/>
 
-				{ formList.length < 1 && (
-					<SelectControl
+				{ formList?.length && (
+					<ComboboxControl
 						label={ __( 'Form', 'expose' ) }
 						options={ formList }
 						value={ form }
