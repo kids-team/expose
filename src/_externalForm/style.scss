@@ -38,6 +38,10 @@
 	.ctx-form-field {
 	}
 
+	.input--width-2 {
+		grid-column: span 2;
+	}
+
 	.input--width-3 {
 		grid-column: span 3;
 	}
