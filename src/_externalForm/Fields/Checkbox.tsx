@@ -9,11 +9,12 @@ type Props = {
 	type: 'checkbox' | 'toggle';
 	customError: string;
 	value: boolean;
+	help: string;
 	onChange: ( value: any ) => void;
 };
 
 const Checkbox = ( props: Props ) => {
-	const { label, width, onChange, type, value } = props;
+	const { label, width, onChange, type, value, help } = props;
 
 	const inputRef = useRef< HTMLInputElement >( null );
 
@@ -50,7 +51,7 @@ const Checkbox = ( props: Props ) => {
 					/>
 					{ toggle && <span className="toggle__switch"></span> }
 				</div>
-				<span>{ label }</span>
+				<span>{ help ?? label }</span>
 			</label>
 			{ ! inputRef?.current?.validity.valid && inputRef.current?.validationMessage && (
 				<span className="input__error">{ inputRef.current?.validationMessage }</span>
