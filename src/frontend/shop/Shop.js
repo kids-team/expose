@@ -97,7 +97,7 @@ const Shop = ( { attributes, category } ) => {
 									setShowFilter( ! showFilter );
 								} }
 							>
-								<i className="material-icons">tune</i>
+								<i className="material-icons material-symbols-outlined">tune</i>
 							</button>
 						</div>
 

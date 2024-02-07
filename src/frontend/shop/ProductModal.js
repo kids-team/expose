@@ -52,7 +52,7 @@ const ProductModal = ( props ) => {
 							dispatch( { type: 'SET_SELECTED_PRODUCT', payload: 0 } );
 						} }
 					>
-						<i className="material-icons">close</i>
+						<i className="material-icons material-symbols-outlined">close</i>
 					</button>
 				</div>
 
@@ -73,7 +73,7 @@ const ProductModal = ( props ) => {
 					<div className="ctx-order-modal-actions">
 						<NumberPicker value={ quantity } onChange={ ( value ) => setQuantity( value ) } min={ 1 } />
 						<span className="ctx-product-card-add" onClick={ () => addToCart( product.id, quantity ) }>
-							<em className="material-icons">add_shopping_cart</em>
+							<em className="material-icons material-symbols-outlined">add_shopping_cart</em>
 						</span>
 					</div>
 				</div>

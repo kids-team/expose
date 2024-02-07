@@ -34,7 +34,7 @@ const ProductCard = ( props ) => {
 							className="ctx-product-card-add"
 							onClick={ () => dispatch( { type: 'ADD_TO_CART', payload: { id: product.id, count: 1 } } ) }
 						>
-							<em className="material-icons">add_shopping_cart</em>
+							<em className="material-icons material-symbols-outlined">add_shopping_cart</em>
 						</span>
 					</div>
 				</div>

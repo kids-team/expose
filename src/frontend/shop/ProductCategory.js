@@ -22,7 +22,7 @@ const ProductCategory = ( props ) => {
 						setShowCategory( ! showCategory );
 					} }
 				>
-					<i className="material-icons">keyboard_arrow_down</i>
+					<i className="material-icons material-symbols-outlined">keyboard_arrow_down</i>
 				</button>
 				<h4>{ title }</h4>
 			</div>

@@ -33,7 +33,7 @@ const OrderModal = ( props ) => {
 							dispatch( { type: 'SET_ORDER_MODAL', payload: false } );
 						} }
 					>
-						<i className="material-icons">close</i>
+						<i className="material-icons material-symbols-outlined">close</i>
 					</button>
 				</div>
 

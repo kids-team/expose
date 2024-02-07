@@ -9,7 +9,7 @@ const CartButton = ( props ) => {
 	return (
 		<div className="ctx-cart-button">
 			<button className={ className } onClick={ onClick } disabled={ cartSize == 0 }>
-				<em className="material-icons">shopping_cart</em>
+				<em className="material-icons material-symbols-outlined">shopping_cart</em>
 				{ !! cartSize && <span className="ctx-cart-button-badge">{ cartSize }</span> }
 			</button>
 			<MiniCart show={ cartSize > 0 } />
