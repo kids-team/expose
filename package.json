@@ -17,6 +17,7 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
+		"@contexis/wp-react-form": "^1.0.11",
 		"@wordpress/element": "^5.27.0",
 		"@wordpress/icons": "^9.41.0"
 	},

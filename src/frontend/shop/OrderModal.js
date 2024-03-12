@@ -1,8 +1,8 @@
+import Form from '@contexis/wp-react-form';
 import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import NumberPicker from '../../_externalNumberPicker';
 import { AppContext } from '../services/context';
-import Form from './../../_externalForm/Form';
 
 const OrderModal = ( props ) => {
 	const { state, dispatch } = useContext( AppContext );
