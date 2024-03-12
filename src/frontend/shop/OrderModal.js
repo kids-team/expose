@@ -90,7 +90,6 @@ const OrderModal = ( props ) => {
 								} }
 								submitUrl="/wp-json/expose/v2/order"
 								onSubmissionFinished={ ( response ) => {
-									console.log( response );
 									dispatch( { type: 'SET_FORM_STATUS', payload: 'SUCCESS' } );
 									dispatch( { type: 'SET_RESPONSE', payload: response.data } );
 									dispatch( { type: 'RESET' } );

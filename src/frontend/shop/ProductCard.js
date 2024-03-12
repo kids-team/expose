@@ -5,9 +5,6 @@ import { AppContext } from '../services/context';
 const ProductCard = ( props ) => {
 	const { product, onCartClick } = props;
 	const { state, dispatch } = useContext( AppContext );
-
-	console.log( product );
-	console.log( product._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes.large.source_url );
 	return (
 		<div key={ product.id } className="ctx-product-card">
 			<div className="ctx-product-card-image">

@@ -72,8 +72,7 @@ export const reducer = ( state, action ) => {
 			}
 
 			const oldCount = state.cart[ payload.id ] || 0;
-			console.log( 'oct', oldCount );
-			console.log( 'plc', payload.count );
+
 			state.cart[ payload.id ] = payload.count === 1 ? oldCount + 1 : payload.count;
 			if ( Object.keys( state.cart ).length === 0 ) {
 				state.showOrderModal = false;
@@ -91,7 +90,7 @@ export const reducer = ( state, action ) => {
 			return { ...state, response: payload };
 
 		case 'RESET':
-			return { ...state, cart: {}, wizzard: { step: 0, checkValidity: false }, status: 'init' };
+			return { ...state, cart: {}, wizzard: { step: 0, checkValidity: false }, status: 'SUCCESS' };
 
 		default:
 	}

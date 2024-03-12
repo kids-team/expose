@@ -49,9 +49,7 @@ const Shop = ( { attributes, category } ) => {
 			}
 			dispatch( { type: 'SET_CATEGORIES', payload: result } );
 			if ( category ) {
-				console.log( category );
 				Object.entries( result ).forEach( ( [ key, value ] ) => {
-					console.log( key, value );
 					if ( value.toLowerCase() === category.toLowerCase() ) {
 						dispatch( { type: 'SET_SELECTED_CATEGORY', payload: key } );
 					}
