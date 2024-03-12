@@ -5,6 +5,8 @@ import { AppContext } from '../services/context';
 const ProductCard = ( props ) => {
 	const { product, onCartClick } = props;
 	const { state, dispatch } = useContext( AppContext );
+
+	console.log( product );
 	console.log( product._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes.large.source_url );
 	return (
 		<div key={ product.id } className="ctx-product-card">
@@ -15,7 +17,7 @@ const ProductCard = ( props ) => {
 				<h4>{ product.title.rendered }</h4>
 				<div
 					dangerouslySetInnerHTML={ {
-						__html: product.content.rendered,
+						__html: product.excerpt.rendered,
 					} }
 				/>
 				<div className="ctx-product-card-footer">
