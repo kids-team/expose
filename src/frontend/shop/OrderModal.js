@@ -59,7 +59,7 @@ const OrderModal = ( props ) => {
 											<h4>{ product?.title.rendered }</h4>
 											<div
 												dangerouslySetInnerHTML={ {
-													__html: product?.content.rendered,
+													__html: product?.excerpt?.rendered,
 												} }
 											/>
 										</div>
