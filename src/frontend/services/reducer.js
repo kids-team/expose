@@ -73,7 +73,7 @@ export const reducer = ( state, action ) => {
 
 			const oldCount = state.cart[ payload.id ] || 0;
 
-			state.cart[ payload.id ] = payload.count === 1 ? oldCount + 1 : payload.count;
+			state.cart[ payload.id ] = payload.count;
 			if ( Object.keys( state.cart ).length === 0 ) {
 				state.showOrderModal = false;
 			}
