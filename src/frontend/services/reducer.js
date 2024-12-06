@@ -7,7 +7,7 @@ export const initialState = {
 	categories: {},
 	tags: {},
 	response: '',
-	wizzard: {
+	wizard: {
 		step: 0,
 		checkValidity: false,
 	},
@@ -21,19 +21,19 @@ export const reducer = ( state, action ) => {
 	const { type, payload } = action;
 
 	switch ( type ) {
-		case 'SET_WIZZARD_STEP':
-			state.wizzard.step = payload;
-			state.wizzard.checkValidity = true;
+		case 'SET_WIZARD_STEP':
+			state.wizard.step = payload;
+			state.wizard.checkValidity = true;
 			return { ...state };
 
-		case 'INCREMENT_WIZZARD':
-			state.wizzard.step = state.wizzard.step + ( payload ? payload : 1 );
-			state.wizzard.checkValidity = true;
+		case 'INCREMENT_WIZARD':
+			state.wizard.step = state.wizard.step + ( payload ? payload : 1 );
+			state.wizard.checkValidity = true;
 			return { ...state };
 
-		case 'DECREMENT_WIZZARD':
-			state.wizzard.step = state.wizzard.step - ( payload ? payload : 1 );
-			state.wizzard.checkValidity = true;
+		case 'DECREMENT_WIZARD':
+			state.wizard.step = state.wizard.step - ( payload ? payload : 1 );
+			state.wizard.checkValidity = true;
 			return { ...state };
 
 		case 'SET_PRODUCTS':
@@ -90,7 +90,7 @@ export const reducer = ( state, action ) => {
 			return { ...state, response: payload };
 
 		case 'RESET':
-			return { ...state, cart: {}, wizzard: { step: 0, checkValidity: false }, status: 'SUCCESS' };
+			return { ...state, cart: {}, wizard: { step: 0, checkValidity: false }, status: 'SUCCESS' };
 
 		default:
 	}
