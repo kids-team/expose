@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-01T08:08:16+00:00\n"
+"POT-Creation-Date: 2024-06-06T09:38:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: expose\n"
@@ -235,7 +235,7 @@ msgid "Data"
 msgstr ""
 
 #: build/index.js:399
-#: build/shop.js:1428
+#: build/shop.js:1273
 #: build/index.js:276
 msgid "Tags"
 msgstr ""
@@ -315,64 +315,64 @@ msgstr ""
 msgid "See for settings in the inspector. The result can be seen in the frontend"
 msgstr ""
 
-#: build/shop.js:1312
-#: build/shop.js:1490
+#: build/shop.js:1157
+#: build/shop.js:1335
 msgid "All Products"
 msgstr ""
 
-#: build/shop.js:1403
+#: build/shop.js:1248
 msgid "Categories"
 msgstr ""
 
-#: build/shop.js:1414
+#: build/shop.js:1259
 msgid "All"
 msgstr ""
 
-#: build/shop.js:1495
+#: build/shop.js:1340
 msgid "Selected Tag:"
 msgid_plural "Selected Tags:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: build/shop.js:1500
+#: build/shop.js:1345
 msgid "with tag:"
 msgid_plural "with tags:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: build/shop.js:1589
+#: build/shop.js:1434
 msgid "Cart"
 msgstr ""
 
-#: build/shop.js:1605
+#: build/shop.js:1450
 msgid "pcs."
 msgstr ""
 
-#: build/shop.js:1616
+#: build/shop.js:1461
 msgid "Checkout"
 msgstr ""
 
-#: build/shop.js:1679
+#: build/shop.js:1524
 msgid "Order"
 msgstr ""
 
-#: build/shop.js:1692
+#: build/shop.js:1537
 msgid "Order Summary"
 msgstr ""
 
-#: build/shop.js:1720
+#: build/shop.js:1565
 msgid "Order Form"
 msgstr ""
 
-#: build/shop.js:1804
+#: build/shop.js:1648
 msgid "Details"
 msgstr ""
 
-#: build/shop.js:1994
+#: build/shop.js:1838
 msgid "Close"
 msgstr ""
 
-#: build/shop.js:2150
+#: build/shop.js:1992
 msgid "Search"
 msgstr ""
 
