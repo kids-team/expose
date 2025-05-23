@@ -108,7 +108,7 @@ class Product {
 				echo $categories[0]->name;
 				return;
 			}
-			echo '<span style="color: red">' . __("No Category", "expose") . '</span>';
+			echo '<span style="color: #b32d2e">' . __("No Category", "expose") . '</span>';
         }
 		if($column == "description") {
 			
@@ -118,7 +118,7 @@ class Product {
 				return;
 			}
 			
-			echo '<span style="color: red">' . __("No Description", "expose") . '</span>';
+			echo '<span style="color: #b32d2e">' . __("No Description", "expose") . '</span>';
         }
     }
 
