@@ -1,8 +1,21 @@
 <?php
 
+namespace Contexis\Expose;
+
 class Form {
 
-	var $form = [
+	
+	public static function init() {
+		new self();
+	}
+
+	public function __construct() {
+		add_action( 'rest_api_init', array( $this, 'register_order_route' ) );
+	}
+
+	public function get_default_form() {
+
+		$form = [
 			[
 				"type" => "text",
 				"name" => "name",
@@ -77,18 +90,9 @@ class Form {
 				"placeholder" => "Submit"
 			]
 		
-	];
-	
-	public static function init() {
-		new self();
-	}
+		];
 
-	public function __construct() {
-		add_action( 'rest_api_init', array( $this, 'register_order_route' ) );
-	}
-
-	public function get_default_form() {
-		return json_encode($this->form);
+		return json_encode($form);
 	}
 
 	public function register_order_route() {
