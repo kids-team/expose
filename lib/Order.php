@@ -67,12 +67,11 @@ class Order {
 
     private function get_admin_address() {
         $options = get_option( 'expose_options');
-        if(!array_key_exists('admin_mail', $options)) {
-            return  get_option('admin_email');
-        }
-        if(empty($options['admin_mail'])) {
-            return  get_option('admin_email');
-        }
+
+		if(empty($options['admin_mail'] ?? null)) {
+			return get_option('admin_email');
+		}
+		
         return $options['admin_mail'];
     }
 
@@ -93,7 +92,7 @@ class Order {
             $order_table = "<ul>";
             foreach($data['cart'] as $item) {
                 $post = get_post( $item['id'] );
-                $order_table .= "<li>" . $item['count'] . "x <h href='" . $post->guid . "'>" .  $post->post_title . "</a></li>";
+                $order_table .= "<li>" . $item['count'] . "x <a href='" . $post->guid . "'>" .  $post->post_title . "</a></li>";
             }
             $order_table .= "</ul>";
             $text = str_replace("#_ORDERLIST", $order_table, $text);
