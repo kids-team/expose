@@ -29,14 +29,3 @@ cd ctx-products
 or simply download the plugin and place it in the wp-content/plugins/ directory within your Wordpress installation.
 
 Don't forget to activate.
-
-## Changelog
-
-### 1.0.1
-
--   Fix: only 10 products were shown
--   New: Back-Button now works as in cart and on product page
-
-### 1.0.0
-
--   Release
