@@ -200,7 +200,7 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 					</Button>
 				</div>
 				{ showImages && (
-					<Fragment>
+					<>
 						<PanelRow>
 							<ToggleControl
 								label={ __( 'Show filter', 'expose' ) }
@@ -236,7 +236,7 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 								onChange={ ( value ) => setAttributes( { dropShadow: value } ) }
 							/>
 						</PanelRow>
-					</Fragment>
+					</>
 				) }
 				<RangeControl
 					label={ __( 'Length of preview text', 'expose' ) }
