@@ -11,7 +11,6 @@
  * @package         create-products
  */
 
-
 require_once('lib/Order.php');
 require_once('lib/Product.php');
 require_once('lib/Settings.php');
