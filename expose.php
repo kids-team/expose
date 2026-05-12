@@ -112,6 +112,6 @@ add_action( 'wp_enqueue_scripts', 'ctx_expose_frontend_translation' );
 
 new \Contexis\Expose\Update(
 	__FILE__,
-	'gollenia',
+	'kids-team',
 	'expose'
 );
