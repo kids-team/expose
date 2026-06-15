@@ -1,4 +1,5 @@
 import { createRoot } from '@wordpress/element';
+import '@contexis/wp-react-form/style.css';
 import { AppProvider } from './frontend/services/context';
 import Shop from './frontend/shop/Shop';
 
