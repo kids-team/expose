@@ -1,4 +1,4 @@
-import { useContext } from '@wordpress/element';
+import { Fragment, useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { AppContext } from '../services/context';
 import FakeCards from './FakeCards';
@@ -14,7 +14,7 @@ const CategoryView = ({ products, className }) => {
 	};
 
 	return (
-		<>
+		<Fragment>
 			{state.status === 'SUCCESS' ? (
 				<div className={className}>
 					<h2>{__('All Products', 'expose')}</h2>
@@ -36,7 +36,7 @@ const CategoryView = ({ products, className }) => {
 					</div>
 				</div>
 			)}
-		</>
+		</Fragment>
 	);
 };
 
