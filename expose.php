@@ -17,6 +17,7 @@
 require_once('lib/Order.php');
 require_once('lib/Product.php');
 require_once('lib/Settings.php');
+require_once('lib/Form.php');
 require_once('lib/Update.php');	
 
 
