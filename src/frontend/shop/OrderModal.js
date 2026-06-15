@@ -50,9 +50,9 @@ const OrderModal = ( props ) => {
 										<div className="ctx-order-modal-product-image">
 											<img
 												src={
-													product?._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes
-														.thumbnail.source_url
+													product?.images?.thumbnail || product?.images?.medium || product?.images?.large
 												}
+												alt={ product?.title?.rendered || '' }
 											/>
 										</div>
 										<div className="ctx-order-modal-product-content">
@@ -83,7 +83,7 @@ const OrderModal = ( props ) => {
 								formUrl={
 									props.formId
 										? `/wp-json/gbf-form/v2/form/${ props.formId }`
-										: '/wp-json/order/vs/form'
+										: '/wp-json/expose/v2/form'
 								}
 								extraData={ {
 									products: state.cart,
