@@ -18,12 +18,12 @@
     "release": "wp-github-plugin expose.php --tag"
   },
   "dependencies": {
-    "@contexis/wp-react-form": "^1.0.11",
-    "@wordpress/element": "^6.24.0",
-    "@wordpress/icons": "^10.24.0"
+    "@contexis/wp-react-form": "^2.3.10",
+    "@wordpress/icons": "^14.0.0"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^30.17.0",
-    "wp-github-plugin": "^1.0.0"
+    "@wordpress/scripts": "^32.4.0",
+    "wp-github-plugin": "^1.0.4",
+    "@biomejs/biome": "2.5.0"
   }
 }
