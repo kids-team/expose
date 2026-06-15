@@ -88,10 +88,10 @@ class Product {
 	 * @return array $columns
 	 */
 	public function set_custom_columns($columns) {
-		$columns = ['image' => __( 'Media' )] + $columns;
-        $columns['category'] = __( 'Categories' );
-        $columns['image'] = __( 'Image' );
-		$columns['description'] = __( 'Description' );
+		$columns = ['image' => __( 'Media', 'expose' )] + $columns;
+        $columns['category'] = __( 'Categories', 'expose' );
+        $columns['image'] = __( 'Image', 'expose' );
+		$columns['description'] = __( 'Description', 'expose' );
         return $columns;
     }
 
