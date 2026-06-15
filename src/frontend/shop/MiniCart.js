@@ -1,4 +1,4 @@
-import React, { useContext } from '@wordpress/element';
+import { Fragment, useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { AppContext } from '../services/context';
@@ -9,7 +9,7 @@ const MiniCart = ( props ) => {
 
 	const hasProducts = Object.keys( state.cart ).length > 0;
 	return (
-		<>
+		<Fragment>
 			{ hasProducts && ! state.showOrderModal ? (
 				<div className={ `ctx-minicart` }>
 					<h3>{ __( 'Cart', 'expose' ) }</h3>
@@ -23,9 +23,9 @@ const MiniCart = ( props ) => {
 									<div className="ctx-minicart-product-image">
 										<img
 											src={
-												product?._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes
-													.thumbnail.source_url
+												product?.images?.thumbnail || product?.images?.medium || product?.images?.large
 											}
+											alt={ product?.title?.rendered || '' }
 										/>
 									</div>
 									<div className="ctx-minicart-product-content">
@@ -50,9 +50,9 @@ const MiniCart = ( props ) => {
 					</div>
 				</div>
 			) : (
-				<></>
+				null
 			) }
-		</>
+		</Fragment>
 	);
 };
 
