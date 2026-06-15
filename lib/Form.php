@@ -14,7 +14,6 @@ class Form {
 	}
 
 	public function get_default_form() {
-
 		$form = [
 			[
 				"type" => "text",
@@ -92,7 +91,9 @@ class Form {
 		
 		];
 
-		return json_encode($form);
+		return [
+			'fields' => $form,
+		];
 	}
 
 	public function register_order_route() {
