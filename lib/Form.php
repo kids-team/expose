@@ -79,7 +79,7 @@ class Form {
 				"required" => true,
 				"width"	=> 6,
 				"placeholder" => "",
-				"help" => get_option('expose_consent_text')
+				"help" => get_option( 'expose_options' )['consent'] ?? ''
 
 			],
 			[
@@ -102,4 +102,10 @@ class Form {
 			'permission_callback' => array( $this, 'get_permission' ),
 		) );
 	}
+
+	public function get_permission() {
+		return true;
+	}
 }
+
+Form::init();
