@@ -1,5 +1,5 @@
-<?php
-	$id = uniqid();
-?>
-
-<div <?php echo get_block_wrapper_attributes(); ?> data-attributes="<?php echo htmlspecialchars(json_encode($attributes)) ?>" id="ctx-products-shop" ></div>
+<div
+	<?php echo get_block_wrapper_attributes(); ?>
+	data-ctx-products-shop="1"
+	data-attributes="<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>"
+></div>
