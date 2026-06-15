@@ -21,7 +21,7 @@ import icons from './icons.js';
  * Wordpress dependencies
  */
 import { useSelect } from '@wordpress/data';
-import { useState } from '@wordpress/element';
+import { Fragment, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { store as coreStore } from '@wordpress/core-data';
@@ -200,7 +200,7 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 					</Button>
 				</div>
 				{ showImages && (
-					<>
+					<Fragment>
 						<PanelRow>
 							<ToggleControl
 								label={ __( 'Show filter', 'expose' ) }
@@ -236,7 +236,7 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 								onChange={ ( value ) => setAttributes( { dropShadow: value } ) }
 							/>
 						</PanelRow>
-					</>
+					</Fragment>
 				) }
 				<RangeControl
 					label={ __( 'Length of preview text', 'expose' ) }
@@ -253,7 +253,7 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 	);
 
 	return (
-		<>
+		<Fragment>
 			{ inspectorControls }
 
 			<div { ...blockProps }>
@@ -278,6 +278,6 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 					</div>
 				</div>
 			</div>
-		</>
+		</Fragment>
 	);
 }
