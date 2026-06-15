@@ -27,19 +27,12 @@ class Order {
 			return $response;
 		}
 
-		if(!array_key_exists('id', $values)) {
-			$response = new \WP_REST_Response( ["status" => 'error', 'data' => 'No form id'] );
-			$response->set_status( 400 );
-			return $response;
-		}
-
-		if(!class_exists('\Contexis\GutenbergForm\FormFields')) {
-			$response = new \WP_REST_Response( ["status" => 'error', 'data' => 'Gutenberg Forms not installed'] );
-			$response->set_status( 400 );
-			return $response;
-		}
-
 		$mail_data = $this->get_mail_data($values);
+		if(!$mail_data) {
+			$response = new \WP_REST_Response( ["status" => 'error', 'data' => __("The form data is incomplete or invalid.", "expose")] );
+			$response->set_status( 400 );
+			return $response;
+		}
         
         // Add a custom status code
         $send = $this->send_order_to_admin($mail_data);
@@ -112,13 +105,37 @@ class Order {
 	}
 
 	public function get_mail_data($values) {
-		if(!class_exists('\Contexis\GutenbergForm\FormFields') || !array_key_exists('id', $values)) {
-			return false;
+		if(class_exists('\Contexis\GutenbergForm\FormFields') && array_key_exists('id', $values)) {
+			$formFields = new \Contexis\GutenbergForm\FormFields($values['id'], 0);
+			$validation = $formFields->validate($values);
+			$data = [
+				'customer' => $formFields->get_formatted_values(),
+				'products' => $this->order_table($values['products']),
+				'raw' => $values,
+			];
+			return $data;
 		}
-		$formFields = new \Contexis\GutenbergForm\FormFields($values['id'], 0);
-		$validation = $formFields->validate($values);
+
+		$required_fields = [ 'name', 'email', 'address', 'zip', 'city', 'country', 'message', 'consent' ];
+		foreach($required_fields as $field) {
+			if(empty($values[$field])) {
+				return false;
+			}
+		}
+
+		$customer = "<ul>";
+		$customer .= "<li><strong>" . __("Name", "expose") . ":</strong> " . esc_html($values['name']) . "</li>";
+		$customer .= "<li><strong>" . __("E-Mail", "expose") . ":</strong> " . esc_html($values['email']) . "</li>";
+		$customer .= "<li><strong>" . __("Address", "expose") . ":</strong> " . esc_html($values['address']) . "</li>";
+		$customer .= "<li><strong>" . __("Zip", "expose") . ":</strong> " . esc_html($values['zip']) . "</li>";
+		$customer .= "<li><strong>" . __("City", "expose") . ":</strong> " . esc_html($values['city']) . "</li>";
+		$customer .= "<li><strong>" . __("Country", "expose") . ":</strong> " . esc_html($values['country']) . "</li>";
+		$customer .= "<li><strong>" . __("Message", "expose") . ":</strong> " . nl2br(esc_html($values['message'])) . "</li>";
+		$customer .= "<li><strong>" . __("Consent", "expose") . ":</strong> " . __("Yes", "expose") . "</li>";
+		$customer .= "</ul>";
+
 		$data = [
-			'customer' => $formFields->get_formatted_values(),
+			'customer' => $customer,
 			'products' => $this->order_table($values['products']),
 			'raw' => $values,
 		];
