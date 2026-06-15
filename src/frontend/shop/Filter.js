@@ -6,7 +6,7 @@ const Filter = ({ showFilter }) => {
 	const { state, dispatch } = useContext(AppContext);
 
 	const selectedCategory = state.selectedCategory;
-	const selectedTags = state.selectedTags;
+	const selectedTags = Array.isArray(state.selectedTags) ? state.selectedTags : [];
 
 	return (
 		<div className={`filters ${showFilter ? '' : 'filters-mobile-hidden'}`}>

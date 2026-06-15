@@ -32,22 +32,22 @@ const Toolbar = (props) => {
 					alignmentControls={[
 						{
 							icon: pullLeft,
-							title: __("Align icon left", "ctx-blocks"),
+							title: __("Align icon left", "expose"),
 							align: "left",
 						},
 						{
 							icon: pullRight,
-							title: __("Align icon right", "ctx-blocks"),
+							title: __("Align icon right", "expose"),
 							align: "right",
 						},
 					]}
-					label={__("Icon alignment", "ctx-blocks")}
+					label={__("Icon alignment", "expose")}
 				/>
 
 				<ToolbarButton
 					name="link"
 					icon={link}
-					title={__("Link", "ctx-blocks")}
+					title={__("Link", "expose")}
 					onClick={() => setIsEditingURL(true)}
 				/>
 
@@ -55,7 +55,7 @@ const Toolbar = (props) => {
 					<ToolbarButton
 						name="iconOnly"
 						icon={iconOnly ? unseen : seen}
-						title={__("Hide text", "ctx-blocks")}
+						title={__("Hide text", "expose")}
 						isActive={iconOnly}
 						onClick={() => setAttributes({ iconOnly: !iconOnly })}
 					/>

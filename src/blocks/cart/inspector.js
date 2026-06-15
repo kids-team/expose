@@ -17,10 +17,10 @@ const Inspector = (props) => {
 
 	return (
 		<InspectorControls>
-			<PanelBody title={__("Icon", "ctx-blocks")} initialOpen={true}>
+			<PanelBody title={__("Icon", "expose")} initialOpen={true}>
 				<PanelRow>
 					<TextControl
-						label={__("Icon", "ctx-blocks")}
+						label={__("Icon", "expose")}
 						value={icon}
 						onChange={(value) => {
 							setAttributes({ icon: value });

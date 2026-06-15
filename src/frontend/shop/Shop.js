@@ -23,7 +23,7 @@ const Shop = ( { attributes, category } ) => {
 	const [ showFilter, setShowFilter ] = useState( false );
 
 	const selectedCategory = state.selectedCategory;
-	const selectedTags = state.selectedTags;
+	const selectedTags = Array.isArray( state.selectedTags ) ? state.selectedTags : [];
 
 	useEffect( () => {
 		const queryParams = {
@@ -127,6 +127,8 @@ const Shop = ( { attributes, category } ) => {
 							<CartButton
 								cartSize={ cartSize }
 								onClick={ () => {
+									dispatch( { type: 'SET_FORM_STATUS', payload: 'INIT' } );
+									dispatch( { type: 'SET_RESPONSE', payload: '' } );
 									dispatch( { type: 'SET_ORDER_MODAL', payload: true } );
 								} }
 							/>,

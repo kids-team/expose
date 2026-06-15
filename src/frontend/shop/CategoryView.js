@@ -2,14 +2,17 @@ import { Fragment, useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { AppContext } from '../services/context';
 import FakeCards from './FakeCards';
+import ListView from './ListView';
 import ProductCategory from './ProductCategory';
 
 const CategoryView = ({ products, className }) => {
 	const { state, dispatch } = useContext(AppContext);
+	const categories = Object.entries(state.categories);
+	const hasCategories = categories.length > 0;
 
 	const getProductsByCategory = (category) => {
 		return products.filter((product) => {
-			return product.categories.hasOwnProperty(category);
+			return product.categories && Object.prototype.hasOwnProperty.call(product.categories, category);
 		});
 	};
 
@@ -18,7 +21,8 @@ const CategoryView = ({ products, className }) => {
 			{state.status === 'SUCCESS' ? (
 				<div className={className}>
 					<h2>{__('All Products', 'expose')}</h2>
-					{Object.entries(state.categories).map(([key, value]) => {
+					{!hasCategories ? <ListView products={products} /> : null}
+					{categories.map(([key, value]) => {
 						const products = getProductsByCategory(key);
 
 						return <ProductCategory key={key} title={value} products={products} />;

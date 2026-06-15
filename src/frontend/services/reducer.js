@@ -49,7 +49,7 @@ export const reducer = ( state, action ) => {
 			return { ...state, selectedCategory: payload };
 
 		case 'SET_SELECTED_TAGS':
-			return { ...state, selectedTags: payload };
+			return { ...state, selectedTags: Array.isArray( payload ) ? payload : [] };
 
 		case 'SET_TAGS':
 			return { ...state, tags: payload };

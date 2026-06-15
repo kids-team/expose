@@ -5,16 +5,17 @@ import { AppContext } from '../services/context';
 
 const ListHeading = () => {
 	const { state } = useContext( AppContext );
+	const selectedTags = Array.isArray( state.selectedTags ) ? state.selectedTags : [];
 
 	const getTags = useCallback( () => {
-		const tags = state.selectedTags.map( ( tag ) => {
+		const tags = selectedTags.map( ( tag ) => {
 			return state.tags[ tag ];
 		} );
 
 		return tags.join( ', ' );
-	} );
+	}, [ selectedTags, state.tags ] );
 
-	if ( state.selectedCategory === 0 && state.selectedTags.length === 0 ) {
+	if ( state.selectedCategory === 0 && selectedTags.length === 0 ) {
 		return (
 			<div className="ctx-products-category">
 				<h2>{ __( 'All Products', 'expose' ) }</h2>
@@ -22,11 +23,11 @@ const ListHeading = () => {
 		);
 	}
 
-	if ( state.selectedCategory === 0 && state.selectedTags.length > 0 ) {
+	if ( state.selectedCategory === 0 && selectedTags.length > 0 ) {
 		return (
 			<div className="ctx-products-category">
 				<h2>
-					{ _n( 'Selected Tag:', 'Selected Tags:', state.selectedTags.length, 'expose' ) }
+					{ _n( 'Selected Tag:', 'Selected Tags:', selectedTags.length, 'expose' ) }
 					&nbsp;
 					{ getTags() }
 				</h2>
@@ -34,13 +35,13 @@ const ListHeading = () => {
 		);
 	}
 
-	if ( state.selectedCategory !== 0 && state.selectedTags.length > 0 ) {
+	if ( state.selectedCategory !== 0 && selectedTags.length > 0 ) {
 		return (
 			<div className="ctx-products-category">
 				<h2>
 					{ state.categories[ state.selectedCategory ] }
 					&nbsp;
-					{ _n( 'with tag:', 'with tags:', state.selectedTags.length, 'expose' ) }
+					{ _n( 'with tag:', 'with tags:', selectedTags.length, 'expose' ) }
 					&nbsp;
 					{ getTags() }
 				</h2>
