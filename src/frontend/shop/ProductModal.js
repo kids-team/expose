@@ -1,3 +1,4 @@
+import apiFetch from '@wordpress/api-fetch';
 import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import NumberPicker from '../../_externalNumberPicker';
@@ -27,11 +28,14 @@ const ProductModal = ( props ) => {
 
 		setStatus( 'LOADING' );
 
-		fetch( `/wp-json/wp/v2/ctx-products/${ id }` )
-			.then( ( response ) => response.json() )
+		apiFetch( { path: `/wp/v2/ctx-products/${ id }` } )
 			.then( ( data ) => {
 				setProduct( data );
 				setStatus( 'LOADED' );
+			} )
+			.catch( () => {
+				setProduct( null );
+				setStatus( 'ERROR' );
 			} );
 	}, [ id ] );
 
