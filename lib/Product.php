@@ -186,7 +186,7 @@ class Product {
 	}
 
 	public function rest_get_terms($object, $field_name, $request) {
-		return wp_get_post_terms( $object['id'], 'product-tagss' );
+		return wp_get_post_terms( $object['id'], 'product-tags' );
 	}
 
 
