@@ -1,14 +1,16 @@
-import React, { useContext } from '@wordpress/element';
+import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { AppContext } from '../services/context';
 
 const ProductCard = ( props ) => {
-	const { product, onCartClick } = props;
-	const { state, dispatch } = useContext( AppContext );
+	const { product } = props;
+	const { dispatch } = useContext( AppContext );
+	const imageUrl = product?.images?.large || product?.images?.medium || product?.images?.thumbnail || product?.images?.full;
+
 	return (
-		<div key={ product.id } className="ctx-product-card">
+		<div className="ctx-product-card">
 			<div className="ctx-product-card-image">
-				<img src={ product._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes.large.source_url } />
+				{ imageUrl ? <img src={ imageUrl } alt={ product?.title?.rendered || '' } /> : null }
 			</div>
 			<div className="ctx-product-card-content">
 				<h4>{ product.title.rendered }</h4>
