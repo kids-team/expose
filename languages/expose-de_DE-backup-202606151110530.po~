@@ -10,13 +10,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-01-30T15:31:08+00:00\n"
-"PO-Revision-Date: 2026-06-15 11:10+0000\n"
+"PO-Revision-Date: 2024-01-31 08:53+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: expose\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;"
 
-#: lib/Form.php:37 lib/Order.php:129
+#: lib/Form.php:25
 msgid "Address"
 msgstr "Adresse"
 
@@ -24,11 +24,11 @@ msgstr "Adresse"
 msgid "Admin Mail"
 msgstr "Admin-Mail"
 
-#: build/shop.js:1
+#: build/shop.js:1414
 msgid "All"
 msgstr "Alle"
 
-#: build/shop.js:1
+#: build/shop.js:1312 build/shop.js:1490
 msgid "All Products"
 msgstr "Alle Produkte"
 
@@ -36,7 +36,7 @@ msgstr "Alle Produkte"
 msgid "All products"
 msgstr "Alle Produkte"
 
-#: build/index.js:1
+#: build/index.js:425 build/index.js:305
 msgid "Appearance"
 msgstr "Aussehen"
 
@@ -85,27 +85,27 @@ msgctxt "block title"
 msgid "Handout Shop"
 msgstr "Handout Shop"
 
-#: build/index.js:1
+#: build/index.js:459 build/index.js:330
 msgid "Cards"
 msgstr "Karten"
 
-#: build/shop.js:1
+#: build/shop.js:1589
 msgid "Cart"
 msgstr "Einkaufswagen"
 
-#: lib/Product.php:92 build/shop.js:1
+#: build/shop.js:1403
 msgid "Categories"
 msgstr "Kategorien"
 
-#: build/shop.js:1
+#: build/shop.js:1616
 msgid "Checkout"
 msgstr "Bestellen"
 
-#: lib/Form.php:53 lib/Order.php:131
+#: lib/Form.php:41
 msgid "City"
 msgstr "Stadt"
 
-#: build/shop.js:1
+#: build/shop.js:1994
 msgid "Close"
 msgstr "Schließen"
 
@@ -117,7 +117,7 @@ msgstr "Text der Bestätigungsseite"
 msgid "Confirmation page title"
 msgstr "Titel der Bestätigungsseite"
 
-#: lib/Form.php:77 lib/Order.php:134
+#: lib/Form.php:65
 msgid "Consent"
 msgstr "Einwilligung"
 
@@ -125,11 +125,7 @@ msgstr "Einwilligung"
 msgid "Consent Text"
 msgstr "Einwilligungs-Text"
 
-#: build/shop.js:1
-msgid "Continue"
-msgstr "Weiter"
-
-#: lib/Form.php:61 lib/Order.php:132
+#: lib/Form.php:49
 msgid "Country"
 msgstr "Land"
 
@@ -142,19 +138,18 @@ msgid "Create new product"
 msgstr "Neues Produkt erstellen"
 
 #. Plugin Name of the plugin
-#: expose.php
 msgid "CTX Products"
 msgstr "CTX Produkte"
 
-#: lib/Order.php:52
+#: lib/Order.php:59
 msgid "Customer"
 msgstr "Kunde"
 
-#: build/index.js:1
+#: build/index.js:389 build/index.js:263
 msgid "Data"
 msgstr "Daten"
 
-#: expose.php:37
+#: expose.php:34
 msgid ""
 "Dear #_FORENAME,\n"
 "\n"
@@ -172,19 +167,15 @@ msgstr ""
 "\n"
 "Blessings, your Shop"
 
-#: lib/Product.php:94
-msgid "Description"
-msgstr "Beschreibung"
-
-#: build/shop.js:1
+#: build/shop.js:1804
 msgid "Details"
 msgstr "Details"
 
-#: build/index.js:1
+#: build/index.js:484 build/index.js:365
 msgid "Drop shadow"
 msgstr "Schatten"
 
-#: lib/Form.php:29 lib/Order.php:128
+#: lib/Form.php:17
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -192,11 +183,11 @@ msgstr "E-Mail"
 msgid "Edit product"
 msgstr "Produkt bearbeiten"
 
-#: build/index.js:1
+#: build/index.js:418 build/index.js:297
 msgid "Form"
 msgstr "Formular"
 
-#: expose.php:40
+#: expose.php:37
 msgid ""
 "I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-"
 "world/'>law stuff</a> and allow you to process my data for this very order. "
@@ -210,25 +201,17 @@ msgstr ""
 msgid "If empty, site admin will be used. Separate with commas."
 msgstr "Wenn leer, wird der Site-Admin verwendet. Mit Kommas trennen."
 
-#: lib/Product.php:93
-msgid "Image"
-msgstr "Bild"
-
-#: build/index.js:1
+#: build/index.js:352 build/index.js:216
 msgid "Internal"
 msgstr "Intern"
 
-#: build/index.js:1
+#: build/index.js:490 build/index.js:373
 msgid "Length of preview text"
 msgstr "Länge des Vorschautextes"
 
-#: build/index.js:1
+#: build/index.js:450 build/index.js:323
 msgid "List"
 msgstr "Liste"
-
-#: build/shop.js:1
-msgid "Loading…"
-msgstr "Lade..."
 
 #: lib/Settings.php:52
 msgid "Mail Content"
@@ -246,23 +229,19 @@ msgstr ""
 msgid "Mail Subject"
 msgstr "Betreff der E-Mail"
 
-#: lib/Product.php:91
-msgid "Media"
-msgstr "Bild"
-
-#: lib/Form.php:69 lib/Order.php:133
+#: lib/Form.php:57
 msgid "Message"
 msgstr "Nachricht"
 
-#: build/index.js:1
+#: build/index.js:441 build/index.js:316
 msgid "Minimal"
 msgstr "Minimal"
 
-#: lib/Form.php:21 lib/Order.php:127
+#: lib/Form.php:9
 msgid "Name"
 msgstr "Name"
 
-#: lib/Order.php:51 lib/Order.php:58
+#: lib/Order.php:58 lib/Order.php:65
 msgid "New Order"
 msgstr "Neue Bestellung"
 
@@ -286,33 +265,29 @@ msgstr "Keine Produkte gefunden"
 msgid "No products found in trash"
 msgstr "Keine Produkte im Papierkorb gefunden"
 
-#: build/index.js:1
+#: build/index.js:493 build/index.js:376
 msgid "Number of words"
 msgstr "Anzahl der Wörter"
 
-#: build/shop.js:1
+#: build/shop.js:1679
 msgid "Order"
 msgstr "Bestellung"
 
-#: build/shop.js:1
+#: build/shop.js:1720
+msgid "Order Form"
+msgstr "Bestellformular"
+
+#: build/shop.js:1692
 msgid "Order Summary"
 msgstr "Bestellübersicht"
 
-#: lib/Order.php:54
+#: lib/Order.php:61
 msgid "Ordered Products"
 msgstr "Bestellte Produkte"
 
-#: build/shop.js:1
+#: build/shop.js:1605
 msgid "pcs."
 msgstr "Stk."
-
-#: build/shop.js:1
-msgid "Place order"
-msgstr "Bestellen"
-
-#: build/shop.js:1
-msgid "Processing…"
-msgstr "Verarbeite..."
 
 #: lib/Product.php:40
 msgid "Product"
@@ -322,7 +297,7 @@ msgstr "Produkt"
 msgid "Product category"
 msgstr "Produktkategorie"
 
-#: build/index.js:1
+#: build/index.js:520 build/index.js:405
 msgid "Product Shop"
 msgstr "Produkt-Shop"
 
@@ -338,11 +313,7 @@ msgstr "Produkt-Tag"
 msgid "Products"
 msgstr "Produkte"
 
-#: build/shop.js:1
-msgid "Review your items before you continue to the form."
-msgstr "Überprüfen Sie ihre Bestellung"
-
-#: build/shop.js:1
+#: build/shop.js:2150
 msgid "Search"
 msgstr "Suchen"
 
@@ -350,14 +321,14 @@ msgstr "Suchen"
 msgid "Search products"
 msgstr "Produkte suchen"
 
-#: build/index.js:1
+#: build/index.js:522 build/index.js:408
 msgid ""
 "See for settings in the inspector. The result can be seen in the frontend"
 msgstr ""
 "Siehe Einstellungen im Inspector. Das Ergebnis kann im Frontend gesehen "
 "werden"
 
-#: build/shop.js:1
+#: build/shop.js:1495
 #| msgid "Selected Tag: "
 #| msgid_plural "Selected Tags: "
 msgid "Selected Tag:"
@@ -369,15 +340,15 @@ msgstr[1] "Schlagworte:"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: build/index.js:1
+#: build/index.js:472 build/index.js:351
 msgid "Show category"
 msgstr "Kategorie anzeigen"
 
-#: build/index.js:1
+#: build/index.js:460 build/index.js:337
 msgid "Show filter"
 msgstr "Filter anzeigen"
 
-#: build/index.js:1
+#: build/index.js:466 build/index.js:344
 msgid "Show searchbar"
 msgstr "Suchleiste anzeigen"
 
@@ -385,11 +356,11 @@ msgstr "Suchleiste anzeigen"
 msgid "Slug"
 msgstr "Slug"
 
-#: build/index.js:1
+#: build/index.js:478 build/index.js:358
 msgid "Sort by category"
 msgstr "Nach Kategorie sortieren"
 
-#: build/index.js:1
+#: build/index.js:430 build/index.js:307
 msgid "Style"
 msgstr "Stil"
 
@@ -397,11 +368,11 @@ msgstr "Stil"
 msgid "Subject for the mail sent to the user"
 msgstr "Betreff für die E-Mail, die an den Benutzer gesendet wird"
 
-#: lib/Form.php:87
+#: lib/Form.php:75
 msgid "Submit"
 msgstr "Absenden"
 
-#: build/index.js:1 build/shop.js:1
+#: build/index.js:399 build/shop.js:1428 build/index.js:276
 msgid "Tags"
 msgstr "Schlagworte"
 
@@ -413,28 +384,11 @@ msgstr "Text für die Einwilligungs-Box"
 msgid "Text of confirmation page when order was successfull"
 msgstr "Text der Bestätigungsseite, wenn die Bestellung erfolgreich war"
 
-#: expose.php:38
+#: expose.php:35
 msgid "Thank you for your order!"
 msgstr "Danke für Ihre Bestellung!"
 
-#: lib/Order.php:32
-msgid "The form data is incomplete or invalid."
-msgstr "Die Formulardaten sind nicht vollständig ausgefüllt"
-
-#: build/shop.js:1
-msgid "The order form could not be loaded."
-msgstr "Das Bestell-Formular konnte nicht geladen werden"
-
-#: build/shop.js:1
-msgid "There was a problem sending your order."
-msgstr "Es gab einen Fehler beim Versenden der Bestellung"
-
-#: build/shop.js:1
-msgid "This field is required."
-msgstr "Dieses Feld wird benötigt"
-
 #. Author of the plugin
-#: expose.php
 msgid "Thomas Gollenia"
 msgstr "Thomas Gollenia"
 
@@ -446,14 +400,14 @@ msgstr "Titel der Bestätigungsseite, wenn die Bestellung erfolgreich war"
 msgid "View product"
 msgstr "Produkt ansehen"
 
-#: expose.php:39
+#: expose.php:36
 msgid ""
 "We have recieved your order and we will send it to you as soon as possible"
 msgstr ""
 "Wir haben Ihre Bestellung erhalten und werden sie Ihnen so schnell wie "
 "möglich zusenden"
 
-#: build/shop.js:1
+#: build/shop.js:1500
 #| msgid "with tag: "
 #| msgid_plural "with tags: "
 msgid "with tag:"
@@ -462,7 +416,6 @@ msgstr[0] "mit Schlagwort:"
 msgstr[1] "mit Schlagworten:"
 
 #. Description of the plugin
-#: expose.php
 msgid ""
 "Wordpress Plugin that displays free products like magazines or tracts and "
 "let customers place orders without payment."
@@ -470,18 +423,10 @@ msgstr ""
 "Wordpress Plugin, das kostenlose Produkte wie Zeitschriften oder Traktate "
 "anzeigt und Kunden Bestellungen ohne Zahlung aufgeben lässt."
 
-#: lib/Order.php:134
-msgid "Yes"
-msgstr "Ja"
-
-#: build/shop.js:1
-msgid "Your details"
-msgstr "Bestell-Details"
-
-#: expose.php:36
+#: expose.php:33
 msgid "Your Order"
 msgstr "Ihre Bestellung"
 
-#: lib/Form.php:45 lib/Order.php:130
+#: lib/Form.php:33
 msgid "Zip"
 msgstr "PLZ"

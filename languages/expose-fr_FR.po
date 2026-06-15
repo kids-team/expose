@@ -10,386 +10,61 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-02-01T08:08:16+00:00\n"
-"PO-Revision-Date: 2024-02-01 08:11+0000\n"
+"PO-Revision-Date: 2026-06-15 11:11+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: expose\n"
-"\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Loco-Version: 2.6.6; wp-6.4.3"
 
-#. Plugin Name of the plugin
-msgid "CTX Products"
-msgstr ""
-
-#. Description of the plugin
-msgid ""
-"Wordpress Plugin that displays free products like magazines or tracts and "
-"let customers place orders without payment."
-msgstr ""
-
-#. Author of the plugin
-msgid "Thomas Gollenia"
-msgstr ""
-
-#: expose.php:33
-msgid "Your Order"
-msgstr "Votre commande"
-
-#: expose.php:34
-msgid ""
-"Dear #_FORENAME,\n"
-"\n"
-"Thank you for your order. We will send you the following products:\n"
-"\n"
-"#_PRODUCTLIST\n"
-"\n"
-"Blessings, your Shop"
-msgstr ""
-
-#: expose.php:35
-msgid "Thank you for your order!"
-msgstr "Merci pour votre commande !"
-
-#: expose.php:36
-msgid ""
-"Nous avons reçu votre commande et nous vous l'enverrons dans les plus brefs délais"
-msgstr ""
-
-#: expose.php:37
-msgid ""
-"I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-"
-"world/'>law stuff</a> and allow you to process my data for this very order. "
-"All my data will be deleted after shipping."
-msgstr "J'accepte tout <a href='https://bestlifeonline.com/47-weird-laws-around-world/'>trucs de droit</a> et vous permettre de traiter mes données pour cette même commande.Toutes mes données seront supprimées après l'expédition."
-
-#: lib/Form.php:9
-msgid "Name"
-msgstr "Nom"
-
-#: lib/Form.php:17
-msgid "E-Mail"
-msgstr "E-Mail"
-
-#: lib/Form.php:25
+#: lib/Form.php:37 lib/Order.php:129
 msgid "Address"
 msgstr "Adresse"
-
-#: lib/Form.php:33
-msgid "Zip"
-msgstr "Code postal"
-
-#: lib/Form.php:41
-msgid "City"
-msgstr "Ville"
-
-#: lib/Form.php:49
-msgid "Country"
-msgstr "Pays"
-
-#: lib/Form.php:57
-msgid "Message"
-msgstr "Message"
-
-#: lib/Form.php:65
-msgid "Consent"
-msgstr "Consentement"
-
-#: lib/Form.php:75
-msgid "Submit"
-msgstr "Envoyer"
-
-#: lib/Order.php:58 lib/Order.php:65
-msgid "New Order"
-msgstr "Nouvel ordre"
-
-#: lib/Order.php:59
-msgid "Customer"
-msgstr "Client"
-
-#: lib/Order.php:61
-msgid "Ordered Products"
-msgstr "Produits commandés"
-
-#: lib/Product.php:39 lib/Product.php:51
-msgid "Products"
-msgstr "Produits"
-
-#: lib/Product.php:40
-msgid "Product"
-msgstr "Produit"
-
-#: lib/Product.php:41
-msgid "Create new product"
-msgstr "Créer un nouveau produit"
-
-#: lib/Product.php:42
-msgid "Create new Product"
-msgstr "Créer un nouveau produit"
-
-#: lib/Product.php:43
-msgid "Edit product"
-msgstr "Modifier le produit"
-
-#: lib/Product.php:44
-msgid "New product"
-msgstr "Nouveau produit"
-
-#: lib/Product.php:45
-msgid "All products"
-msgstr "Tous les produits"
-
-#: lib/Product.php:46
-msgid "View product"
-msgstr "Voir le produit"
-
-#: lib/Product.php:47
-msgid "Search products"
-msgstr "Rechercher des produits"
-
-#: lib/Product.php:48
-msgid "No products found"
-msgstr "Aucun produit trouvé"
-
-#: lib/Product.php:49
-msgid "No products found in trash"
-msgstr "Aucun produit trouvé dans la corbeille"
-
-#: lib/Product.php:62
-msgid "Product category"
-msgstr "catégorie de produit"
-
-#: lib/Product.php:74
-msgid "Product tag"
-msgstr "Étiquette de produit"
-
-#: lib/Product.php:111
-msgid "No Category"
-msgstr "pas de catégorie"
-
-#: lib/Product.php:121
-msgid "No Description"
-msgstr "pas de description"
-
-#: lib/Settings.php:21 lib/Settings.php:33
-msgid "Product Shop Settings"
-msgstr "Paramètres de la boutique de produits"
-
-#: lib/Settings.php:22
-msgid "Settings"
-msgstr "Paramètres"
-
-#: lib/Settings.php:49
-msgid "Slug"
-msgstr ""
-
-#: lib/Settings.php:50
-msgid "Consent Text"
-msgstr "Texte de consentement"
-
-#: lib/Settings.php:51
-msgid "Mail Subject"
-msgstr "Objet du courrier"
-
-#: lib/Settings.php:52
-msgid "Mail Content"
-msgstr "Contenu du courrier"
-
-#: lib/Settings.php:53
-msgid "Confirmation page title"
-msgstr "Titre de la page de confirmation"
-
-#: lib/Settings.php:54
-msgid "Confirmation page text"
-msgstr "Texte de la page de confirmation"
 
 #: lib/Settings.php:55
 msgid "Admin Mail"
 msgstr "Courrier administratif"
 
-#: lib/Settings.php:79
-msgid "Subject for the mail sent to the user"
-msgstr "Objet du mail envoyé à l'utilisateur"
-
-#: lib/Settings.php:85
-msgid ""
-"Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or "
-"#_ORDERLIST."
-msgstr ""
-
-#: lib/Settings.php:91
-msgid "Title of confirmation page when order was successfull"
-msgstr "Titre de la page de confirmation lorsque la commande a été réussie"
-
-#: lib/Settings.php:97
-msgid "Text of confirmation page when order was successfull"
-msgstr "Texte de la page de confirmation lorsque la commande a été réussie"
-
-#: lib/Settings.php:103
-msgid "Text for consent-box"
-msgstr "Texte pour la zone de consentement"
-
-#: lib/Settings.php:109
-msgid "If empty, site admin will be used. Separate with commas."
-msgstr "S'il est vide, l'administrateur du site sera utilisé. Séparez par des virgules."
-
-#: build/index.js:352 build/index.js:216
-msgid "Internal"
-msgstr "Interne"
-
-#: build/index.js:389 build/index.js:263
-msgid "Data"
-msgstr "Données"
-
-#: build/index.js:399 build/shop.js:1428 build/index.js:276
-msgid "Tags"
-msgstr "Étiquettes"
-
-#: build/index.js:418 build/index.js:297
-msgid "Form"
-msgstr "Formulaire"
-
-#: build/index.js:425 build/index.js:305
-msgid "Appearance"
-msgstr "Apparence"
-
-#: build/index.js:430 build/index.js:307
-msgid "Style"
-msgstr "Style"
-
-#: build/index.js:441 build/index.js:316
-msgid "Minimal"
-msgstr "Minimal"
-
-#: build/index.js:450 build/index.js:323
-msgid "List"
-msgstr "Liste"
-
-#: build/index.js:459 build/index.js:330
-msgid "Cards"
-msgstr "Cartes"
-
-#: build/index.js:460 build/index.js:337
-msgid "Show filter"
-msgstr "Afficher le filtre"
-
-#: build/index.js:466 build/index.js:344
-msgid "Show searchbar"
-msgstr "Afficher la barre de recherche"
-
-#: build/index.js:472 build/index.js:351
-msgid "Show category"
-msgstr "Afficher la catégorie"
-
-#: build/index.js:478 build/index.js:358
-msgid "Sort by category"
-msgstr "Trier par catégorie"
-
-#: build/index.js:484 build/index.js:365
-msgid "Drop shadow"
-msgstr "Ombre portée"
-
-#: build/index.js:490 build/index.js:373
-msgid "Length of preview text"
-msgstr "Longueur du texte de prévisualisation"
-
-#: build/index.js:493 build/index.js:376
-msgid "Number of words"
-msgstr "Nombre de mots"
-
-#: build/index.js:520 build/index.js:405
-msgid "Product Shop"
-msgstr "Boutique de produits"
-
-#: build/index.js:522 build/index.js:408
-msgid ""
-"See for settings in the inspector. The result can be seen in the frontend"
-msgstr "Voir les paramètres dans l'inspecteur. Le résultat est visible dans le frontend"
-
-#: build/shop.js:1312 build/shop.js:1490
-msgid "All Products"
-msgstr "Tous les produits"
-
-#: build/shop.js:1403
-msgid "Categories"
-msgstr "Catégories"
-
-#: build/shop.js:1414
+#: build/shop.js:1
 msgid "All"
 msgstr "Tout"
 
-#: build/shop.js:1495
-msgid "Selected Tag:"
-msgid_plural "Selected Tags:"
-msgstr[0] "Balise sélectionnée:"
-msgstr[1] "Balises sélectionnées:"
+#: build/shop.js:1
+msgid "All Products"
+msgstr "Tous les produits"
 
-#: build/shop.js:1500
-msgid "with tag:"
-msgid_plural "with tags:"
-msgstr[0] "avec l'étiquette:"
-msgstr[1] "avec les étiquettes:"
+#: lib/Product.php:45
+msgid "All products"
+msgstr "Tous les produits"
 
-#: build/shop.js:1589
-msgid "Cart"
-msgstr "Chariot"
+#: build/index.js:1
+msgid "Appearance"
+msgstr "Apparence"
 
-#: build/shop.js:1605
-msgid "pcs."
-msgstr "pièces."
-
-#: build/shop.js:1616
-msgid "Checkout"
-msgstr "Ordre"
-
-#: build/shop.js:1679
-msgid "Order"
-msgstr "Ordre"
-
-#: build/shop.js:1692
-msgid "Order Summary"
-msgstr "Résumé de la commande"
-
-#: build/shop.js:1720
-msgid "Order Form"
-msgstr "Formulaire de commande"
-
-#: build/shop.js:1804
-msgid "Details"
-msgstr "Détails"
-
-#: build/shop.js:1994
-msgid "Close"
-msgstr "Fermer"
-
-#: build/shop.js:2150
-msgid "Search"
-msgstr "Rechercher"
-
-#: build/blocks/cart/block.json
-msgctxt "block title"
-msgid "Cart Button"
-msgstr "Bouton panier"
-
-#: build/blocks/cart/block.json build/blocks/shop/block.json
-msgctxt "block keyword"
-msgid "link"
-msgstr ""
-
-#: build/blocks/cart/block.json build/blocks/shop/block.json
-msgctxt "block keyword"
-msgid "action"
-msgstr ""
-
-#: build/blocks/cart/block.json build/blocks/shop/block.json
-msgctxt "block keyword"
-msgid "button"
-msgstr ""
+#: build/blocks/shop/block.json
+msgctxt "block description"
+msgid "Add a Handout order to your website."
+msgstr "Ajoutez une commande Handout à votre site Web."
 
 #: build/blocks/cart/block.json
 msgctxt "block description"
 msgid "Cart Button for Handout shop."
 msgstr "Bouton panier pour la boutique Handout."
+
+#: build/blocks/cart/block.json build/blocks/shop/block.json
+msgctxt "block keyword"
+msgid "action"
+msgstr "action"
+
+#: build/blocks/cart/block.json build/blocks/shop/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr "bouton"
+
+#: build/blocks/cart/block.json build/blocks/shop/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr "lien"
 
 #: build/blocks/cart/block.json
 msgctxt "block style label"
@@ -401,12 +76,431 @@ msgctxt "block style label"
 msgid "Outline"
 msgstr "Contour"
 
+#: build/blocks/cart/block.json
+msgctxt "block title"
+msgid "Cart Button"
+msgstr "Bouton panier"
+
 #: build/blocks/shop/block.json
 msgctxt "block title"
 msgid "Handout Shop"
 msgstr "Boutique Handout"
 
-#: build/blocks/shop/block.json
-msgctxt "block description"
-msgid "Add a Handout order to your website."
-msgstr "Ajoutez une commande Handout à votre site Web."
+#: build/index.js:1
+msgid "Cards"
+msgstr "Cartes"
+
+#: build/shop.js:1
+msgid "Cart"
+msgstr "Chariot"
+
+#: lib/Product.php:92 build/shop.js:1
+msgid "Categories"
+msgstr "Catégories"
+
+#: build/shop.js:1
+msgid "Checkout"
+msgstr "Ordre"
+
+#: lib/Form.php:53 lib/Order.php:131
+msgid "City"
+msgstr "Ville"
+
+#: build/shop.js:1
+msgid "Close"
+msgstr "Fermer"
+
+#: lib/Settings.php:54
+msgid "Confirmation page text"
+msgstr "Texte de la page de confirmation"
+
+#: lib/Settings.php:53
+msgid "Confirmation page title"
+msgstr "Titre de la page de confirmation"
+
+#: lib/Form.php:77 lib/Order.php:134
+msgid "Consent"
+msgstr "Consentement"
+
+#: lib/Settings.php:50
+msgid "Consent Text"
+msgstr "Texte de consentement"
+
+#: build/shop.js:1
+msgid "Continue"
+msgstr "Continuer"
+
+#: lib/Form.php:61 lib/Order.php:132
+msgid "Country"
+msgstr "Pays"
+
+#: lib/Product.php:42
+msgid "Create new Product"
+msgstr "Créer un nouveau produit"
+
+#: lib/Product.php:41
+msgid "Create new product"
+msgstr "Créer un nouveau produit"
+
+#. Plugin Name of the plugin
+#: expose.php
+msgid "CTX Products"
+msgstr "CTX Products"
+
+#: lib/Order.php:52
+msgid "Customer"
+msgstr "Client"
+
+#: build/index.js:1
+msgid "Data"
+msgstr "Données"
+
+#: expose.php:37
+msgid ""
+"Dear #_FORENAME,\n"
+"\n"
+"Thank you for your order. We will send you the following products:\n"
+"\n"
+"#_PRODUCTLIST\n"
+"\n"
+"Blessings, your Shop"
+msgstr ""
+"Cher/Chère #_FORENAME,\n"
+"\n"
+"Merci pour votre commande. Nous vous enverrons les produits suivants :\n"
+"\n"
+"#_PRODUCTLIST\n"
+"\n"
+"Avec nos salutations, votre boutique"
+
+#: lib/Product.php:94
+msgid "Description"
+msgstr "Description"
+
+#: build/shop.js:1
+msgid "Details"
+msgstr "Détails"
+
+#: build/index.js:1
+msgid "Drop shadow"
+msgstr "Ombre portée"
+
+#: build/index.js:1
+msgid "Hide text"
+msgstr "Masquer le texte"
+
+#: lib/Form.php:29 lib/Order.php:128
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: lib/Product.php:43
+msgid "Edit product"
+msgstr "Modifier le produit"
+
+#: build/index.js:1
+msgid "Form"
+msgstr "Formulaire"
+
+#: expose.php:40
+msgid ""
+"I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-"
+"world/'>law stuff</a> and allow you to process my data for this very order. "
+"All my data will be deleted after shipping."
+msgstr ""
+"J'accepte tout <a href='https://bestlifeonline.com/47-weird-laws-around-"
+"world/'>trucs de droit</a> et vous permettre de traiter mes données pour "
+"cette même commande.Toutes mes données seront supprimées après l'expédition."
+
+#: lib/Settings.php:109
+msgid "If empty, site admin will be used. Separate with commas."
+msgstr ""
+"S'il est vide, l'administrateur du site sera utilisé. Séparez par des "
+"virgules."
+
+#: lib/Product.php:93
+msgid "Image"
+msgstr "Image"
+
+#: build/index.js:1
+msgid "Internal"
+msgstr "Interne"
+
+#: build/index.js:1
+msgid "Icon"
+msgstr "Icône"
+
+#: build/index.js:1
+msgid "Icon alignment"
+msgstr "Alignement de l’icône"
+
+#: build/index.js:1
+msgid "Align icon left"
+msgstr "Aligner l’icône à gauche"
+
+#: build/index.js:1
+msgid "Align icon right"
+msgstr "Aligner l’icône à droite"
+
+#: build/index.js:1
+msgid "Length of preview text"
+msgstr "Longueur du texte de prévisualisation"
+
+#: build/index.js:1
+msgid "Link"
+msgstr "Lien"
+
+#: build/index.js:1
+msgid "List"
+msgstr "Liste"
+
+#: build/shop.js:1
+msgid "Loading…"
+msgstr "Chargement…"
+
+#: lib/Settings.php:52
+msgid "Mail Content"
+msgstr "Contenu du courrier"
+
+#: lib/Settings.php:85
+msgid ""
+"Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or "
+"#_ORDERLIST."
+msgstr ""
+"Courriel envoyé à l’utilisateur. Utilisez des espaces réservés comme "
+"#_FORENAME, #_SURNAME ou #_ORDERLIST."
+
+#: lib/Settings.php:51
+msgid "Mail Subject"
+msgstr "Objet du courrier"
+
+#: lib/Product.php:91
+msgid "Media"
+msgstr "Média"
+
+#: lib/Form.php:69 lib/Order.php:133
+msgid "Message"
+msgstr "Message"
+
+#: build/index.js:1
+msgid "Minimal"
+msgstr "Minimal"
+
+#: lib/Form.php:21 lib/Order.php:127
+msgid "Name"
+msgstr "Nom"
+
+#: lib/Order.php:51 lib/Order.php:58
+msgid "New Order"
+msgstr "Nouvel ordre"
+
+#: lib/Product.php:44
+msgid "New product"
+msgstr "Nouveau produit"
+
+#: lib/Product.php:111
+msgid "No Category"
+msgstr "pas de catégorie"
+
+#: lib/Product.php:121
+msgid "No Description"
+msgstr "pas de description"
+
+#: lib/Product.php:48
+msgid "No products found"
+msgstr "Aucun produit trouvé"
+
+#: lib/Product.php:49
+msgid "No products found in trash"
+msgstr "Aucun produit trouvé dans la corbeille"
+
+#: build/index.js:1
+msgid "Number of words"
+msgstr "Nombre de mots"
+
+#: build/shop.js:1
+msgid "Order"
+msgstr "Ordre"
+
+#: build/shop.js:1
+msgid "Order Summary"
+msgstr "Résumé de la commande"
+
+#: lib/Order.php:54
+msgid "Ordered Products"
+msgstr "Produits commandés"
+
+#: build/shop.js:1
+msgid "pcs."
+msgstr "pièces."
+
+#: build/shop.js:1
+msgid "Place order"
+msgstr "Passer la commande"
+
+#: build/shop.js:1
+msgid "Processing…"
+msgstr "Traitement…"
+
+#: lib/Product.php:40
+msgid "Product"
+msgstr "Produit"
+
+#: lib/Product.php:62
+msgid "Product category"
+msgstr "catégorie de produit"
+
+#: build/index.js:1
+msgid "Product Shop"
+msgstr "Boutique de produits"
+
+#: lib/Settings.php:21 lib/Settings.php:33
+msgid "Product Shop Settings"
+msgstr "Paramètres de la boutique de produits"
+
+#: lib/Product.php:74
+msgid "Product tag"
+msgstr "Étiquette de produit"
+
+#: lib/Product.php:39 lib/Product.php:51
+msgid "Products"
+msgstr "Produits"
+
+#: build/shop.js:1
+msgid "Review your items before you continue to the form."
+msgstr "Vérifiez vos articles avant de continuer vers le formulaire."
+
+#: build/shop.js:1
+msgid "Search"
+msgstr "Rechercher"
+
+#: lib/Product.php:47
+msgid "Search products"
+msgstr "Rechercher des produits"
+
+#: build/index.js:1
+msgid ""
+"See for settings in the inspector. The result can be seen in the frontend"
+msgstr ""
+"Voir les paramètres dans l'inspecteur. Le résultat est visible dans le "
+"frontend"
+
+#: build/shop.js:1
+msgid "Selected Tag:"
+msgid_plural "Selected Tags:"
+msgstr[0] "Balise sélectionnée:"
+msgstr[1] "Balises sélectionnées:"
+
+#: lib/Settings.php:22
+msgid "Settings"
+msgstr "Paramètres"
+
+#: build/index.js:1
+msgid "Show category"
+msgstr "Afficher la catégorie"
+
+#: build/index.js:1
+msgid "Show filter"
+msgstr "Afficher le filtre"
+
+#: build/index.js:1
+msgid "Show searchbar"
+msgstr "Afficher la barre de recherche"
+
+#: lib/Settings.php:49
+msgid "Slug"
+msgstr ""
+
+#: build/index.js:1
+msgid "Sort by category"
+msgstr "Trier par catégorie"
+
+#: build/index.js:1
+msgid "Style"
+msgstr "Style"
+
+#: lib/Settings.php:79
+msgid "Subject for the mail sent to the user"
+msgstr "Objet du mail envoyé à l'utilisateur"
+
+#: lib/Form.php:87
+msgid "Submit"
+msgstr "Envoyer"
+
+#: build/index.js:1 build/shop.js:1
+msgid "Tags"
+msgstr "Étiquettes"
+
+#: lib/Settings.php:103
+msgid "Text for consent-box"
+msgstr "Texte pour la zone de consentement"
+
+#: lib/Settings.php:97
+msgid "Text of confirmation page when order was successfull"
+msgstr "Texte de la page de confirmation lorsque la commande a été réussie"
+
+#: expose.php:38
+msgid "Thank you for your order!"
+msgstr "Merci pour votre commande !"
+
+#: lib/Order.php:32
+msgid "The form data is incomplete or invalid."
+msgstr "Les données du formulaire sont incomplètes ou invalides."
+
+#: build/shop.js:1
+msgid "The order form could not be loaded."
+msgstr "Le formulaire de commande n’a pas pu être chargé."
+
+#: build/shop.js:1
+msgid "There was a problem sending your order."
+msgstr "Un problème est survenu lors de l’envoi de votre commande."
+
+#: build/shop.js:1
+msgid "This field is required."
+msgstr "Ce champ est obligatoire."
+
+#. Author of the plugin
+#: expose.php
+msgid "Thomas Gollenia"
+msgstr ""
+
+#: lib/Settings.php:91
+msgid "Title of confirmation page when order was successfull"
+msgstr "Titre de la page de confirmation lorsque la commande a été réussie"
+
+#: lib/Product.php:46
+msgid "View product"
+msgstr "Voir le produit"
+
+#: expose.php:39
+msgid ""
+"We have recieved your order and we will send it to you as soon as possible"
+msgstr ""
+
+#: build/shop.js:1
+msgid "with tag:"
+msgid_plural "with tags:"
+msgstr[0] "avec l'étiquette:"
+msgstr[1] "avec les étiquettes:"
+
+#. Description of the plugin
+#: expose.php
+msgid ""
+"Wordpress Plugin that displays free products like magazines or tracts and "
+"let customers place orders without payment."
+msgstr ""
+
+#: lib/Order.php:134
+msgid "Yes"
+msgstr "Oui"
+
+#: build/shop.js:1
+msgid "Your details"
+msgstr "Vos coordonnées"
+
+#: expose.php:36
+msgid "Your Order"
+msgstr "Votre commande"
+
+#: lib/Form.php:45 lib/Order.php:130
+msgid "Zip"
+msgstr "Code postal"
