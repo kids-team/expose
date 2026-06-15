@@ -1,5 +1,5 @@
 import apiFetch from '@wordpress/api-fetch';
-import { useContext, useEffect, useState } from '@wordpress/element';
+import { Fragment, useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { addQueryArgs } from '@wordpress/url';
 import { createPortal } from 'react-dom';
@@ -35,36 +35,49 @@ const Shop = ( { attributes, category } ) => {
 		queryParams[ 'product-tags' ] = selectedTags.length ? selectedTags.join( ',' ) : undefined;
 
 		dispatch( { type: 'SET_STATUS', payload: 'LOADING' } );
-		apiFetch( { path: addQueryArgs( 'wp/v2/ctx-products', queryParams ) } ).then( ( posts ) => {
-			dispatch( { type: 'SET_PRODUCTS', payload: posts } );
-			dispatch( { type: 'SET_STATUS', payload: 'SUCCESS' } );
-		} );
-	}, [ selectedCategory, selectedTags ] );
+		apiFetch( { path: addQueryArgs( '/wp/v2/ctx-products', queryParams ) } )
+			.then( ( posts ) => {
+				dispatch( { type: 'SET_PRODUCTS', payload: posts } );
+				dispatch( { type: 'SET_STATUS', payload: 'SUCCESS' } );
+			} )
+			.catch( () => {
+				dispatch( { type: 'SET_PRODUCTS', payload: [] } );
+				dispatch( { type: 'SET_STATUS', payload: 'ERROR' } );
+			} );
+	}, [ dispatch, selectedCategory, selectedTags ] );
 
 	useEffect( () => {
-		apiFetch( { path: 'wp/v2/product-categories' } ).then( ( categories ) => {
-			const result = {};
-			for ( const category of categories ) {
-				result[ category.id ] = category.name;
-			}
-			dispatch( { type: 'SET_CATEGORIES', payload: result } );
-			if ( category ) {
-				Object.entries( result ).forEach( ( [ key, value ] ) => {
-					if ( value.toLowerCase() === category.toLowerCase() ) {
-						dispatch( { type: 'SET_SELECTED_CATEGORY', payload: key } );
-					}
-				} );
-			}
-		} );
+		apiFetch( { path: '/wp/v2/product-categories' } )
+			.then( ( categories ) => {
+				const result = {};
+				for ( const categoryItem of categories ) {
+					result[ categoryItem.id ] = categoryItem.name;
+				}
+				dispatch( { type: 'SET_CATEGORIES', payload: result } );
+				if ( category ) {
+					Object.entries( result ).forEach( ( [ key, value ] ) => {
+						if ( value.toLowerCase() === category.toLowerCase() ) {
+							dispatch( { type: 'SET_SELECTED_CATEGORY', payload: key } );
+						}
+					} );
+				}
+			} )
+			.catch( () => {
+				dispatch( { type: 'SET_CATEGORIES', payload: {} } );
+			} );
 
-		apiFetch( { path: 'wp/v2/product-tags' } ).then( ( tags ) => {
-			const result = {};
-			for ( const tag of tags ) {
-				result[ tag.id ] = tag.name;
-			}
-			dispatch( { type: 'SET_TAGS', payload: result } );
-		} );
-	}, [] );
+		apiFetch( { path: '/wp/v2/product-tags' } )
+			.then( ( tags ) => {
+				const result = {};
+				for ( const tag of tags ) {
+					result[ tag.id ] = tag.name;
+				}
+				dispatch( { type: 'SET_TAGS', payload: result } );
+			} )
+			.catch( () => {
+				dispatch( { type: 'SET_TAGS', payload: {} } );
+			} );
+	}, [ category, dispatch ] );
 
 	const filterProducts = ( event ) => {
 		const filter = event.target.value;
@@ -78,12 +91,17 @@ const Shop = ( { attributes, category } ) => {
 	const products = filteredProducts.length ? filteredProducts : state.products;
 
 	const cartSize = Object.keys( state.cart ).length;
+	const cartButton = document.getElementById( 'ctx-cart-button' );
+
+	useEffect( () => {
+		cartButton?.classList.toggle( 'has-cart', cartSize > 0 );
+	}, [ cartButton, cartSize ] );
 
 	return (
 		<div className="shop">
 			<div className="shop-sidebar">
 				{ attributes.showSearchbar ? (
-					<>
+					<Fragment>
 						<div className="shop-sidebar-header">
 							<div className="input">
 								<label>{ __( 'Search', 'expose' ) }</label>
@@ -99,20 +117,22 @@ const Shop = ( { attributes, category } ) => {
 							</button>
 						</div>
 
-						{ attributes.showFilter ? <Filter showFilter={ showFilter } /> : <></> }
-					</>
+						{ attributes.showFilter ? <Filter showFilter={ showFilter } /> : null }
+					</Fragment>
 				) : (
 					<div></div>
 				) }
-				{ createPortal(
-					<CartButton
-						cartSize={ cartSize }
-						onClick={ () => {
-							dispatch( { type: 'SET_ORDER_MODAL', payload: true } );
-						} }
-					/>,
-					document.getElementById( 'ctx-cart-button' )
-				) }
+				{ cartButton
+					? createPortal(
+							<CartButton
+								cartSize={ cartSize }
+								onClick={ () => {
+									dispatch( { type: 'SET_ORDER_MODAL', payload: true } );
+								} }
+							/>,
+							cartButton
+						)
+					: null }
 				<div></div>
 			</div>
 			{ attributes.sortByCategory && selectedCategory === 0 && selectedTags.length === 0 ? (
