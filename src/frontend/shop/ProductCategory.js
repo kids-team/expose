@@ -1,21 +1,13 @@
-import React, { useContext, useState } from '@wordpress/element';
-import { AppContext } from '../services/context';
+import { Fragment, useState } from '@wordpress/element';
 import ProductCard from './ProductCard';
 
 const ProductCategory = ( props ) => {
-	const { products, onCartClick, title } = props;
+	const { products, title } = props;
 
-	const { state, dispatch } = useContext( AppContext );
-
-	const [ showCategory, setShowCategory ] = useState( [] );
-
-	const addToCart = ( product, count = 1 ) => {
-		if ( count == 0 ) return dispatch( { type: 'REMOVE_FROM_CART', payload: { id: product, count } } );
-		dispatch( { type: 'ADD_TO_CART', payload: { id: product, count } } );
-	};
+	const [ showCategory, setShowCategory ] = useState( true );
 
 	return (
-		<>
+		<Fragment>
 			<div className={ `ctx-products-category ${ showCategory ? '' : 'hidden' }` }>
 				<button
 					onClick={ () => {
@@ -29,17 +21,11 @@ const ProductCategory = ( props ) => {
 			<div className={ `ctx-product-grid-wrapper ${ showCategory ? '' : 'hidden' }` }>
 				<div className="ctx-product-grid">
 					{ products.map( ( product ) => {
-						return (
-							<ProductCard
-								key={ product.id }
-								product={ product }
-								onCartClick={ () => addToCart( product.id, quantity ) }
-							/>
-						);
+						return <ProductCard key={ product.id } product={ product } />;
 					} ) }
 				</div>
 			</div>
-		</>
+		</Fragment>
 	);
 };
 
