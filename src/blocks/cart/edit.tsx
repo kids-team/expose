@@ -7,11 +7,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  * Internal dependencies
  */
 import Inspector from './inspector';
+import type { CartBlockAttributes, EditorProps } from '../types';
 
-export default function ButtonEdit( { ...props } ) {
+export default function ButtonEdit( { ...props }: EditorProps<CartBlockAttributes> ) {
 	const {
-		attributes: { size, icon, iconRight, iconOnly },
-		setAttributes,
+		attributes: { size, iconRight, iconOnly },
 		className,
 	} = props;
 

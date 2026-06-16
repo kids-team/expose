@@ -1,10 +1,16 @@
 import { Fragment, useContext } from '@wordpress/element';
 import { AppContext } from '../services/context';
+import type { Product } from '../types';
 import FakeCards from './FakeCards';
 import ProductCard from './ProductCard';
 
-const ListView = ( { products, className } ) => {
-	const { state, dispatch } = useContext( AppContext );
+type ListViewProps = {
+	products: Product[];
+	className?: string;
+};
+
+const ListView = ( { products, className = '' }: ListViewProps ) => {
+	const { state } = useContext( AppContext );
 
 	return (
 		<Fragment>

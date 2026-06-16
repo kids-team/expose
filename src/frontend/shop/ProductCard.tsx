@@ -1,11 +1,16 @@
 import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { AppContext } from '../services/context';
+import type { Product } from '../types';
 
-const ProductCard = ( props ) => {
-	const { product } = props;
+type ProductCardProps = {
+	product: Product;
+};
+
+const ProductCard = ( { product }: ProductCardProps ) => {
 	const { dispatch } = useContext( AppContext );
-	const imageUrl = product?.images?.large || product?.images?.medium || product?.images?.thumbnail || product?.images?.full;
+	const imageUrl =
+		product?.images?.large || product?.images?.medium || product?.images?.thumbnail || product?.images?.full;
 
 	return (
 		<div className="ctx-product-card">
@@ -16,7 +21,7 @@ const ProductCard = ( props ) => {
 				<h4>{ product.title.rendered }</h4>
 				<div
 					dangerouslySetInnerHTML={ {
-						__html: product.excerpt.rendered,
+						__html: product.excerpt?.rendered ?? '',
 					} }
 				/>
 				<div className="ctx-product-card-footer">

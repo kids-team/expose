@@ -3,11 +3,14 @@ import { __ } from '@wordpress/i18n';
 
 import { AppContext } from '../services/context';
 
-const MiniCart = ( props ) => {
-	const show = props.show;
+type MiniCartProps = {
+	show: boolean;
+};
+
+const MiniCart = ( { show }: MiniCartProps ) => {
 	const { state, dispatch } = useContext( AppContext );
 
-	const hasProducts = Object.keys( state.cart ).length > 0;
+	const hasProducts = show && Object.keys( state.cart ).length > 0;
 	return (
 		<Fragment>
 			{ hasProducts && ! state.showOrderModal ? (
@@ -15,7 +18,7 @@ const MiniCart = ( props ) => {
 					<h3>{ __( 'Cart', 'expose' ) }</h3>
 					<div className="ctx-minicart-content">
 						{ Object.keys( state.cart ).map( ( id, key ) => {
-							const product = state.products.find( ( product ) => product.id == id );
+							const product = state.products.find( ( product ) => product.id === Number( id ) );
 							const quantity = state.cart[ id ];
 
 							return (

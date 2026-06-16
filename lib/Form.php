@@ -56,7 +56,7 @@ class Form {
 				"placeholder" => "City"
 			],
 			[
-				"type" => "text",
+				"type" => "country",
 				"name" => "country",
 				"label" => __("Country", "expose"),
 				"required" => true,

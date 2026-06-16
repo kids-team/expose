@@ -1,17 +1,19 @@
 import { __ } from '@wordpress/i18n';
+import type { FormErrors, FormField, FormSchema, FormValues } from '../types';
 
-const isEmptyValue = ( value ) =>
+const isEmptyValue = ( value: unknown ) =>
 	value === undefined || value === null || value === '' || value === false;
 
-export const normalizeFormSchema = ( response ) => {
-	const rawFields = Array.isArray( response?.fields )
-		? response.fields
-		: Array.isArray( response )
+export const normalizeFormSchema = ( response: FormSchema | FormField[] ): FormSchema => {
+	const rawFields =
+		! Array.isArray( response ) && Array.isArray( response.fields )
+			? response.fields
+			: Array.isArray( response )
 			? response
 			: [];
 
 	const fields = rawFields.filter(
-		( field ) => field && field.name && field.type !== 'submit'
+		( field ): field is FormField => Boolean( field && field.name && field.type !== 'submit' )
 	);
 
 	return {
@@ -19,7 +21,10 @@ export const normalizeFormSchema = ( response ) => {
 	};
 };
 
-export const buildInitialFormValues = ( fields, initialValues = {} ) => {
+export const buildInitialFormValues = (
+	fields: FormField[],
+	initialValues: FormValues = {}
+): FormValues => {
 	const defaults = Object.fromEntries(
 		fields.map( ( field ) => {
 			if ( typeof field.defaultValue !== 'undefined' ) {
@@ -44,7 +49,7 @@ export const buildInitialFormValues = ( fields, initialValues = {} ) => {
 	};
 };
 
-const validateWithBrowserConstraints = ( field, value ) => {
+const validateWithBrowserConstraints = ( field: FormField, value: unknown ): string | null => {
 	if ( typeof document === 'undefined' ) {
 		return null;
 	}
@@ -100,8 +105,11 @@ const validateWithBrowserConstraints = ( field, value ) => {
 	return input.checkValidity() ? null : input.validationMessage;
 };
 
-export const validateFormValues = ( fields, formData ) => {
-	const errors = {};
+export const validateFormValues = (
+	fields: FormField[],
+	formData: FormValues
+): FormErrors => {
+	const errors: FormErrors = {};
 
 	for ( const field of fields ) {
 		const value = formData[ field.name ];

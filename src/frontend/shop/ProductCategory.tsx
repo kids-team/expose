@@ -1,8 +1,13 @@
 import { Fragment, useState } from '@wordpress/element';
+import type { Product } from '../types';
 import ProductCard from './ProductCard';
 
-const ProductCategory = ( props ) => {
-	const { products, title } = props;
+type ProductCategoryProps = {
+	products: Product[];
+	title: string;
+};
+
+const ProductCategory = ( { products, title }: ProductCategoryProps ) => {
 
 	const [ showCategory, setShowCategory ] = useState( true );
 

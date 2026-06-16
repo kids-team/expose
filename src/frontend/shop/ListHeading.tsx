@@ -1,6 +1,5 @@
 import { useCallback, useContext } from '@wordpress/element';
 import { __, _n } from '@wordpress/i18n';
-import { React } from 'react';
 import { AppContext } from '../services/context';
 
 const ListHeading = () => {
@@ -56,6 +55,8 @@ const ListHeading = () => {
 			</div>
 		);
 	}
+
+	return null;
 };
 
 export default ListHeading;

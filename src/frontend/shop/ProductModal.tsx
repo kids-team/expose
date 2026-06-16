@@ -3,39 +3,37 @@ import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import NumberPicker from '../../_externalNumberPicker';
 import { AppContext } from '../services/context';
+import type { Product } from '../types';
 
-const ProductModal = ( props ) => {
+const ProductModal = () => {
 	const { state, dispatch } = useContext( AppContext );
-	const [ product, setProduct ] = useState( null );
-	const [ status, setStatus ] = useState( 'INIT' );
+	const [ product, setProduct ] = useState<Product | null>( null );
 	const [ quantity, setQuantity ] = useState( 1 );
 
 	const id = state.selectedProduct;
 
-	const closeModel = ( event ) => {
-		event.bubbles = false;
+	const closeModel = ( event: React.MouseEvent<HTMLDivElement> ) => {
 		if ( event.target !== event.currentTarget ) return;
 		dispatch( { type: 'SET_SELECTED_PRODUCT', payload: 0 } );
 	};
 
-	const addToCart = ( product, count = 1 ) => {
-		if ( count == 0 ) return dispatch( { type: 'REMOVE_FROM_CART', payload: { id: product, count } } );
-		dispatch( { type: 'ADD_TO_CART', payload: { id: product, count } } );
+	const addToCart = ( productId: number, count = 1 ) => {
+		if ( count === 0 ) {
+			return dispatch( { type: 'REMOVE_FROM_CART', payload: { id: productId, count } } );
+		}
+
+		dispatch( { type: 'ADD_TO_CART', payload: { id: productId, count } } );
 	};
 
 	useEffect( () => {
 		if ( ! id ) return;
 
-		setStatus( 'LOADING' );
-
-		apiFetch( { path: `/wp/v2/ctx-products/${ id }` } )
-			.then( ( data ) => {
+		apiFetch<Product>( { path: `/wp/v2/ctx-products/${ id }` } )
+			.then( ( data: Product ) => {
 				setProduct( data );
-				setStatus( 'LOADED' );
 			} )
 			.catch( () => {
 				setProduct( null );
-				setStatus( 'ERROR' );
 			} );
 	}, [ id ] );
 
@@ -48,7 +46,7 @@ const ProductModal = ( props ) => {
 		>
 			<div className="ctx-order-modal-window">
 				<div className="ctx-order-modal-headerimage">
-					<img src={ product?.images?.full } />
+					<img src={ product?.images?.full } alt={ product?.title.rendered ?? '' } />
 
 					<h2>{ product?.title.rendered }</h2>
 					<button
@@ -62,7 +60,7 @@ const ProductModal = ( props ) => {
 
 				<div>
 					<img alt={ product?.title.raw } />
-					<p dangerouslySetInnerHTML={ { __html: product?.content?.rendered } }></p>
+					<p dangerouslySetInnerHTML={ { __html: product?.content?.rendered ?? '' } }></p>
 				</div>
 
 				<div className="ctx-order-modal-footer">
@@ -76,7 +74,14 @@ const ProductModal = ( props ) => {
 					</button>
 					<div className="ctx-order-modal-actions">
 						<NumberPicker value={ quantity } onChange={ ( value ) => setQuantity( value ) } min={ 1 } />
-						<span className="ctx-product-card-add" onClick={ () => addToCart( product.id, quantity ) }>
+						<span
+							className="ctx-product-card-add"
+							onClick={ () => {
+								if ( product ) {
+									addToCart( product.id, quantity );
+								}
+							} }
+						>
 							<em className="material-icons material-symbols-outlined">add_shopping_cart</em>
 						</span>
 					</div>

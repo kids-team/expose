@@ -1,10 +1,13 @@
 import { Fragment } from '@wordpress/element';
 
-function FakeCards( props ) {
-	const { count } = props;
+type FakeCardsProps = {
+	count: number;
+};
+
+function FakeCards( { count }: FakeCardsProps ) {
 	return (
 		<Fragment>
-			{ [ ...Array( count ) ].map( ( item, key ) => {
+			{ [ ...Array( count ) ].map( ( _, key ) => {
 				return (
 					<div className="fake-card" key={ key }>
 						<div className="fake-card-image"></div>

@@ -1,3 +1,5 @@
+import type { AppAction, AppState } from '../types';
+
 export const initialState = {
 	products: [],
 	status: 'INIT',
@@ -15,79 +17,75 @@ export const initialState = {
 	selectedCategory: 0,
 	selectedTags: [],
 	showOrderModal: false,
-};
+} satisfies AppState;
 
-export const reducer = ( state, action ) => {
-	const { type, payload } = action;
-
-	switch ( type ) {
+export const reducer = ( state: AppState, action: AppAction ): AppState => {
+	switch ( action.type ) {
 		case 'SET_WIZARD_STEP':
-			state.wizard.step = payload;
+			state.wizard.step = action.payload;
 			state.wizard.checkValidity = true;
 			return { ...state };
 
 		case 'INCREMENT_WIZARD':
-			state.wizard.step = state.wizard.step + ( payload ? payload : 1 );
+			state.wizard.step = state.wizard.step + ( action.payload ? action.payload : 1 );
 			state.wizard.checkValidity = true;
 			return { ...state };
 
 		case 'DECREMENT_WIZARD':
-			state.wizard.step = state.wizard.step - ( payload ? payload : 1 );
+			state.wizard.step = state.wizard.step - ( action.payload ? action.payload : 1 );
 			state.wizard.checkValidity = true;
 			return { ...state };
 
 		case 'SET_PRODUCTS':
-			return { ...state, products: payload };
+			return { ...state, products: action.payload };
 
 		case 'SET_ORDER_MODAL':
-			return { ...state, showOrderModal: payload };
+			return { ...state, showOrderModal: action.payload };
 
 		case 'SET_CATEGORIES':
-			return { ...state, categories: payload };
+			return { ...state, categories: action.payload };
 
 		case 'SET_SELECTED_CATEGORY':
-			return { ...state, selectedCategory: payload };
+			return { ...state, selectedCategory: action.payload };
 
 		case 'SET_SELECTED_TAGS':
-			return { ...state, selectedTags: Array.isArray( payload ) ? payload : [] };
+			return { ...state, selectedTags: Array.isArray( action.payload ) ? action.payload : [] };
 
 		case 'SET_TAGS':
-			return { ...state, tags: payload };
+			return { ...state, tags: action.payload };
 
 		case 'SET_STATUS':
-			state.status = payload;
+			state.status = action.payload;
 			return { ...state };
 
 		case 'SET_FORM_STATUS':
-			state.formStatus = payload;
+			state.formStatus = action.payload;
 			return { ...state };
 
 		case 'SET_SELECTED_PRODUCT':
-			return { ...state, selectedProduct: payload };
+			return { ...state, selectedProduct: action.payload };
 
 		case 'ADD_TO_CART':
-			if ( payload.count === 0 ) {
-				delete state.cart[ payload.id ];
+			if ( action.payload.count === 0 ) {
+				delete state.cart[ String( action.payload.id ) ];
 				return { ...state };
 			}
 
-			const oldCount = state.cart[ payload.id ] || 0;
-
-			state.cart[ payload.id ] = payload.count;
+			state.cart[ String( action.payload.id ) ] = action.payload.count;
 			if ( Object.keys( state.cart ).length === 0 ) {
 				state.showOrderModal = false;
 			}
 			return { ...state };
 
 		case 'REMOVE_FROM_CART':
-			delete state.cart[ payload.id ];
+			delete state.cart[ String( action.payload.id ) ];
 			if ( Object.keys( state.cart ).length === 0 ) {
 				state.showOrderModal = false;
 			}
 			return { ...state };
 
 		case 'SET_RESPONSE':
-			return { ...state, response: payload };
+			return { ...state, response: action.payload };
 
 		case 'RESET':
 			return { ...state, cart: {}, wizard: { step: 0, checkValidity: false }, status: 'SUCCESS' };

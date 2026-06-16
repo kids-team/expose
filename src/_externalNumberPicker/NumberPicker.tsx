@@ -1,16 +1,18 @@
-import React from 'react';
 import './style.scss';
 
 type NumberPickerProps = {
 	value: number;
-	max: number;
-	min: number;
-	steps: number;
+	max?: number;
+	min?: number;
+	steps?: number;
 	onChange: ( value: number ) => void;
 };
 
 const NumberPicker = ( props: NumberPickerProps ) => {
-	const { value, max, min, steps, onChange } = props;
+	const { value, onChange } = props;
+	const max = props.max ?? 100;
+	const min = props.min ?? 0;
+	const steps = props.steps ?? 1;
 
 	const changeNumber = ( value: number ) => {
 		onChange( value );
@@ -33,7 +35,8 @@ const NumberPicker = ( props: NumberPickerProps ) => {
 			<fieldset>
 				<input
 					onChange={ ( event ) => {
-						changeNumber( parseInt( event.target.value ) );
+						const nextValue = Number.parseInt( event.target.value, 10 );
+						changeNumber( Number.isNaN( nextValue ) ? min : nextValue );
 					} }
 					className="ctx-number-picker__number"
 					value={ value }
@@ -61,7 +64,6 @@ const NumberPicker = ( props: NumberPickerProps ) => {
 };
 
 NumberPicker.defaultProps = {
-	start: 0,
 	max: 100,
 	min: 0,
 	steps: 1,

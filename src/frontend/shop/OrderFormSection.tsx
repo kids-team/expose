@@ -1,5 +1,15 @@
 import { Button, FormFields } from '@contexis/wp-react-form';
 import { __ } from '@wordpress/i18n';
+import type { FormErrors, FormField, FormValues } from '../types';
+
+type OrderFormSectionProps = {
+	fields: FormField[];
+	formData: FormValues;
+	errors: FormErrors;
+	isSubmitting: boolean;
+	onChange: ( name: string, value: unknown ) => void;
+	onSubmit: () => void;
+};
 
 const OrderFormSection = ( {
 	fields,
@@ -8,11 +18,11 @@ const OrderFormSection = ( {
 	isSubmitting,
 	onChange,
 	onSubmit,
-} ) => {
+}: OrderFormSectionProps ) => {
 	return (
 		<div className="ctx-order-form-section">
 			<FormFields
-				fields={ fields }
+				fields={ fields as never }
 				formData={ formData }
 				errors={ errors }
 				disabled={ isSubmitting }

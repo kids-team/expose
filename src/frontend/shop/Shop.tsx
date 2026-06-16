@@ -4,6 +4,7 @@ import { __ } from '@wordpress/i18n';
 import { addQueryArgs } from '@wordpress/url';
 import { createPortal } from 'react-dom';
 import { AppContext } from '../services/context';
+import type { CategoryMap, Product, TagMap } from '../types';
 import CartButton from './CartButton';
 import CategoryView from './CategoryView';
 import Filter from './Filter';
@@ -14,19 +15,34 @@ import ProductModal from './ProductModal';
 
 import './style.scss';
 
-const Shop = ( { attributes, category } ) => {
+type ShopAttributes = {
+	form?: number;
+	showFilter?: boolean;
+	showSearchbar?: boolean;
+	sortByCategory?: boolean;
+};
+
+type ShopProps = {
+	attributes: ShopAttributes;
+	category: string;
+};
+
+type TaxonomyTerm = {
+	id: number;
+	name: string;
+};
+
+const Shop = ( { attributes, category }: ShopProps ) => {
 	const { state, dispatch } = useContext( AppContext );
 
-	const [ filteredProducts, setFilteredProducts ] = useState( [] );
-	const [ selectedProduct, setSelectedProduct ] = useState( 0 );
-
+	const [ filteredProducts, setFilteredProducts ] = useState<Product[]>( [] );
 	const [ showFilter, setShowFilter ] = useState( false );
 
 	const selectedCategory = state.selectedCategory;
 	const selectedTags = Array.isArray( state.selectedTags ) ? state.selectedTags : [];
 
 	useEffect( () => {
-		const queryParams = {
+		const queryParams: Record<string, string | number | boolean | undefined> = {
 			_embed: true,
 			per_page: 100,
 		};
@@ -35,7 +51,7 @@ const Shop = ( { attributes, category } ) => {
 		queryParams[ 'product-tags' ] = selectedTags.length ? selectedTags.join( ',' ) : undefined;
 
 		dispatch( { type: 'SET_STATUS', payload: 'LOADING' } );
-		apiFetch( { path: addQueryArgs( '/wp/v2/ctx-products', queryParams ) } )
+		apiFetch<Product[]>( { path: addQueryArgs( '/wp/v2/ctx-products', queryParams ) } )
 			.then( ( posts ) => {
 				dispatch( { type: 'SET_PRODUCTS', payload: posts } );
 				dispatch( { type: 'SET_STATUS', payload: 'SUCCESS' } );
@@ -47,11 +63,11 @@ const Shop = ( { attributes, category } ) => {
 	}, [ dispatch, selectedCategory, selectedTags ] );
 
 	useEffect( () => {
-		apiFetch( { path: '/wp/v2/product-categories' } )
+		apiFetch<TaxonomyTerm[]>( { path: '/wp/v2/product-categories' } )
 			.then( ( categories ) => {
-				const result = {};
+				const result: CategoryMap = {};
 				for ( const categoryItem of categories ) {
-					result[ categoryItem.id ] = categoryItem.name;
+					result[ String( categoryItem.id ) ] = categoryItem.name;
 				}
 				dispatch( { type: 'SET_CATEGORIES', payload: result } );
 				if ( category ) {
@@ -66,11 +82,11 @@ const Shop = ( { attributes, category } ) => {
 				dispatch( { type: 'SET_CATEGORIES', payload: {} } );
 			} );
 
-		apiFetch( { path: '/wp/v2/product-tags' } )
+		apiFetch<TaxonomyTerm[]>( { path: '/wp/v2/product-tags' } )
 			.then( ( tags ) => {
-				const result = {};
+				const result: TagMap = {};
 				for ( const tag of tags ) {
-					result[ tag.id ] = tag.name;
+					result[ String( tag.id ) ] = tag.name;
 				}
 				dispatch( { type: 'SET_TAGS', payload: result } );
 			} )
@@ -79,8 +95,9 @@ const Shop = ( { attributes, category } ) => {
 			} );
 	}, [ category, dispatch ] );
 
-	const filterProducts = ( event ) => {
-		const filter = event.target.value;
+	const filterProducts = ( event: React.ChangeEvent<HTMLInputElement> ) => {
+		const target = event.target as HTMLInputElement | null;
+		const filter = target?.value ?? '';
 
 		const result = state.products.filter( ( product ) => {
 			return product.title.rendered.toLowerCase().includes( filter.toLowerCase() );
@@ -141,12 +158,11 @@ const Shop = ( { attributes, category } ) => {
 				<CategoryView
 					className="shop-content"
 					products={ products }
-					onDetails={ ( id ) => setSelectedProduct( id ) }
 				/>
 			) : (
 				<div className="shop-content">
 					<ListHeading />
-					<ListView products={ products } onDetails={ ( id ) => setSelectedProduct( id ) } />
+					<ListView products={ products } />
 				</div>
 			) }
 			<ProductModal />
@@ -155,5 +171,4 @@ const Shop = ( { attributes, category } ) => {
 	);
 };
 
-Shop.defaultProps = {};
 export default Shop;

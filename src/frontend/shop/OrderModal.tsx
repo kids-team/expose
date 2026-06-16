@@ -4,6 +4,7 @@ import { useContext, useEffect, useMemo, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import NumberPicker from '../../_externalNumberPicker';
 import { AppContext } from '../services/context';
+import type { FormErrors, FormSchema, FormValues } from '../types';
 import OrderFormSection from './OrderFormSection';
 import {
 	buildInitialFormValues,
@@ -11,13 +12,25 @@ import {
 	validateFormValues,
 } from './orderFormUtils';
 
-const OrderModal = ( props ) => {
+type OrderModalProps = {
+	formId: number;
+};
+
+type OrderResponse = {
+	data: string;
+};
+
+type ApiError = {
+	message?: string;
+};
+
+const OrderModal = ( props: OrderModalProps ) => {
 	const { state, dispatch } = useContext( AppContext );
-	const [ formSchema, setFormSchema ] = useState( { fields: [] } );
-	const [ formData, setFormData ] = useState( {} );
-	const [ formErrors, setFormErrors ] = useState( {} );
-	const [ formState, setFormState ] = useState( 'idle' );
-	const [ openSection, setOpenSection ] = useState( 'summary' );
+	const [ formSchema, setFormSchema ] = useState<FormSchema>( { fields: [] } );
+	const [ formData, setFormData ] = useState<FormValues>( {} );
+	const [ formErrors, setFormErrors ] = useState<FormErrors>( {} );
+	const [ formState, setFormState ] = useState<'idle' | 'loading' | 'loaded' | 'submitting' | 'success' | 'error'>( 'idle' );
+	const [ openSection, setOpenSection ] = useState<'summary' | 'details'>( 'summary' );
 	const [ formErrorMessage, setFormErrorMessage ] = useState( '' );
 
 	const formPath = props.formId ? `/gbf-form/v2/form/${ props.formId }` : '/expose/v2/form';
@@ -26,22 +39,21 @@ const OrderModal = ( props ) => {
 		() =>
 			cartItems.map( ( id ) => ( {
 				id,
-				product: state.products.find( ( product ) => product.id == id ),
+				product: state.products.find( ( product ) => product.id === Number( id ) ),
 				quantity: state.cart[ id ],
 			} ) ),
 		[ cartItems, state.cart, state.products ]
 	);
 
-	const closeModel = ( event ) => {
-		event.bubbles = false;
+	const closeModel = ( event: React.MouseEvent<HTMLDivElement> ) => {
 		if ( event.target !== event.currentTarget ) return;
 		dispatch( { type: 'SET_ORDER_MODAL', payload: false } );
 		dispatch( { type: 'SET_FORM_STATUS', payload: 'INIT' } );
 		dispatch( { type: 'SET_RESPONSE', payload: '' } );
 	};
 
-	const setCartItem = ( id, count ) => {
-		const type = count == 0 ? 'REMOVE_FROM_CART' : 'ADD_TO_CART';
+	const setCartItem = ( id: string, count: number ) => {
+		const type = count === 0 ? 'REMOVE_FROM_CART' : 'ADD_TO_CART';
 		dispatch( { type, payload: { id, count } } );
 	};
 
@@ -59,8 +71,8 @@ const OrderModal = ( props ) => {
 		setFormErrorMessage( '' );
 		setOpenSection( 'summary' );
 
-		apiFetch( { path: formPath } )
-			.then( ( response ) => {
+		apiFetch<FormSchema | FormSchema['fields']>( { path: formPath } )
+			.then( ( response: FormSchema | FormSchema['fields'] ) => {
 				const schema = normalizeFormSchema( response );
 				setFormSchema( schema );
 				setFormData( buildInitialFormValues( schema.fields ) );
@@ -74,7 +86,7 @@ const OrderModal = ( props ) => {
 			} );
 	}, [ formPath, state.showOrderModal ] );
 
-	const handleFieldChange = ( name, value ) => {
+	const handleFieldChange = ( name: string, value: unknown ) => {
 		setFormData( ( prev ) => ( { ...prev, [ name ]: value } ) );
 		setFormErrors( ( prev ) => ( { ...prev, [ name ]: '' } ) );
 		setFormErrorMessage( '' );
@@ -91,7 +103,7 @@ const OrderModal = ( props ) => {
 		setFormState( 'submitting' );
 		setFormErrorMessage( '' );
 
-		apiFetch( {
+		apiFetch<OrderResponse>( {
 			path: '/expose/v2/order',
 			method: 'POST',
 			data: {
@@ -100,13 +112,13 @@ const OrderModal = ( props ) => {
 				...( props.formId ? { id: props.formId } : {} ),
 			},
 		} )
-			.then( ( response ) => {
+			.then( ( response: OrderResponse ) => {
 				dispatch( { type: 'SET_FORM_STATUS', payload: 'SUCCESS' } );
 				dispatch( { type: 'SET_RESPONSE', payload: response.data } );
 				dispatch( { type: 'RESET' } );
 				setFormState( 'success' );
 			} )
-			.catch( ( error ) => {
+			.catch( ( error: ApiError ) => {
 				setFormState( 'loaded' );
 				setFormErrorMessage(
 					error?.message || __( 'There was a problem sending your order.', 'expose' )
@@ -140,8 +152,8 @@ const OrderModal = ( props ) => {
 						<Accordion
 							className="ctx-order-accordion"
 							value={ [ openSection ] }
-							onValueChange={ ( value ) => {
-								if ( value[ 0 ] ) {
+							onValueChange={ ( value: string[] ) => {
+								if ( value[ 0 ] === 'summary' || value[ 0 ] === 'details' ) {
 									setOpenSection( value[ 0 ] );
 								}
 							} }
@@ -162,16 +174,16 @@ const OrderModal = ( props ) => {
 											</div>
 											<div className="ctx-order-modal-product-content">
 												<h4>{ item.product?.title?.rendered }</h4>
-												<div
-													dangerouslySetInnerHTML={ {
-														__html: item.product?.excerpt?.rendered,
-													} }
-												/>
+													<div
+														dangerouslySetInnerHTML={ {
+															__html: item.product?.excerpt?.rendered ?? '',
+														} }
+													/>
 											</div>
 											<div className="ctx-order-modal-product-footer">
 												<div className="ctx-order-modal-product-actions">
 													<NumberPicker
-														value={ item.quantity }
+														value={ item.quantity ?? 0 }
 														onChange={ ( value ) => setCartItem( item.id, value ) }
 														min={ 0 }
 														steps={ 1 }

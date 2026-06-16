@@ -1,8 +1,9 @@
 import { useBlockProps } from '@wordpress/block-editor';
+import type { CartBlockAttributes, SaveProps } from '../types';
 
-const Save = ( props ) => {
+const Save = ( props: SaveProps<CartBlockAttributes> ) => {
 	const {
-		attributes: { url, icon, iconRight, iconOnly, title, newTab, rel },
+		attributes: { iconRight, iconOnly },
 	} = props;
 
 	const buttonClasses = [ iconRight ? 'ctx__button--reverse' : false, iconOnly ? 'ctx__button--icon-only' : false ]

@@ -15,7 +15,7 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-import icons from './icons.js';
+import icons from './icons';
 
 /**
  * Wordpress dependencies
@@ -25,8 +25,14 @@ import { Fragment, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { store as coreStore } from '@wordpress/core-data';
+import type { EditorProps, FormEntity, ShopBlockAttributes, ShopView, TaxonomyEntity } from '../types';
 
-export default function ProductEdit( { attributes, setAttributes } ) {
+type SelectOption = {
+	value: string;
+	label: string;
+};
+
+export default function ProductEdit( { attributes, setAttributes }: EditorProps<ShopBlockAttributes> ) {
 	const {
 		showImages,
 		showFilter,
@@ -42,27 +48,27 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 		selectedTags,
 	} = attributes;
 
-	const [ selectedCategoryState, setSelectedCategoryState ] = useState( selectedCategories );
+	const [ selectedCategoryState, setSelectedCategoryState ] = useState<number[]>( selectedCategories );
 
-	const categoryList = useSelect( ( select ) => {
+	const categoryList = useSelect( ( select ): TaxonomyEntity[] => {
 		const { getEntityRecords } = select( coreStore );
 		const query = { hide_empty: true };
-		const list = getEntityRecords( 'taxonomy', 'product-categories', query );
-		let categoryOptionsArray = [];
+		const list = getEntityRecords( 'taxonomy', 'product-categories', query ) as TaxonomyEntity[] | null;
+		const categoryOptionsArray: TaxonomyEntity[] = [];
 		if ( ! list ) {
 			return categoryOptionsArray;
 		}
 
-		list.map( ( category ) => {
+		list.forEach( ( category ) => {
 			categoryOptionsArray.push( { id: category.id, name: category.name } );
 		} );
 		return categoryOptionsArray;
 	}, [] );
 
-	const tagList = useSelect( ( select ) => {
+	const tagList = useSelect( ( select ): TaxonomyEntity[] | null => {
 		const { getEntityRecords } = select( coreStore );
 		const query = { hide_empty: true };
-		const list = getEntityRecords( 'taxonomy', 'product-tags', query );
+		const list = getEntityRecords( 'taxonomy', 'product-tags', query ) as TaxonomyEntity[] | null;
 
 		if ( ! list ) {
 			return null;
@@ -70,36 +76,38 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 		return list;
 	}, [] );
 
-	const formList = useSelect( ( select ) => {
+	const formList = useSelect( ( select ): SelectOption[] => {
 		const { getEntityRecords } = select( coreStore );
 		const query = { per_page: 100 };
-		const list = getEntityRecords( 'postType', 'gbf-form', query );
+		const list = getEntityRecords( 'postType', 'gbf-form', query ) as FormEntity[] | null;
 
 		if ( ! list ) {
 			return [];
 		}
-		let options = list.map( ( form ) => {
-			return { value: form.id, label: form.title.rendered };
+		const options = list.map( ( form ) => {
+			return { value: String( form.id ), label: form.title.rendered };
 		} );
 
-		options.unshift( { value: 0, label: __( 'Internal', 'expose' ) } );
+		options.unshift( { value: '0', label: __( 'Internal', 'expose' ) } );
 		return options;
 	}, [] );
 
-	let tagNames = [];
-	let tagsFieldValue = [];
+	let tagNames: string[] = [];
+	let tagsFieldValue: string[] = [];
 	if ( tagList !== null ) {
 		tagNames = tagList.map( ( tag ) => tag.name );
 
-		tagsFieldValue = selectedTags.map( ( tagId ) => {
-			let wantedTag = tagList.find( ( tag ) => {
+		tagsFieldValue = selectedTags
+			.map( ( tagId ) => {
+				const wantedTag = tagList.find( ( tag ) => {
 				return tag.id === tagId;
 			} );
 			if ( wantedTag === undefined || ! wantedTag ) {
-				return false;
+				return null;
 			}
 			return wantedTag.name;
-		} );
+			} )
+			.filter( ( value ): value is string => value !== null );
 	}
 
 	const blockProps = useBlockProps( {
@@ -113,8 +121,8 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 			.join( ' ' ),
 	} );
 
-	const setCategory = ( category, checked ) => {
-		var categories = selectedCategories;
+	const setCategory = ( category: number, checked: boolean ) => {
+		const categories = [ ...selectedCategories ];
 		if ( checked && ! categories.includes( category ) ) {
 			categories.push( category );
 		}
@@ -124,7 +132,6 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 		}
 		setAttributes( { selectedCategories: Array.from( categories ) } );
 		setSelectedCategoryState( Array.from( categories ) );
-		return;
 	};
 
 	const inspectorControls = (
@@ -146,9 +153,9 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 					value={ tagsFieldValue }
 					suggestions={ tagNames }
 					onChange={ ( selectedTags ) => {
-						let selectedTagsArray = [];
-						selectedTags.map( ( tagName ) => {
-							const matchingTag = tagList.find( ( tag ) => {
+						const selectedTagsArray: number[] = [];
+						selectedTags.forEach( ( tagName ) => {
+							const matchingTag = tagList?.find( ( tag ) => {
 								return tag.name === tagName;
 							} );
 							if ( matchingTag !== undefined ) {
@@ -164,9 +171,9 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 				{ formList?.length && (
 					<ComboboxControl
 						label={ __( 'Form', 'expose' ) }
-						options={ formList }
-						value={ form }
-						onChange={ ( value ) => setAttributes( { form: value } ) }
+						options={ formList as never }
+						value={ String( form ) }
+						onChange={ ( value ) => setAttributes( { form: Number( value ?? 0 ) } ) }
 					/>
 				) }
 			</PanelBody>
@@ -178,24 +185,24 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 				<br />
 				<div className="styleSelector">
 					<Button
-						onClick={ () => setAttributes( { view: 'mini' } ) }
-						className={ view == 'mini' ? 'active' : '' }
+						onClick={ () => setAttributes( { view: 'mini' satisfies ShopView } ) }
+						className={ view === 'mini' ? 'active' : '' }
 					>
-						<Icon size="64" className="icon" icon={ icons.mini } />
+						<Icon size={ 64 } className="icon" icon={ icons.mini } />
 						<div>{ __( 'Minimal', 'expose' ) }</div>
 					</Button>
 					<Button
-						onClick={ () => setAttributes( { view: 'list' } ) }
-						className={ view == 'list' ? 'active' : '' }
+						onClick={ () => setAttributes( { view: 'list' satisfies ShopView } ) }
+						className={ view === 'list' ? 'active' : '' }
 					>
-						<Icon size="64" className="icon" icon={ icons.list } />
+						<Icon size={ 64 } className="icon" icon={ icons.list } />
 						<div>{ __( 'List', 'expose' ) }</div>
 					</Button>
 					<Button
-						onClick={ () => setAttributes( { view: 'cards' } ) }
-						className={ view == 'cards' ? 'active' : '' }
+						onClick={ () => setAttributes( { view: 'cards' satisfies ShopView } ) }
+						className={ view === 'cards' ? 'active' : '' }
 					>
-						<Icon size="64" className="icon" icon={ icons.cards } />
+						<Icon size={ 64 } className="icon" icon={ icons.cards } />
 						<div>{ __( 'Cards', 'expose' ) }</div>
 					</Button>
 				</div>
@@ -244,7 +251,7 @@ export default function ProductEdit( { attributes, setAttributes } ) {
 					min={ 0 }
 					help={ __( 'Number of words', 'expose' ) }
 					onChange={ ( value ) => {
-						setAttributes( { excerptLength: value } );
+						setAttributes( { excerptLength: value ?? 0 } );
 					} }
 					value={ excerptLength }
 				/>
