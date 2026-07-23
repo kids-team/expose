@@ -1,31 +1,48 @@
 # Ctx Products
 
-Contributors: Thomas Gollenioa
-Tags: block, product
-Requires at least: 6.2.0
-Tested up to: 6.3.0
-Stable tag: 1.0.1
-Requires PHP: 8.0.0
-License: GPL-2.0-or-later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+A lightweight WordPress plugin for offering free products such as magazines, brochures, or tracts without the complexity of a full e-commerce solution.
 
-Wordpress Plugin that displays free products like magazines or tracts and let customers place orders without payment.
+## Features
 
-## Description
+- Create unlimited free products
+- Organize products using categories and tags
+- Upload product images
+- Display products anywhere using a Gutenberg block
+- Simple order form without payment processing
+- No CSS included – style it to match your theme
 
-On our Sites, we often have some free material to order. Setting up a complete webshop would be an overkill, so I created this plugin. I lets you create products and sort them in to tags and categories. Ad a piucture, and you're good to go. On any page, you can then add a Gutenberg Block to set up a stor with products.
+## Why?
 
-The plugin comes with no css.
+Many ministries and churches offer free resources that visitors can order online. Setting up WooCommerce or another full-featured shop is often unnecessary.
+
+Ctx Products provides a simple alternative focused entirely on free products.
 
 ## Installation
 
-Either you can install it via git:
+### From Git
 
-```sh
+```bash
 git clone https://github.com/gollenia/ctx-products.git
-cd ctx-products
 ```
 
-or simply download the plugin and place it in the wp-content/plugins/ directory within your Wordpress installation.
+### Manual Installation
 
-Don't forget to activate.
+1. Download the latest release.
+2. Copy the `ctx-products` folder to `wp-content/plugins/`.
+3. Activate the plugin from the WordPress admin area.
+
+## Usage
+
+1. Create your products in the WordPress admin.
+2. Assign categories, tags and featured images if desired.
+3. Insert the **Ctx Products** Gutenberg block on any page.
+4. Configure the block to display the products you want.
+
+## Styling
+
+The plugin intentionally ships without CSS so that it can seamlessly integrate into any WordPress theme.
+
+## Requirements
+
+- PHP 8.4+
+- WordPress 6.x
