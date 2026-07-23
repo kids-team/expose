@@ -2,15 +2,8 @@
 
 namespace Contexis\Expose;
 
-class Product {
+final class Product {
 
-	public static function init() {
-		new self();
-	}
-
-	/*
-	 * Constructor - the brain of our class
-	 * */ 
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_product_post_type' ) );
 		add_action( 'rest_api_init', [$this, 'add_rest_fields'] );
@@ -20,6 +13,9 @@ class Product {
 
 
 	public function register_product_post_type(){
+		$options = get_option( 'expose_options' );
+		$slug = is_array( $options ) && ! empty( $options['slug'] ) ? $options['slug'] : 'products';
+
 		$args = [
 			'hierarchical' 		  => false,
 			'public'              => true,
@@ -33,7 +29,7 @@ class Product {
 			'show_in_nav_menus'   => true,
 			'publicly_queryable'  => true,
 			'supports'            => [ 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions', 'excerpt', 'post-formats', 'page_attributes' ],
-			'rewrite'             => ['slug' => get_option( 'expose_options' )['slug'], "with_front" => false],
+			'rewrite'             => ['slug' => $slug, "with_front" => false],
 			'menu_icon'           => 'dashicons-cart',
 			'labels' => [
 				'name'               => __('Products', 'expose'),
@@ -191,5 +187,3 @@ class Product {
 
 
 }
-
-Product::init();

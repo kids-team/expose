@@ -2,18 +2,16 @@
 
 namespace Contexis\Expose;
 
-class Form {
-
-	
-	public static function init() {
-		new self();
-	}
+final class Form {
 
 	public function __construct() {
 		add_action( 'rest_api_init', array( $this, 'register_order_route' ) );
 	}
 
 	public function get_default_form() {
+		$options = get_option( 'expose_options' );
+		$consent_help = is_array( $options ) && isset( $options['consent'] ) ? $options['consent'] : '';
+
 		$form = [
 			[
 				"type" => "text",
@@ -78,7 +76,7 @@ class Form {
 				"required" => true,
 				"width"	=> 6,
 				"placeholder" => "",
-				"help" => get_option( 'expose_options' )['consent'] ?? ''
+				"help" => $consent_help
 
 			],
 			[
@@ -108,5 +106,3 @@ class Form {
 		return true;
 	}
 }
-
-Form::init();

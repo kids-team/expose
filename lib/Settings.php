@@ -2,11 +2,7 @@
 
 namespace Contexis\Expose;
 
-class Settings {
-
-	public static function init() {
-		new self();
-	}
+final class Settings {
 
     public $plugin_name = "expose";
 
@@ -48,8 +44,6 @@ class Settings {
 		add_settings_section( 'general_settings', 'General Settings', [$this,'section_text'], 'expose-settings' );
 		add_settings_field( 'expose_setting_slug', __('Slug', 'expose'), [$this,'expose_setting_slug'], 'expose-settings', 'general_settings' );
         add_settings_field( 'expose_setting_consent', __('Consent Text', 'expose'), [$this,'expose_setting_consent'], 'expose-settings', 'general_settings' );
-        add_settings_field( 'expose_setting_mail_subject', __('Mail Subject', 'expose'), [$this,'expose_setting_mail_subject'], 'expose-settings', 'general_settings' );
-        add_settings_field( 'expose_setting_mail_content', __('Mail Content', 'expose'), [$this,'expose_setting_mail_content'], 'expose-settings', 'general_settings' );
         add_settings_field( 'expose_setting_thanks_head', __('Confirmation page title', 'expose'), [$this,'expose_setting_thanks_head'], 'expose-settings', 'general_settings' );
         add_settings_field( 'expose_setting_thanks_text', __('Confirmation page text', 'expose'), [$this,'expose_setting_thanks_text'], 'expose-settings', 'general_settings' );
         add_settings_field( 'expose_setting_admin_mail', __('Admin Mail', 'expose'), [$this,'expose_setting_admin_mail'], 'expose-settings', 'general_settings' );
@@ -71,18 +65,6 @@ class Settings {
 	function expose_setting_slug() {
 		$options = get_option( 'expose_options' );
 		echo "<input id='expose_setting_slug' name='expose_options[slug]' type='text' value='" . esc_attr( array_key_exists('slug', $options) ? $options['slug'] : "" ) . "' />";
-	}
-
-    function expose_setting_mail_subject() {
-		$options = get_option( 'expose_options' );
-		echo "<input style='width: 100%;' id='expose_setting_mail_subject' name='expose_options[mail_subject]' type='text' value='" . esc_attr( array_key_exists('mail_subject', $options) ? $options['mail_subject'] : "" ) . "' />";
-        echo "<p class='description' id='mail_subject-description'>" . __("Subject for the mail sent to the user", "expose") . "</p>";
-	}
-
-    function expose_setting_mail_content() {
-		$options = get_option( 'expose_options' );
-		echo "<textarea rows='10' style='width: 100%;' id='expose_setting_mail_content' name='expose_options[mail_content]' />" . esc_attr( array_key_exists('mail_content', $options) ? $options['mail_content'] : "" ) . "</textarea>";
-        echo "<p class='description' id='mail_subject-description'>" . __("Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or #_ORDERLIST.", "expose") . "</p>";
 	}
 
     function expose_setting_thanks_head() {
@@ -110,5 +92,3 @@ class Settings {
 	}
 
 }
-
-Settings::init();
