@@ -1,0 +1,19 @@
+{
+	"name": "kids-team/expose",
+	"description": "WordPress plugin that displays free products and lets customers place orders without payment.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": "^8.4",
+		"contexis/wp-github-updater": "^0.3.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Contexis\\Expose\\": "lib/"
+		}
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"sort-packages": true
+	}
+}
