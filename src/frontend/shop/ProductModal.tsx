@@ -1,7 +1,7 @@
 import apiFetch from '@wordpress/api-fetch';
+import { Stepper } from '@contexis/wp-react-form';
 import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import NumberPicker from '../../_externalNumberPicker';
 import { AppContext } from '../services/context';
 import type { Product } from '../types';
 
@@ -73,7 +73,7 @@ const ProductModal = () => {
 						{ __( 'Close', 'expose' ) }
 					</button>
 					<div className="ctx-order-modal-actions">
-						<NumberPicker value={ quantity } onChange={ ( value ) => setQuantity( value ) } min={ 1 } />
+						<Stepper value={ quantity } onChange={ ( value ) => setQuantity( value ) } min={ 1 } />
 						<span
 							className="ctx-product-card-add"
 							onClick={ () => {

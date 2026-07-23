@@ -1,8 +1,7 @@
 import apiFetch from '@wordpress/api-fetch';
-import { Accordion, AccordionSection, Button, Flex, FlexItem } from '@contexis/wp-react-form';
+import { Accordion, AccordionSection, Button, Flex, FlexItem, Stepper } from '@contexis/wp-react-form';
 import { useContext, useEffect, useMemo, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import NumberPicker from '../../_externalNumberPicker';
 import { AppContext } from '../services/context';
 import type { FormErrors, FormSchema, FormValues } from '../types';
 import OrderFormSection from './OrderFormSection';
@@ -182,11 +181,11 @@ const OrderModal = ( props: OrderModalProps ) => {
 											</div>
 											<div className="ctx-order-modal-product-footer">
 												<div className="ctx-order-modal-product-actions">
-													<NumberPicker
+													<Stepper
 														value={ item.quantity ?? 0 }
 														onChange={ ( value ) => setCartItem( item.id, value ) }
 														min={ 0 }
-														steps={ 1 }
+														step={ 1 }
 													/>
 												</div>
 											</div>
