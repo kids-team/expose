@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-01-30T15:31:08+00:00\n"
-"PO-Revision-Date: 2024-01-31 08:52+0000\n"
+"PO-Revision-Date: 2024-02-01 08:09+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: expose\n"
 "Language: de_AT\n"
@@ -25,11 +25,19 @@ msgstr "Adresse"
 msgid "Admin Mail"
 msgstr "Admin-Mail"
 
+#: build/shop.js:1414
+msgid "All"
+msgstr "Alle"
+
+#: build/shop.js:1312 build/shop.js:1490
+msgid "All Products"
+msgstr "Alle Produkte"
+
 #: lib/Product.php:45
 msgid "All products"
 msgstr "Alle Produkte"
 
-#: build/index.js:435 build/index.js:317
+#: build/index.js:425 build/index.js:305
 msgid "Appearance"
 msgstr "Aussehen"
 
@@ -78,17 +86,29 @@ msgctxt "block title"
 msgid "Handout Shop"
 msgstr "Handout Shop"
 
-#: build/index.js:469 build/index.js:342
+#: build/index.js:459 build/index.js:330
 msgid "Cards"
 msgstr "Karten"
 
-#: build/shop.js:1420
+#: build/shop.js:1589
 msgid "Cart"
 msgstr "Einkaufswagen"
+
+#: build/shop.js:1403
+msgid "Categories"
+msgstr "Kategorien"
+
+#: build/shop.js:1616
+msgid "Checkout"
+msgstr "Bestellen"
 
 #: lib/Form.php:41
 msgid "City"
 msgstr "Stadt"
+
+#: build/shop.js:1994
+msgid "Close"
+msgstr "Schließen"
 
 #: lib/Settings.php:54
 msgid "Confirmation page text"
@@ -126,7 +146,7 @@ msgstr "CTX Produkte"
 msgid "Customer"
 msgstr "Kunde"
 
-#: build/index.js:399 build/index.js:275
+#: build/index.js:389 build/index.js:263
 msgid "Data"
 msgstr "Daten"
 
@@ -148,11 +168,11 @@ msgstr ""
 "\n"
 "Blessings, your Shop"
 
-#: build/shop.js:1635
+#: build/shop.js:1804
 msgid "Details"
 msgstr "Details"
 
-#: build/index.js:494 build/index.js:377
+#: build/index.js:484 build/index.js:365
 msgid "Drop shadow"
 msgstr "Schatten"
 
@@ -164,7 +184,7 @@ msgstr "E-Mail"
 msgid "Edit product"
 msgstr "Produkt bearbeiten"
 
-#: build/index.js:428 build/index.js:309
+#: build/index.js:418 build/index.js:297
 msgid "Form"
 msgstr "Formular"
 
@@ -182,15 +202,15 @@ msgstr ""
 msgid "If empty, site admin will be used. Separate with commas."
 msgstr "Wenn leer, wird der Site-Admin verwendet. Mit Kommas trennen."
 
-#: build/index.js:362 build/index.js:228
+#: build/index.js:352 build/index.js:216
 msgid "Internal"
 msgstr "Intern"
 
-#: build/index.js:500 build/index.js:385
+#: build/index.js:490 build/index.js:373
 msgid "Length of preview text"
 msgstr "Länge des Vorschautextes"
 
-#: build/index.js:460 build/index.js:335
+#: build/index.js:450 build/index.js:323
 msgid "List"
 msgstr "Liste"
 
@@ -214,7 +234,7 @@ msgstr "Betreff der E-Mail"
 msgid "Message"
 msgstr "Nachricht"
 
-#: build/index.js:451 build/index.js:328
+#: build/index.js:441 build/index.js:316
 msgid "Minimal"
 msgstr "Minimal"
 
@@ -246,19 +266,19 @@ msgstr "Keine Produkte gefunden"
 msgid "No products found in trash"
 msgstr "Keine Produkte im Papierkorb gefunden"
 
-#: build/index.js:503 build/index.js:388
+#: build/index.js:493 build/index.js:376
 msgid "Number of words"
 msgstr "Anzahl der Wörter"
 
-#: build/shop.js:1508
+#: build/shop.js:1679
 msgid "Order"
 msgstr "Bestellung"
 
-#: build/shop.js:1549
+#: build/shop.js:1720
 msgid "Order Form"
 msgstr "Bestellformular"
 
-#: build/shop.js:1521
+#: build/shop.js:1692
 msgid "Order Summary"
 msgstr "Bestellübersicht"
 
@@ -266,7 +286,7 @@ msgstr "Bestellübersicht"
 msgid "Ordered Products"
 msgstr "Bestellte Produkte"
 
-#: build/shop.js:1436
+#: build/shop.js:1605
 msgid "pcs."
 msgstr "Stk."
 
@@ -278,7 +298,7 @@ msgstr "Produkt"
 msgid "Product category"
 msgstr "Produktkategorie"
 
-#: build/index.js:530 build/index.js:417
+#: build/index.js:520 build/index.js:405
 msgid "Product Shop"
 msgstr "Produkt-Shop"
 
@@ -294,7 +314,7 @@ msgstr "Produkt-Tag"
 msgid "Products"
 msgstr "Produkte"
 
-#: build/shop.js:1934
+#: build/shop.js:2150
 msgid "Search"
 msgstr "Suchen"
 
@@ -302,26 +322,34 @@ msgstr "Suchen"
 msgid "Search products"
 msgstr "Produkte suchen"
 
-#: build/index.js:532 build/index.js:420
+#: build/index.js:522 build/index.js:408
 msgid ""
 "See for settings in the inspector. The result can be seen in the frontend"
 msgstr ""
 "Siehe Einstellungen im Inspector. Das Ergebnis kann im Frontend gesehen "
 "werden"
 
+#: build/shop.js:1495
+#| msgid "Selected Tag: "
+#| msgid_plural "Selected Tags: "
+msgid "Selected Tag:"
+msgid_plural "Selected Tags:"
+msgstr[0] "Schlagwort:"
+msgstr[1] "Schlagworte:"
+
 #: lib/Settings.php:22
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: build/index.js:482 build/index.js:363
+#: build/index.js:472 build/index.js:351
 msgid "Show category"
 msgstr "Kategorie anzeigen"
 
-#: build/index.js:470 build/index.js:349
+#: build/index.js:460 build/index.js:337
 msgid "Show filter"
 msgstr "Filter anzeigen"
 
-#: build/index.js:476 build/index.js:356
+#: build/index.js:466 build/index.js:344
 msgid "Show searchbar"
 msgstr "Suchleiste anzeigen"
 
@@ -329,11 +357,11 @@ msgstr "Suchleiste anzeigen"
 msgid "Slug"
 msgstr "Slug"
 
-#: build/index.js:488 build/index.js:370
+#: build/index.js:478 build/index.js:358
 msgid "Sort by category"
 msgstr "Nach Kategorie sortieren"
 
-#: build/index.js:440 build/index.js:319
+#: build/index.js:430 build/index.js:307
 msgid "Style"
 msgstr "Stil"
 
@@ -345,9 +373,9 @@ msgstr "Betreff für die E-Mail, die an den Benutzer gesendet wird"
 msgid "Submit"
 msgstr "Absenden"
 
-#: build/index.js:409 build/index.js:288
+#: build/index.js:399 build/shop.js:1428 build/index.js:276
 msgid "Tags"
-msgstr "Tags"
+msgstr "Schlagworte"
 
 #: lib/Settings.php:103
 msgid "Text for consent-box"
@@ -379,6 +407,14 @@ msgid ""
 msgstr ""
 "Wir haben Ihre Bestellung erhalten und werden sie Ihnen so schnell wie "
 "möglich zusenden"
+
+#: build/shop.js:1500
+#| msgid "with tag: "
+#| msgid_plural "with tags: "
+msgid "with tag:"
+msgid_plural "with tags:"
+msgstr[0] "mit Schlagwort:"
+msgstr[1] "mit Schlagworten:"
 
 #. Description of the plugin
 msgid ""
