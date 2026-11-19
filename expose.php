@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     CTX Products
  * Description:     Wordpress Plugin that displays free products like magazines or tracts and let customers place orders without payment.
- * Version:         2.1.0
+ * Version:         2.1.1
  * Author:          Thomas Gollenia
  * LastUpdated:     2026-06-16
  * Tested:          7.0
