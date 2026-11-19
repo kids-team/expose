@@ -1,5 +1,5 @@
 import apiFetch from '@wordpress/api-fetch';
-import { Stepper } from '@contexis/wp-react-form';
+import { Stepper } from '@contexis/wp-ui';
 import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { AppContext } from '../services/context';

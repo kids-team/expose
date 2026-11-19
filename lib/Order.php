@@ -34,7 +34,7 @@ final class Order {
 		$order_request = is_array( $values ) ? OrderRequest::fromPayload( $values ) : null;
 
 		if ( ! $order_request instanceof OrderRequest ) {
-			$response = new \WP_REST_Response( [ 'status' => 'error', 'data' => 'No products in cart' ] );
+			$response = new \WP_REST_Response( [ 'status' => 'error', 'data' => __( 'No products in cart', 'expose' ) ] );
 			$response->set_status( 400 );
 			return $response;
 		}
@@ -47,7 +47,9 @@ final class Order {
 		}
 
 		$sent = $this->send_order_to_admin( $mail_data );
-		$this->send_order_to_customer( $mail_data );
+		if ( $sent ) {
+			$this->send_order_to_customer( $mail_data );
+		}
 		$thank_you_page = $this->get_thank_you_page();
 
 		$response = new \WP_REST_Response(

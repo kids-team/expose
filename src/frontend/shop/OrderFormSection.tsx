@@ -1,4 +1,4 @@
-import { Button, FormFields } from '@contexis/wp-react-form';
+import { Button, FormFields } from '@contexis/wp-ui';
 import { __ } from '@wordpress/i18n';
 import type { FormErrors, FormField, FormValues } from '../types';
 

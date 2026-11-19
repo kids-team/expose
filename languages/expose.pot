@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: CTX Products 1.0.5\n"
+"Project-Id-Version: CTX Products 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/expose\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-15T11:08:09+00:00\n"
+"POT-Creation-Date: 2026-11-19T18:29:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: expose\n"
@@ -29,235 +29,225 @@ msgstr ""
 msgid "Thomas Gollenia"
 msgstr ""
 
-#: expose.php:36
-msgid "Your Order"
-msgstr ""
-
-#: expose.php:37
-msgid ""
-"Dear #_FORENAME,\n"
-"\n"
-"Thank you for your order. We will send you the following products:\n"
-"\n"
-"#_PRODUCTLIST\n"
-"\n"
-"Blessings, your Shop"
-msgstr ""
-
-#: expose.php:38
-msgid "Thank you for your order!"
-msgstr ""
-
-#: expose.php:39
-msgid "We have recieved your order and we will send it to you as soon as possible"
-msgstr ""
-
-#: expose.php:40
-msgid "I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-world/'>law stuff</a> and allow you to process my data for this very order. All my data will be deleted after shipping."
-msgstr ""
-
-#: lib/Form.php:21
-#: lib/Order.php:127
+#: lib/Form.php:19
+#: lib/Order.php:142
 msgid "Name"
 msgstr ""
 
-#: lib/Form.php:29
-#: lib/Order.php:128
+#: lib/Form.php:27
+#: lib/Order.php:143
 msgid "E-Mail"
 msgstr ""
 
-#: lib/Form.php:37
-#: lib/Order.php:129
+#: lib/Form.php:35
+#: lib/Order.php:144
 msgid "Address"
 msgstr ""
 
-#: lib/Form.php:45
-#: lib/Order.php:130
+#: lib/Form.php:43
+#: lib/Order.php:145
 msgid "Zip"
 msgstr ""
 
-#: lib/Form.php:53
-#: lib/Order.php:131
+#: lib/Form.php:51
+#: lib/Order.php:146
 msgid "City"
 msgstr ""
 
-#: lib/Form.php:61
-#: lib/Order.php:132
+#: lib/Form.php:59
+#: lib/Order.php:147
 msgid "Country"
 msgstr ""
 
-#: lib/Form.php:69
-#: lib/Order.php:133
+#: lib/Form.php:67
+#: lib/Order.php:148
 msgid "Message"
 msgstr ""
 
-#: lib/Form.php:77
-#: lib/Order.php:134
+#: lib/Form.php:75
+#: lib/Order.php:149
 msgid "Consent"
 msgstr ""
 
-#: lib/Form.php:87
+#: lib/Form.php:85
 msgid "Submit"
 msgstr ""
 
-#: lib/Order.php:32
+#: lib/Order.php:37
+msgid "No products in cart"
+msgstr ""
+
+#: lib/Order.php:44
 msgid "The form data is incomplete or invalid."
 msgstr ""
 
-#: lib/Order.php:51
 #: lib/Order.php:58
+msgid "There has been a problem sending your Order. Please try again later"
+msgstr ""
+
+#: lib/Order.php:68
+#: lib/Order.php:76
 msgid "New Order"
 msgstr ""
 
-#: lib/Order.php:52
+#: lib/Order.php:69
 msgid "Customer"
 msgstr ""
 
-#: lib/Order.php:54
+#: lib/Order.php:71
+#: lib/Order.php:93
 msgid "Ordered Products"
 msgstr ""
 
-#: lib/Order.php:134
+#. translators: %s: site name
+#: lib/Order.php:87
+#, php-format
+msgid "Your order at %s"
+msgstr ""
+
+#: lib/Order.php:91
+#: lib/Plugin.php:36
+msgid "Thank you for your order!"
+msgstr ""
+
+#: lib/Order.php:92
+#: lib/Plugin.php:37
+msgid "We have recieved your order and we will send it to you as soon as possible"
+msgstr ""
+
+#: lib/Order.php:149
 msgid "Yes"
 msgstr ""
 
-#: lib/Product.php:39
-#: lib/Product.php:51
+#: lib/Plugin.php:38
+msgid "I consent to all <a href='https://bestlifeonline.com/47-weird-laws-around-world/'>law stuff</a> and allow you to process my data for this very order. All my data will be deleted after shipping."
+msgstr ""
+
+#: lib/Product.php:35
+#: lib/Product.php:47
 msgid "Products"
 msgstr ""
 
-#: lib/Product.php:40
+#: lib/Product.php:36
 msgid "Product"
 msgstr ""
 
-#: lib/Product.php:41
+#: lib/Product.php:37
 msgid "Create new product"
 msgstr ""
 
-#: lib/Product.php:42
+#: lib/Product.php:38
 msgid "Create new Product"
 msgstr ""
 
-#: lib/Product.php:43
+#: lib/Product.php:39
 msgid "Edit product"
 msgstr ""
 
-#: lib/Product.php:44
+#: lib/Product.php:40
 msgid "New product"
 msgstr ""
 
-#: lib/Product.php:45
+#: lib/Product.php:41
 msgid "All products"
 msgstr ""
 
-#: lib/Product.php:46
+#: lib/Product.php:42
 msgid "View product"
 msgstr ""
 
-#: lib/Product.php:47
+#: lib/Product.php:43
 msgid "Search products"
 msgstr ""
 
-#: lib/Product.php:48
+#: lib/Product.php:44
 msgid "No products found"
 msgstr ""
 
-#: lib/Product.php:49
+#: lib/Product.php:45
 msgid "No products found in trash"
 msgstr ""
 
-#: lib/Product.php:62
+#: lib/Product.php:58
 msgid "Product category"
 msgstr ""
 
-#: lib/Product.php:74
+#: lib/Product.php:70
 msgid "Product tag"
 msgstr ""
 
-#: lib/Product.php:91
+#: lib/Product.php:87
 msgid "Media"
 msgstr ""
 
-#: lib/Product.php:92
+#: lib/Product.php:88
 #: build/shop.js:1
 msgid "Categories"
 msgstr ""
 
-#: lib/Product.php:93
+#: lib/Product.php:89
 msgid "Image"
 msgstr ""
 
-#: lib/Product.php:94
+#: lib/Product.php:90
 msgid "Description"
 msgstr ""
 
-#: lib/Product.php:111
+#: lib/Product.php:107
 msgid "No Category"
 msgstr ""
 
-#: lib/Product.php:121
+#: lib/Product.php:117
 msgid "No Description"
 msgstr ""
 
-#: lib/Settings.php:21
-#: lib/Settings.php:33
+#: lib/Settings.php:17
+#: lib/Settings.php:29
 msgid "Product Shop Settings"
 msgstr ""
 
-#: lib/Settings.php:22
+#: lib/Settings.php:18
 msgid "Settings"
 msgstr ""
 
-#: lib/Settings.php:49
+#: lib/Settings.php:45
 msgid "Slug"
 msgstr ""
 
-#: lib/Settings.php:50
+#: lib/Settings.php:46
 msgid "Consent Text"
 msgstr ""
 
-#: lib/Settings.php:51
-msgid "Mail Subject"
-msgstr ""
-
-#: lib/Settings.php:52
-msgid "Mail Content"
-msgstr ""
-
-#: lib/Settings.php:53
+#: lib/Settings.php:47
 msgid "Confirmation page title"
 msgstr ""
 
-#: lib/Settings.php:54
+#: lib/Settings.php:48
 msgid "Confirmation page text"
 msgstr ""
 
-#: lib/Settings.php:55
+#: lib/Settings.php:49
 msgid "Admin Mail"
 msgstr ""
 
-#: lib/Settings.php:79
-msgid "Subject for the mail sent to the user"
-msgstr ""
-
-#: lib/Settings.php:85
-msgid "Mail sent to the user. Use placeholders like #_FORENAME, #_SURNAME or #_ORDERLIST."
-msgstr ""
-
-#: lib/Settings.php:91
+#: lib/Settings.php:73
 msgid "Title of confirmation page when order was successfull"
 msgstr ""
 
-#: lib/Settings.php:97
+#: lib/Settings.php:79
 msgid "Text of confirmation page when order was successfull"
 msgstr ""
 
-#: lib/Settings.php:103
+#: lib/Settings.php:85
 msgid "Text for consent-box"
 msgstr ""
 
-#: lib/Settings.php:109
+#: lib/Settings.php:91
 msgid "If empty, site admin will be used. Separate with commas."
+msgstr ""
+
+#: build/index.js:1
+msgid "Icon"
 msgstr ""
 
 #: build/index.js:1
@@ -386,6 +376,10 @@ msgid "Order"
 msgstr ""
 
 #: build/shop.js:1
+msgid "Close"
+msgstr ""
+
+#: build/shop.js:1
 msgid "Order Summary"
 msgstr ""
 
@@ -411,10 +405,6 @@ msgstr ""
 
 #: build/shop.js:1
 msgid "There was a problem sending your order."
-msgstr ""
-
-#: build/shop.js:1
-msgid "Close"
 msgstr ""
 
 #: build/shop.js:1
