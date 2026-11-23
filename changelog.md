@@ -1,3 +1,7 @@
+### 2.1.3
+
+- Fixed the missing REST route for “Check for updates” in the WordPress plugin manager.
+
 ### 2.1.2
 
 - Fixed required Select and radio fields incorrectly reporting an empty value after a selection.
