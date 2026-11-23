@@ -21,6 +21,7 @@ final class Plugin {
 		add_action( 'load-plugins.php', [ $this, 'register_updater' ] );
 		add_action( 'load-update-core.php', [ $this, 'register_updater' ] );
 		add_action( 'load-update.php', [ $this, 'register_updater' ] );
+		add_action( 'wp_ajax_update-plugin', [ $this, 'register_updater' ], 0 );
 		add_action( 'rest_api_init', [ $this, 'register_updater' ], 9 );
 
 		new Product();
