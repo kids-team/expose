@@ -1,8 +1,31 @@
+import type { CountryRegion } from '@contexis/wp-ui';
 import { __ } from '@wordpress/i18n';
 import type { FormErrors, FormField, FormSchema, FormValues } from '../types';
 
 const isEmptyValue = ( value: unknown ) =>
 	value === undefined || value === null || value === '' || value === false;
+
+const countryRegions = new Set<CountryRegion>( [
+	'world',
+	'europe',
+	'dach',
+	'asia',
+	'africa',
+	'oceania',
+	'north-america',
+	'south-america',
+	'americas',
+] );
+
+const legacyCountryRegions = new Map<string, CountryRegion>( [
+	[ 'all', 'world' ],
+	[ 'eu', 'europe' ],
+	[ 'as', 'asia' ],
+	[ 'af', 'africa' ],
+	[ 'na', 'north-america' ],
+	[ 'sa', 'south-america' ],
+	[ 'oc', 'oceania' ],
+] );
 
 export const normalizeFormSchema = ( response: FormSchema | FormField[] ): FormSchema => {
 	const rawFields =
@@ -17,7 +40,18 @@ export const normalizeFormSchema = ( response: FormSchema | FormField[] ): FormS
 	);
 
 	return {
-		fields,
+		fields: fields.map( ( field ) => {
+			if ( field.type !== 'country' ) {
+				return field;
+			}
+
+			const region = typeof field.region === 'string' ? field.region.trim().toLowerCase() : '';
+			const supportedRegion = countryRegions.has( region as CountryRegion )
+				? region
+				: legacyCountryRegions.get( region ) ?? 'world';
+
+			return { ...field, region: supportedRegion };
+		} ),
 	};
 };
 
@@ -76,11 +110,7 @@ const validateWithBrowserConstraints = ( field: FormField, value: unknown ): str
 	}
 
 	if ( field.type === 'select' || field.type === 'radio' || field.type === 'options' ) {
-		const select = document.createElement( 'select' );
-		select.required = !! field.required;
-		select.value = typeof value === 'string' ? value : '';
-
-		return select.checkValidity() ? null : select.validationMessage;
+		return null;
 	}
 
 	const input = document.createElement( 'input' );

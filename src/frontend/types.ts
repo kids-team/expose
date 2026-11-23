@@ -78,6 +78,7 @@ export type FormField = {
 	name: string;
 	type?: string;
 	required?: boolean;
+	region?: string;
 	defaultValue?: unknown;
 	pattern?: string;
 	min?: number | string;
