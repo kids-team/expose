@@ -10,7 +10,7 @@ final class Form {
 
 	public function get_default_form() {
 		$options = get_option( 'expose_options' );
-		$consent_help = is_array( $options ) && isset( $options['consent'] ) ? $options['consent'] : '';
+		$consent_label = is_array( $options ) && is_string( $options['consent'] ?? null ) ? $options['consent'] : '';
 
 		$form = [
 			[
@@ -72,12 +72,10 @@ final class Form {
 			[
 				"type" => "checkbox",
 				"name" => "consent",
-				"label" => __("Consent", "expose"),
+				"label" => trim( $consent_label ) !== '' ? $consent_label : __("Consent", "expose"),
 				"required" => true,
 				"width"	=> 6,
 				"placeholder" => "",
-				"help" => $consent_help
-
 			],
 			[
 				"type" => "submit",

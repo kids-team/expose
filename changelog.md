@@ -1,3 +1,7 @@
+### 2.1.4
+
+- Fixed checkout checkbox labels displaying HTML as text. Links in existing labels and in the default consent text are now clickable.
+
 ### 2.1.3
 
 - Fixed the missing REST route for “Check for updates” in the WordPress plugin manager.

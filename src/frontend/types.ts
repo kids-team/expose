@@ -77,6 +77,8 @@ export type ProviderProps = {
 export type FormField = {
 	name: string;
 	type?: string;
+	label?: string;
+	description?: string;
 	required?: boolean;
 	region?: string;
 	defaultValue?: unknown;

@@ -1,4 +1,5 @@
 import type { CountryRegion } from '@contexis/wp-ui';
+import { decodeEntities } from '@wordpress/html-entities';
 import { __ } from '@wordpress/i18n';
 import type { FormErrors, FormField, FormSchema, FormValues } from '../types';
 
@@ -41,6 +42,22 @@ export const normalizeFormSchema = ( response: FormSchema | FormField[] ): FormS
 
 	return {
 		fields: fields.map( ( field ) => {
+			if ( field.type === 'checkbox' || field.type === 'toggle' ) {
+				// Gutenberg Form stores the text beside the checkbox in description.
+				const label =
+					typeof field.description === 'string' && field.description.trim()
+						? field.description
+						: field.label;
+				const hasEscapedMarkup =
+					typeof label === 'string' && /&(?:lt|#0*60|#x0*3c);\/?[a-z]/i.test( label );
+
+				return {
+					...field,
+					description: undefined,
+					label: hasEscapedMarkup ? decodeEntities( label ) : label,
+				};
+			}
+
 			if ( field.type !== 'country' ) {
 				return field;
 			}
