@@ -22,6 +22,7 @@ export type ShopBlockAttributes = {
 	showFilter: boolean;
 	showSearchbar: boolean;
 	view: ShopView;
+	columns: number;
 	order: string;
 	orderBy: string;
 	selectedCategories: number[];

@@ -1,7 +1,7 @@
 import { createRoot } from '@wordpress/element';
 import '@contexis/wp-ui/style.css';
 import { AppProvider } from './frontend/services/context';
-import Shop from './frontend/shop/Shop';
+import Shop, { type ShopAttributes } from './frontend/shop/Shop';
 
 document.addEventListener( 'DOMContentLoaded', () => {
 	document.querySelectorAll<HTMLElement>( '[data-ctx-products-shop]' ).forEach( ( rootElement ) => {
@@ -10,12 +10,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			return;
 		}
 
-		const attributes = JSON.parse( serializedAttributes ) as {
-			form?: number;
-			showFilter?: boolean;
-			showSearchbar?: boolean;
-			sortByCategory?: boolean;
-		};
+		const attributes = JSON.parse( serializedAttributes ) as ShopAttributes;
 		const root = createRoot( rootElement );
 
 		const hash = window.location.hash;
@@ -23,15 +18,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 		root.render(
 			<AppProvider>
-				<Shop
-					attributes={ attributes as {
-						form?: number;
-						showFilter?: boolean;
-						showSearchbar?: boolean;
-						sortByCategory?: boolean;
-					} }
-					category={ category }
-				/>
+				<Shop attributes={ attributes } category={ category } />
 			</AppProvider>
 		);
 	} );

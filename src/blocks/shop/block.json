@@ -32,6 +32,10 @@
 			"type": "string",
 			"default": "cards"
 		},
+		"columns": {
+			"type": "integer",
+			"default": 0
+		},
 		"order": {
 			"type": "string",
 			"default": "desc"

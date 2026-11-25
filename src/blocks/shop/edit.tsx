@@ -12,6 +12,7 @@ import {
 	PanelBody,
 	PanelRow,
 	RangeControl,
+	SelectControl,
 	ToggleControl,
 } from '@wordpress/components';
 
@@ -206,6 +207,18 @@ export default function ProductEdit( { attributes, setAttributes }: EditorProps<
 						<div>{ __( 'Cards', 'expose' ) }</div>
 					</Button>
 				</div>
+				<SelectControl
+					label={ __( 'Columns', 'expose' ) }
+					value={ String( attributes.columns ) }
+					options={ [
+						{ label: __( 'Automatic', 'expose' ), value: '0' },
+						...Array.from( { length: 6 }, ( _, index ) => ( {
+							label: String( index + 1 ),
+							value: String( index + 1 ),
+						} ) ),
+					] }
+					onChange={ ( value: string ) => setAttributes( { columns: Number( value ) } ) }
+				/>
 				{ showImages && (
 					<Fragment>
 						<PanelRow>

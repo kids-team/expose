@@ -1,3 +1,8 @@
+### 2.1.5
+
+- Fixed scrolling in product details by switching to the shared shop dialog. Long descriptions and their cart controls are now reachable on small screens.
+- Added a shop block setting for up to six product columns on wider screens, with an automatic layout option.
+
 ### 2.1.4
 
 - Fixed checkout checkbox labels displaying HTML as text. Links in existing labels and in the default consent text are now clickable.

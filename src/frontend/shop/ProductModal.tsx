@@ -1,5 +1,5 @@
 import apiFetch from '@wordpress/api-fetch';
-import { Stepper } from '@contexis/wp-ui';
+import { Dialog, Stepper } from '@contexis/wp-ui';
 import { useContext, useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { AppContext } from '../services/context';
@@ -7,15 +7,12 @@ import type { Product } from '../types';
 
 const ProductModal = () => {
 	const { state, dispatch } = useContext( AppContext );
-	const [ product, setProduct ] = useState<Product | null>( null );
+	const [ loadedProduct, setProduct ] = useState<Product | null>( null );
 	const [ quantity, setQuantity ] = useState( 1 );
 
 	const id = state.selectedProduct;
 
-	const closeModel = ( event: React.MouseEvent<HTMLDivElement> ) => {
-		if ( event.target !== event.currentTarget ) return;
-		dispatch( { type: 'SET_SELECTED_PRODUCT', payload: 0 } );
-	};
+	const product = loadedProduct?.id === id ? loadedProduct : null;
 
 	const addToCart = ( productId: number, count = 1 ) => {
 		if ( count === 0 ) {
@@ -28,66 +25,73 @@ const ProductModal = () => {
 	useEffect( () => {
 		if ( ! id ) return;
 
+		let active = true;
+
 		apiFetch<Product>( { path: `/wp/v2/ctx-products/${ id }` } )
 			.then( ( data: Product ) => {
-				setProduct( data );
+				if ( active ) setProduct( data );
 			} )
 			.catch( () => {
-				setProduct( null );
+				if ( active ) setProduct( null );
 			} );
+
+		return () => {
+			active = false;
+		};
 	}, [ id ] );
 
 	return (
-		<div
-			className={ 'ctx-order-modal ' + ( id ? 'open' : '' ) }
-			onClick={ ( event ) => {
-				closeModel( event );
+		<Dialog
+			open={ Boolean( id ) }
+			onOpenChange={ ( open ) => {
+				if ( ! open ) dispatch( { type: 'SET_SELECTED_PRODUCT', payload: 0 } );
 			} }
 		>
-			<div className="ctx-order-modal-window">
-				<div className="ctx-order-modal-headerimage">
-					<img src={ product?.images?.full } alt={ product?.title.rendered ?? '' } />
+			<Dialog.Portal>
+				<Dialog.Backdrop className="ctx-order-modal__backdrop" />
+				<Dialog.Panel variant="fullscreen" className="ctx-order-modal__dialog">
+					<Dialog.Header className="ctx-order-modal__header">
+						<Dialog.Title className="ctx-order-modal__title">
+							{ product?.title.rendered || __( 'Details', 'expose' ) }
+						</Dialog.Title>
+						<Dialog.Close className="ctx-order-modal__close" aria-label={ __( 'Close', 'expose' ) }>
+							<i className="material-icons material-symbols-outlined" aria-hidden="true">
+								close
+							</i>
+						</Dialog.Close>
+					</Dialog.Header>
 
-					<h2>{ product?.title.rendered }</h2>
-					<button
-						onClick={ () => {
-							dispatch( { type: 'SET_SELECTED_PRODUCT', payload: 0 } );
-						} }
-					>
-						<i className="material-icons material-symbols-outlined">close</i>
-					</button>
-				</div>
+					<div className="ctx-order-modal__body ctx-product-modal__body">
+						{ product?.images?.full && (
+							<img className="ctx-product-modal__image" src={ product.images.full } alt="" />
+						) }
+						<div dangerouslySetInnerHTML={ { __html: product?.content?.rendered ?? '' } } />
 
-				<div>
-					<img alt={ product?.title.raw } />
-					<p dangerouslySetInnerHTML={ { __html: product?.content?.rendered ?? '' } }></p>
-				</div>
-
-				<div className="ctx-order-modal-footer">
-					<button
-						className="button button--secondary"
-						onClick={ () => {
-							dispatch( { type: 'SET_SELECTED_PRODUCT', payload: 0 } );
-						} }
-					>
-						{ __( 'Close', 'expose' ) }
-					</button>
-					<div className="ctx-order-modal-actions">
-						<Stepper value={ quantity } onChange={ ( value ) => setQuantity( value ) } min={ 1 } />
-						<span
-							className="ctx-product-card-add"
-							onClick={ () => {
-								if ( product ) {
-									addToCart( product.id, quantity );
-								}
-							} }
-						>
-							<em className="material-icons material-symbols-outlined">add_shopping_cart</em>
-						</span>
+						<div className="ctx-product-modal__footer">
+							<Dialog.Close className="button button--secondary">
+								{ __( 'Close', 'expose' ) }
+							</Dialog.Close>
+							<div className="ctx-product-modal__actions">
+								<Stepper value={ quantity } onChange={ ( value ) => setQuantity( value ) } min={ 1 } />
+								<button
+									type="button"
+									className="ctx-product-card-add"
+									aria-label={ __( 'Add to cart', 'expose' ) }
+									disabled={ ! product }
+									onClick={ () => {
+										if ( product ) addToCart( product.id, quantity );
+									} }
+								>
+									<em className="material-icons material-symbols-outlined" aria-hidden="true">
+										add_shopping_cart
+									</em>
+								</button>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+				</Dialog.Panel>
+			</Dialog.Portal>
+		</Dialog>
 	);
 };
 

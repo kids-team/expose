@@ -15,7 +15,8 @@ import ProductModal from './ProductModal';
 
 import './style.scss';
 
-type ShopAttributes = {
+export type ShopAttributes = {
+	columns?: number;
 	form?: number;
 	showFilter?: boolean;
 	showSearchbar?: boolean;
@@ -34,6 +35,10 @@ type TaxonomyTerm = {
 
 const Shop = ( { attributes, category }: ShopProps ) => {
 	const { state, dispatch } = useContext( AppContext );
+	const columns = attributes.columns ?? 0;
+	const gridStyle = Number.isInteger( columns ) && columns >= 1 && columns <= 6
+		? ( { '--ctx-product-columns': columns } as React.CSSProperties )
+		: undefined;
 
 	const [ filteredProducts, setFilteredProducts ] = useState<Product[]>( [] );
 	const [ showFilter, setShowFilter ] = useState( false );
@@ -115,7 +120,7 @@ const Shop = ( { attributes, category }: ShopProps ) => {
 	}, [ cartButton, cartSize ] );
 
 	return (
-		<div className="shop">
+		<div className="shop" style={ gridStyle }>
 			<div className="shop-sidebar">
 				{ attributes.showSearchbar ? (
 					<Fragment>
