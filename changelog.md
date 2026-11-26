@@ -1,3 +1,7 @@
+### Unreleased
+
+- Load the shop and checkout UI through the shared wp-ui runtime so compatible plugins can share one copy per major version.
+
 ### 2.1.5
 
 - Fixed scrolling in product details by switching to the shared shop dialog. Long descriptions and their cart controls are now reachable on small screens.

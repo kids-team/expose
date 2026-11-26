@@ -19,7 +19,7 @@
     "release": "wp-github-plugin expose.php --tag"
   },
   "dependencies": {
-    "@contexis/wp-ui": "^1.0.1",
+    "@contexis/wp-ui": "1.1.0",
     "@wordpress/icons": "^14.0.0"
   },
   "devDependencies": {

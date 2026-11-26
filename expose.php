@@ -20,6 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$wp_ui_directory = __DIR__ . '/build/wp-ui';
+$wp_ui_bootstrap = $wp_ui_directory . '/bootstrap.php';
+if ( is_readable( $wp_ui_bootstrap ) ) {
+	( require $wp_ui_bootstrap )( __FILE__, $wp_ui_directory );
+}
+
 $composer_autoload = __DIR__ . '/vendor/autoload.php';
 
 require_once $composer_autoload;

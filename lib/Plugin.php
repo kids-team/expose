@@ -97,7 +97,7 @@ final class Plugin {
 	public function register_frontend_assets(): void {
 		$script_asset_path = dirname( $this->plugin_file ) . '/build/shop.asset.php';
 
-		if ( ! file_exists( $script_asset_path ) ) {
+		if ( ! file_exists( $script_asset_path ) || ! wp_script_is( 'wp-ui-v1', 'registered' ) ) {
 			return;
 		}
 
@@ -114,7 +114,7 @@ final class Plugin {
 		wp_register_style(
 			'expose-frontend-style',
 			plugins_url( '/build/style-shop.css', $this->plugin_file ),
-			[],
+			[ 'wp-ui-v1-style' ],
 			$script_asset['version']
 		);
 	}

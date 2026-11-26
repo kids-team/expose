@@ -1,5 +1,4 @@
 import { createRoot } from '@wordpress/element';
-import '@contexis/wp-ui/style.css';
 import { AppProvider } from './frontend/services/context';
 import Shop, { type ShopAttributes } from './frontend/shop/Shop';
 
