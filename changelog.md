@@ -1,4 +1,4 @@
-### Unreleased
+### 2.2.0
 
 - Load the shop and checkout UI through the shared wp-ui runtime so compatible plugins can share one copy per major version.
 
