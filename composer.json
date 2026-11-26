@@ -5,12 +5,19 @@
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "require": {
-    "php": "^8.4",
-    "contexis/wp-github-updater": "^0.3.0"
+    "php": "^8.5",
+    "contexis/wp-github-updater": "^0.4.0"
   },
   "autoload": {
     "psr-4": {
       "Contexis\\Expose\\": "lib/"
+    }
+  },
+  "extra": {
+    "wp-github-release": {
+      "plugin_file": "expose.php",
+      "tag_prefix": "v",
+      "build_command": "npm run build"
     }
   },
   "config": {

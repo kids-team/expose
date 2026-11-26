@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58a4c31d68b1f2c68d83a05c29f6cf75",
+    "content-hash": "48813da4367ecb68bcc2fc42875fab0c",
     "packages": [
         {
             "name": "contexis/wp-github-updater",
-            "version": "0.3.6",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gollenia/wp-github-updater.git",
-                "reference": "0c9b5b418e589b848e7c31c713daaed81c217da8"
+                "reference": "763182c83adff8349f4729f686c180f46f8cfb9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gollenia/wp-github-updater/zipball/0c9b5b418e589b848e7c31c713daaed81c217da8",
-                "reference": "0c9b5b418e589b848e7c31c713daaed81c217da8",
+                "url": "https://api.github.com/repos/gollenia/wp-github-updater/zipball/763182c83adff8349f4729f686c180f46f8cfb9e",
+                "reference": "763182c83adff8349f4729f686c180f46f8cfb9e",
                 "shasum": ""
             },
             "require": {
@@ -39,9 +39,9 @@
             "description": "GitHub release based WordPress plugin updater",
             "support": {
                 "issues": "https://github.com/gollenia/wp-github-updater/issues",
-                "source": "https://github.com/gollenia/wp-github-updater/tree/0.3.6"
+                "source": "https://github.com/gollenia/wp-github-updater/tree/0.4.1"
             },
-            "time": "2026-10-30T13:51:07+00:00"
+            "time": "2026-10-30T19:11:38+00:00"
         }
     ],
     "packages-dev": [],
@@ -51,7 +51,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.4"
+        "php": "^8.5"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
